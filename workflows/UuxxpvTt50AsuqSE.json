@@ -1,0 +1,174 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Telegram Trigger1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-09T13:41:01.693Z",
+  "id": "UuxxpvTt50AsuqSE",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -640,
+        -288
+      ],
+      "id": "c1feab43-ee8f-4503-8fd5-2877243717f4",
+      "name": "Telegram Trigger1",
+      "webhookId": "7cdf885c-4ba3-4ded-8488-8fd07635ab4e",
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -240,
+        -256
+      ],
+      "id": "d59d23f0-d1e0-4a6a-b0b0-c091b057b714",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -352,
+        48
+      ],
+      "id": "4745d18a-a2f9-482d-b56a-53194ab8d3b4",
+      "name": "Ollama Chat Model1",
+      "credentials": {
+        "ollamaApi": {
+          "id": "xHuYe0MDGOs9IpBW",
+          "name": "Local Ollama service"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "6005449346",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        288,
+        -208
+      ],
+      "id": "53c47338-69b3-45a4-8cc0-d335590c1417",
+      "name": "Send a text message1",
+      "webhookId": "e2abd0d8-a2f4-4475-b225-51c81ff89967",
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.update_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -96,
+        16
+      ],
+      "id": "84bcb3e4-2dba-4a6b-88b2-0fbaee61546f",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-09T13:41:01.693Z",
+      "createdAt": "2025-12-09T13:41:01.693Z",
+      "role": "workflow:owner",
+      "workflowId": "UuxxpvTt50AsuqSE",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-10T12:23:19.625Z",
+  "versionId": "6d013a3f-61a1-4aa6-8bd5-34c68dff0bf1"
+}
