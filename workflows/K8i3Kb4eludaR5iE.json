@@ -1,0 +1,1188 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Orders AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Order Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Orders AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Orders AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        []
+      ]
+    },
+    "If Order Related": {
+      "main": [
+        [
+          {
+            "node": "IfRequires Escalation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IfRequires Escalation": {
+      "main": [
+        [
+          {
+            "node": "Reply to a message1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reply to a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "Orders AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Orders AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply to a message1": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "If Order Related",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Abandoned AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Abandoned AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Abandoned AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "Abandoned AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "Abandoned AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Get Inventory Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Inventory Sheet": {
+      "main": [
+        [
+          {
+            "node": "Filter Low Stock Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Low Stock Items": {
+      "main": [
+        [
+          {
+            "node": "Get Suppliers Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Suppliers Sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Send a message in Gmail1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T20:10:21.323Z",
+  "id": "K8i3Kb4eludaR5iE",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "E-commerce Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        0
+      ],
+      "id": "6bc19bf9-b11e-4a0d-aca8-10903d7b93ad",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zPl4ZyGw5aBYQ2XC",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Email Subject:{{ $json.Subject }} ,\nEmail Body :{{ $json.snippet }}\nFrom :{{ $json.From }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are WISMO, an automated order support assistant. Customers send emails about their orders, and you must analyze the message, extract any relevant information, and respond appropriately.\n\nImportant: Some emails may include automatic tracking metadata (e.g., \"tracked with Mailsuite\"). Ignore system-generated tracking information unless the customer explicitly mentions a real problem with their order. Only treat an email as order-related if the customer is reporting a real issue (delayed shipment, refund, return, wrong item, payment issue, or cancellation).\n\nYour responsibilities:\n1. Read the email's From, Subject, and Body.\n2. Determine if the email is about an order-related issue (tracking, shipping delay, refund, return, wrong item, payment, cancellation).\n3. Try to extract the Order ID, if mentioned.\n4. Query the \"Orders\" sheet using the Order ID.\n5. Write a helpful, professional response to the customer.\n6. Next, determine whether the issue:\n   - Can be resolved automatically **only if** the Order ID is present, verified to exist in the Orders sheet, and all required information for the request is available.\n   - If the Order ID is missing, invalid, or cannot be verified in the Orders sheet, **requiresEscalation must be set to true**, even if the customer mentions an Order ID in the email.\n   - Escalation is also required for any urgent, unclear, or complex issues that cannot be fully resolved automatically.\n\nOutput **only the JSON object**, strictly like this format:\ndo never add anything to this \neven if there is more data ignore it please \n{\n  \"isOrderRelatedEmail\": true or false,\n  \"requiresEscalation\": true or false,\n  \"customerReply\": \"A clear, friendly message to the customer. If escalation is required, inform them that the issue has been forwarded to support. Leave blank if not applicable.\",\n  \"teamReply\": \"A short internal message for the support team describing what needs attention. Include customer name, email, Order ID (if available), and the issue. Leave blank if escalation is not required.\"\n}\nDo not include any explanations, tool outputs, brackets, or extra text.\n\n\nField Descriptions:\n\n- isOrderRelatedEmail: true if the message is clearly related to an order issue; false if unrelated (e.g., general inquiries, spam, job application, etc.).\n- requiresEscalation: true if the issue needs human support; false only if it can be resolved automatically with valid, verified order data.\n- customerReply: A clear, friendly message to the customer. If escalation is required, inform them that the issue has been forwarded. Leave blank if not applicable.\n- teamReply: A short internal message for the support team describing what needs attention. Include customer name, email, Order ID (if available), and the issue. Leave blank if escalation is not required.\n\nRules (strictly enforce):\n- If isOrderRelatedEmail is false, set requiresEscalation = false, and leave customerReply and teamReply blank.\n- If the Order ID is missing, invalid, or cannot be verified in the Orders sheet, requiresEscalation must be true.\n- Never set requiresEscalation = false when the system does not have sufficient verified data to handle the request automatically.\n- Never output non-empty customerReply or teamReply when both isOrderRelatedEmail and requiresEscalation are false.\n- Never ask for additional information from the customer when escalation is required; simply notify them that the issue has been forwarded.\n- Ignore any system-generated tracking information unless the customer explicitly mentions a real problem.\n- Output **strict JSON only**, do not include explanations or extra text outside the JSON object.\n\nCurrent date: {{$now}}\n\nIMPORTANT: When returning your response, do NOT include any tool usage text, memory references, or extra brackets. \nOutput must be exactly a JSON object with only the keys: isOrderRelatedEmail, requiresEscalation, customerReply, teamReply. \nDo not wrap it in {\"output\": ...} or any other object. \nDo not include [Used tools: ...] or any other metadata. \nYour output will be parsed automatically by the system.\ndo not output [Used tools: Tool: Get_row_s_in_sheet_in_Google_Sheets, Input: {}, Result: []] "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "bf0092e9-0b9c-4703-b986-7d63b2cd2a37",
+      "name": "Orders AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "responseFormat": "text"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -160,
+        304
+      ],
+      "id": "a573866e-e3b2-470b-9d6a-cea7e24a2b8b",
+      "name": "Order Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "\n{\n  \n    \"isOrderRelatedEmail\": true,\n    \"requiresEscalation\": false,\n    \"customerReply\": \"Your Message to the customer\",\n    \"teamReply\": \"Your message to the internal tem (if escalation is required)\"\n  \n}\n\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        320
+      ],
+      "id": "9fa23f18-a12a-4c92-8834-fd778afdb7ee",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "5932b6ea-fa79-4173-a757-2178ec04d8d8",
+              "leftValue": "={{ $json.isOrderRelatedEmail }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        608,
+        0
+      ],
+      "id": "dafd8015-ddc8-4686-939d-19b2496266af",
+      "name": "If Order Related"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d01a92c1-d251-45e1-b77c-f6da6aae295d",
+              "leftValue": "={{ $json.requiresEscalation }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        816,
+        -96
+      ],
+      "id": "5ea1266c-60cc-4673-9ff6-a15dd6b59147",
+      "name": "IfRequires Escalation"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "emailType": "text",
+        "message": "={{ $json.customerReply }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1072,
+        16
+      ],
+      "id": "0f101916-aa70-4a18-a04e-05a74c2cb1e3",
+      "name": "Reply to a message",
+      "webhookId": "3c654d1c-d936-4a34-8e91-0f5b9b91923f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zPl4ZyGw5aBYQ2XC",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ",
+          "mode": "list",
+          "cachedResultName": "Ecommojo Sheets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Orders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Order ID",
+              "lookupValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('values0_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        176,
+        240
+      ],
+      "id": "35f33faa-ce47-4fd0-a333-c1a30c5c9a44",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WIJ3OVLInZ4SovWu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.From }}",
+        "tableName": "n8nOrderHistory"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -16,
+        368
+      ],
+      "id": "f1e40b62-1f86-4423-a21f-037e42435394",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "emailType": "text",
+        "message": "={{ $json.customerReply }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1072,
+        -128
+      ],
+      "id": "17a33ad7-b1d8-4e97-8ba6-02bf76094a60",
+      "name": "Reply to a message1",
+      "webhookId": "3c654d1c-d936-4a34-8e91-0f5b9b91923f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zPl4ZyGw5aBYQ2XC",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "team@gmail.com",
+        "subject": "Escalation ",
+        "emailType": "text",
+        "message": "={{ $json.teamReply }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1088,
+        -272
+      ],
+      "id": "bfd36ad3-3a29-46b2-a7c7-b0ea0a595f12",
+      "name": "Send a message",
+      "webhookId": "07463da3-b77f-4fa3-9250-18effd3fe72d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zPl4ZyGw5aBYQ2XC",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get raw AI Agent output (the first item in the array)\nconst rawOutput = $items()[0].json.output || \"\";\n\n// Default result\nlet result = {\n    isOrderRelatedEmail: false,\n    requiresEscalation: false,\n    customerReply: \"\",\n    teamReply: \"\"\n};\n\nif (rawOutput) {\n    try {\n        // First parse: the output string\n        const parsedOnce = JSON.parse(rawOutput);\n\n        // Second parse: the inner \"output\" object\n        const parsed = parsedOnce.output || parsedOnce;\n\n        // Assign values safely\n        result.isOrderRelatedEmail = parsed.isOrderRelatedEmail ?? false;\n        result.requiresEscalation = parsed.requiresEscalation ?? false;\n        result.customerReply = parsed.customerReply ?? \"\";\n        result.teamReply = parsed.teamReply ?? \"\";\n    } catch (err) {\n        // Keep defaults if parsing fails\n        console.log(\"Parsing error:\", err);\n    }\n}\n\n// Return in n8n format\nreturn [{ json: result }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        0
+      ],
+      "id": "ce881016-f84f-4a0f-abaf-54c42b47883e",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "content": "## Handle Order Service",
+        "height": 928,
+        "width": 2112
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -544,
+        -368
+      ],
+      "id": "1c9af4ef-e4be-4754-9444-81778581caff",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -176,
+        800
+      ],
+      "id": "bcba2201-17b7-4b9a-90b4-82711e1c189d",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ",
+          "mode": "list",
+          "cachedResultName": "Ecommojo Sheets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 166971696,
+          "mode": "list",
+          "cachedResultName": "Abandoned Cart",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit#gid=166971696"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Recovered? ",
+              "lookupValue": "No"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        80,
+        800
+      ],
+      "id": "bdc7a878-7e2c-4fb4-8ad9-f87d16505fa9",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WIJ3OVLInZ4SovWu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Cart ID :{{ $json['Cart ID'] }}\nCustomer Name : {{ $json['Customer Name'] }}\nEmail : {{ $json.Email }}\nPhone : {{ $json.Phone }}\nItems : {{ $json.Items }}\nCart Value :{{ $json['Cart Value '] }}\nAbandoned Date : {{ $json['Abandoned Date'] }}\nReminder 1 : {{ $json['Reminder 1 '] }}\nReminder 2 : {{ $json['Reminder 2 '] }}\nReminder 3 : {{ $json['Reminder 3 '] }}\nRecovered? :{{ $json['Recovered? '] }}",
+        "options": {
+          "systemMessage": "=You are an abandoned cart recovery AI. For each row where \"Recovered?\" = \"No\", write a warm, persuasive email reminding the customer about their cart.\n\nOnce you sent the reminder update the Abandoned Cart google sheet. When updating the Google Sheet, only fill in the first empty Reminder field in order: Reminder 1, then Reminder 2, then Reminder 3. DO NOT update Reminder 2 or 3 if earlier ones are still blank.\n\nUse these fields:\n- Customer Name\n- Email\n- Items\n- Cart Value ($)\n- Abandoned Date\n\nEmail tone: friendly, helpful, lightly urgent.\n\nWrite email in HTML format\n\nUse the \"Reminder\" stage to decide the email message:\n\n1. **Reminder 1**: Send a friendly nudge - mention the item(s), cart value, and offer help.\n2. **Reminder 2**: Create urgency - mention the cart may expire soon or items may go out of stock.\n3. **Reminder 3**: Offer a small discount (e.g., 10%) or free shipping to win them back.\n\n# Sample tone per stage (Don't copy be super creative and persuasive)\n\n**Reminder 1**:\nSubject: \"Just making sure you didn't forget...\"\nMessage: \"Hi [Customer Name], we noticed you left [Items] worth $[Cart Value] in your cart on [Abandoned Date]. Still deciding? We're here if you need any help.\"\n\n**Reminder 2**:\nSubject: \"Your cart might expire soon...\"\nMessage: \"Hi [Customer Name], your cart with [Items] is still waiting, but it may not last forever! We'd hate for you to miss out.\"\n\n**Reminder 3**:\nSubject: \"Here's 10% off to complete your order 🎁\"\nMessage: \"Hi [Customer Name], here's 10% off to complete your purchase of [Items]. Use code **COMEBACK10** at checkout. Act fast, the offer expires in 48 hours!\"\n\nOnly fill the first empty Reminder field in order: Reminder 1, then Reminder 2, then Reminder 3. Do not skip ahead.\n\nCurrent date: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        288,
+        800
+      ],
+      "id": "570178db-8f71-4637-8741-e962cfbd0dcf",
+      "name": "Abandoned AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        160,
+        1008
+      ],
+      "id": "69a6b3ed-8f78-47f9-b2d9-68bd16a73676",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.Email }}",
+        "tableName": "n8nAbandonedCartshistories"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        304,
+        1008
+      ],
+      "id": "b8f4f1e6-5bfd-4d36-8fdf-042252c88180",
+      "name": "Postgres Chat Memory1",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ",
+          "mode": "list",
+          "cachedResultName": "Ecommojo Sheets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 166971696,
+          "mode": "list",
+          "cachedResultName": "Abandoned Cart",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit#gid=166971696"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": 0,
+            "Cart ID": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Cart_ID', ``, 'string') }}",
+            "Reminder 1 ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Reminder_1_', ``, 'string') }}",
+            "Reminder 2 ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Reminder_2_', ``, 'string') }}",
+            "Reminder 3 ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Reminder_3_', ``, 'string') }}",
+            "Recovered? ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Recovered__', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "Cart ID"
+          ],
+          "schema": [
+            {
+              "id": "Cart ID",
+              "displayName": "Cart ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Customer Name",
+              "displayName": "Customer Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Items",
+              "displayName": "Items",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Cart Value ",
+              "displayName": "Cart Value ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Abandoned Date",
+              "displayName": "Abandoned Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder 1 ",
+              "displayName": "Reminder 1 ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reminder 2 ",
+              "displayName": "Reminder 2 ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reminder 3 ",
+              "displayName": "Reminder 3 ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Recovered? ",
+              "displayName": "Recovered? ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Order ID (if Recovered)",
+              "displayName": "Order ID (if Recovered)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        688,
+        992
+      ],
+      "id": "81f18c97-4cf0-40c2-8679-0afbb2f0ae99",
+      "name": "Update row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WIJ3OVLInZ4SovWu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        448,
+        1008
+      ],
+      "id": "af87932c-e074-4e93-8d36-24cc3859c96e",
+      "name": "Send a message in Gmail",
+      "webhookId": "3eca12ec-80ad-42de-a466-b44d31646e80",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zPl4ZyGw5aBYQ2XC",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Handle Abandoned Carts",
+        "height": 656,
+        "width": 1552
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        640
+      ],
+      "id": "a90d3334-8c32-49ab-a727-61a34a91d74a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ",
+          "mode": "list",
+          "cachedResultName": "Ecommojo Sheets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 271668528,
+          "mode": "list",
+          "cachedResultName": "Inventory",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit#gid=271668528"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -144,
+        1520
+      ],
+      "id": "15f746a8-326b-48d1-a948-3e75c766ddcb",
+      "name": "Get Inventory Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WIJ3OVLInZ4SovWu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter items with low stock\nconst threshold = 11; // Set your low stock threshold\n\nreturn items.filter(item => {\n  const stock = parseInt(item.json['Current Stock'], 10);\n  return stock < threshold;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        1520
+      ],
+      "id": "495b06c7-d015-4937-bf1b-98311dc7a418",
+      "name": "Filter Low Stock Items"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ",
+          "mode": "list",
+          "cachedResultName": "Ecommojo Sheets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1478980924,
+          "mode": "list",
+          "cachedResultName": "Suppliers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Sgo-tZqHU_049t-TRuZ-Y0AiB0OleyhB7Uk_EdA80EQ/edit#gid=1478980924"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        304,
+        1520
+      ],
+      "id": "1b220c89-e587-4904-9c2c-616040c95ee8",
+      "name": "Get Suppliers Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WIJ3OVLInZ4SovWu",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -368,
+        1520
+      ],
+      "id": "fc6837a9-975a-409e-aa1a-9ba7cb990368",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here is the list of low-stock products that require reorder:\n\n{{JSON.stringify($json, null, 2)}}\n\nUsing the supplied information, group products by supplier and prepare ONE email per supplier.\n\nEach email must include:\n- A greeting\n- Reason for contacting (low stock)\n- Table-style or comma-separated list of items (Product Name, Variant, Qty Needed)\n- Ask for confirmation and estimated delivery time\n- A polite closing\n\nReturn ONLY ONE email JSON object for the supplier associated with this entry.\n\nRemember:\nReturn only valid JSON with \"To\", \"Subject\", and \"Message\".\n",
+        "options": {
+          "systemMessage": "=You are an AI assistant responsible for creating professional purchase order emails to suppliers whenever stock levels are low.\n\nYour task:\n1. Receive a list of products with low stock and the supplier info.\n2. Determine if the supplier should be contacted.\n3. Write a clear, concise, professional email to the supplier requesting a restock.\n4. Always output ONLY structured JSON following the required schema.\n\nRules:\n- If qtyToOrder is 0, skip the item (do not send email for that product).\n- If multiple low-stock products belong to the same supplier, combine them into ONE email.\n- Be formal, polite, and concise.\n- Do NOT include markdown, explanations, or any text outside JSON.\n- The JSON you produce will be consumed directly by the Gmail node.\n- Provide realistic subject lines.\n- The “Message” must be full email body formatted as plain text, no markdown.\n\nOutput must strictly follow this structure:\n\n{\n  \"To\": \"supplier@example.com\",\n  \"Subject\": \"Your Subject\",\n  \"Message\": \"Email body here\"\n}\n\nIf no products require restock, output:\n\n{\n  \"To\": \"\",\n  \"Subject\": \"\",\n  \"Message\": \"\"\n}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        800,
+        1520
+      ],
+      "id": "78e10b6f-5e36-4f28-82ba-9d78b042a253",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        752,
+        1744
+      ],
+      "id": "858b875f-b60e-40e0-9316-75f4a4e94b57",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.supplierEmail }}",
+        "tableName": "n8nSuppliershistories",
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        880,
+        1744
+      ],
+      "id": "455ad70e-440f-41b7-9463-0a36f06c555c",
+      "name": "Postgres Chat Memory2",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        1008,
+        1744
+      ],
+      "id": "c8018b3e-256e-4e96-9339-abf88fb18202",
+      "name": "Send a message in Gmail1",
+      "webhookId": "d3be1578-611d-47f6-a50f-7072c302b2e7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zPl4ZyGw5aBYQ2XC",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// ---------------------------------------------\n// Get data from previous nodes\n// ---------------------------------------------\nconst inventory = $items(\"Filter Low Stock Items\").map(i => i.json);\nconst suppliers = $items(\"Get Suppliers Sheet\").map(i => i.json);\n\n// Normalize text for safe matching\nfunction norm(str) {\n  return str ? str.toString().trim().toLowerCase() : \"\";\n}\n\nlet results = [];\n\nfor (const item of inventory) {\n\n  const productName = item[\"Product Name\"];\n  const variant = item[\"Variant\"];\n  const currentStock = parseInt(item[\"Current Stock\"] || 0, 10);\n  const reorderPoint = parseInt(item[\"Reorder Point\"] || 0, 10);\n  const supplierName = item[\"Supplier\"];\n\n  // Calculate Qty to order\n  const qtyToOrder =\n    reorderPoint && reorderPoint > currentStock\n      ? reorderPoint - currentStock\n      : 0;\n\n  // Find matching supplier\n  const matchedSupplier = suppliers.find(s =>\n    norm(s[\"Supplier Name\"]) === norm(supplierName)\n  );\n\n  results.push({\n    productName,\n    variant,\n    currentStock,\n    reorderPoint,\n    qtyToOrder,\n    supplierName,\n    supplierEmail: matchedSupplier ? matchedSupplier[\"Email\"] : null,\n    supplierContact: matchedSupplier ? matchedSupplier[\"Contact Person\"] : null,\n    supplierRating: matchedSupplier ? matchedSupplier[\"Quality Rating (1-5)\"] : null,\n    supplierLeadTime: matchedSupplier ? matchedSupplier[\"Average Lead Time (Days)\"] : null,\n    supplierNotes: matchedSupplier ? matchedSupplier[\"Notes\"] : null,\n  });\n}\n\nreturn results.map(r => ({ json: r }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        528,
+        1520
+      ],
+      "id": "4b80942c-8393-4f99-9695-36608ac4bf07",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "content": "## HANDLE LOW STOCK",
+        "height": 464,
+        "width": 1808
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        1456
+      ],
+      "id": "3a554cf1-4f51-42b5-811e-ab442dbd3c04",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-11T20:10:21.323Z",
+      "createdAt": "2025-12-11T20:10:21.323Z",
+      "role": "workflow:owner",
+      "workflowId": "K8i3Kb4eludaR5iE",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-12T01:00:18.003Z",
+  "versionId": "00f788c1-ba47-4976-8b5a-9317421b1362"
+}
