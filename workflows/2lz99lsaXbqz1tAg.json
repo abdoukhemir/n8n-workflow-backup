@@ -1,0 +1,90 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-10T19:52:32.339Z",
+  "id": "2lz99lsaXbqz1tAg",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fa884278-5136-41e7-9abb-d1deed2d357d",
+      "name": "Telegram Trigger",
+      "webhookId": "569c7977-8dc4-4a43-b48a-a3bff69175bb",
+      "credentials": {
+        "telegramApi": {
+          "id": "zTMkwCF9awhMa054",
+          "name": "Resto_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "de019972-9799-48df-94ff-b538d36ccc9f",
+      "name": "Get a file",
+      "webhookId": "1e73e3ae-1033-4425-854c-b0b5eff93ce5",
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-10T19:52:32.339Z",
+      "createdAt": "2025-12-10T19:52:32.339Z",
+      "role": "workflow:owner",
+      "workflowId": "2lz99lsaXbqz1tAg",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-14T14:34:38.182Z",
+  "versionId": "75c8a1cd-e47e-43fa-8de8-0a0f83bf70fd"
+}
