@@ -1,0 +1,1018 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-10T16:03:56.354Z",
+    "createdAt": "2025-12-10T16:03:56.354Z",
+    "versionId": "7d19c890-366a-46e2-89fe-6b0aea658192",
+    "workflowId": "ou8VL7CExDcrJStw",
+    "nodes": [
+      {
+        "parameters": {
+          "updates": [
+            "message"
+          ],
+          "additionalFields": {
+            "download": true
+          }
+        },
+        "id": "46a02223-44d7-4d1e-b78c-1288dbcb4699",
+        "name": "Telegram Trigger",
+        "type": "n8n-nodes-base.telegramTrigger",
+        "position": [
+          -1280,
+          -64
+        ],
+        "webhookId": "5ecca1a2-488b-4ecb-9227-7283aa601b8d",
+        "typeVersion": 1.2,
+        "credentials": {
+          "telegramApi": {
+            "id": "QfmHnoa9dXwCJF0C",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "file",
+          "fileId": "={{ $json.message.voice.file_id }}",
+          "additionalFields": {}
+        },
+        "id": "41317aab-5ce3-445d-bd34-fee13b8a83c3",
+        "name": "Get Voice File",
+        "type": "n8n-nodes-base.telegram",
+        "position": [
+          -624,
+          -96
+        ],
+        "webhookId": "f53d1f07-adb9-4ee8-a5ff-26bd17038cf0",
+        "typeVersion": 1.1,
+        "credentials": {
+          "telegramApi": {
+            "id": "QfmHnoa9dXwCJF0C",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "version": 2,
+                    "leftValue": "",
+                    "caseSensitive": true,
+                    "typeValidation": "strict"
+                  },
+                  "conditions": [
+                    {
+                      "id": "a2d6691c-beed-44d8-a67f-be43b28155df",
+                      "operator": {
+                        "type": "string",
+                        "operation": "exists",
+                        "singleValue": true
+                      },
+                      "leftValue": "={{$json.message.text }}",
+                      "rightValue": ""
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "text"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "version": 2,
+                    "leftValue": "",
+                    "caseSensitive": true,
+                    "typeValidation": "strict"
+                  },
+                  "combinator": "and",
+                  "conditions": [
+                    {
+                      "id": "6ce5f222-d555-470b-862d-e132b9a5fb72",
+                      "operator": {
+                        "type": "string",
+                        "operation": "exists",
+                        "singleValue": true
+                      },
+                      "leftValue": "={{ $json.message.voice.file_id }}",
+                      "rightValue": ""
+                    }
+                  ]
+                },
+                "renameOutput": true,
+                "outputKey": "voice"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "e31d98b8-2f19-4efb-80fb-a8373a887449",
+        "name": "Message Type Switch",
+        "type": "n8n-nodes-base.switch",
+        "position": [
+          -832,
+          -176
+        ],
+        "typeVersion": 3.2
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "version": 2,
+              "leftValue": "",
+              "caseSensitive": true,
+              "typeValidation": "strict"
+            },
+            "conditions": [
+              {
+                "id": "d2e36e10-3ffc-47ab-bf1a-3c9639b0106a",
+                "operator": {
+                  "type": "number",
+                  "operation": "equals"
+                },
+                "leftValue": "={{ $json.message.from.id }}",
+                "rightValue": 6005449346
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "982badb8-badf-4ec1-9a34-e63204dc968a",
+        "name": "Authorization Check If",
+        "type": "n8n-nodes-base.if",
+        "position": [
+          -1056,
+          -64
+        ],
+        "typeVersion": 2.2
+      },
+      {
+        "parameters": {
+          "chatId": "={{ $json.message.from.id }}",
+          "text": "I am sorry, you have no access to my services.",
+          "additionalFields": {}
+        },
+        "id": "64cff228-b136-4f73-8043-6adbb8bf5a4e",
+        "name": "Send a text message",
+        "type": "n8n-nodes-base.telegram",
+        "position": [
+          -832,
+          32
+        ],
+        "webhookId": "d669815c-1907-472c-a6aa-a2783853642c",
+        "typeVersion": 1.2,
+        "credentials": {
+          "telegramApi": {
+            "id": "QfmHnoa9dXwCJF0C",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "http://localhost:9000/asr",
+          "sendBody": true,
+          "contentType": "multipart-form-data",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "parameterType": "formBinaryData",
+                "name": "audio_file",
+                "inputDataFieldName": "data"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "8e9894e8-8f0e-4c01-8a41-9e384a6676ef",
+        "name": "Whisper ASR HTTP Request",
+        "type": "n8n-nodes-base.httpRequest",
+        "position": [
+          -400,
+          -96
+        ],
+        "typeVersion": 4.2
+      },
+      {
+        "parameters": {
+          "chatId": "6005449346",
+          "text": "={{ $json.output }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "id": "79cfa8b7-278c-4116-9a82-4208948f53aa",
+        "name": "Send a text message1",
+        "type": "n8n-nodes-base.telegram",
+        "position": [
+          416,
+          -176
+        ],
+        "webhookId": "3711915e-e974-4fb7-ad40-4403538c1ba1",
+        "typeVersion": 1.2,
+        "credentials": {
+          "telegramApi": {
+            "id": "QfmHnoa9dXwCJF0C",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=You are my personal chatbot assistant.\nMy input: '{{ $json.message.text }}'.\nYour Answer: ",
+          "options": {}
+        },
+        "id": "fec535cb-ce41-467c-b43f-bcc6f4bb83b3",
+        "name": "AI Agent",
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "position": [
+          64,
+          -176
+        ],
+        "typeVersion": 2
+      },
+      {
+        "parameters": {
+          "model": "llama3.2:latest",
+          "options": {}
+        },
+        "id": "cd77e0c6-9f1a-4ca8-a9bc-2e7f6a63cb90",
+        "name": "Ollama Chat Model",
+        "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+        "position": [
+          -64,
+          160
+        ],
+        "typeVersion": 1,
+        "credentials": {
+          "ollamaApi": {
+            "id": "xHuYe0MDGOs9IpBW",
+            "name": "Local Ollama service"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "keys": {
+            "key": [
+              {
+                "currentKey": "data",
+                "newKey": "message.text"
+              }
+            ]
+          },
+          "additionalOptions": {}
+        },
+        "id": "20f3dc60-b0c6-406f-aa81-89a10dba491b",
+        "name": "Rename Transcription Key",
+        "type": "n8n-nodes-base.renameKeys",
+        "position": [
+          -176,
+          -96
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "content": "## Telegram Trigger\nStart when Telegram message is received"
+        },
+        "id": "edb6f542-accf-4f42-ab4f-b4a1547c5bbc",
+        "name": "Sticky Note",
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1344,
+          -256
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "content": "## IF\nDetect is message is sent by authorised user"
+        },
+        "id": "e1985a28-37ef-4507-acea-2220d28e0dc3",
+        "name": "Sticky Note1",
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1024,
+          -352
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "content": "## Switch\nDetect if message is a text or audio message"
+        },
+        "id": "1a62de86-ef50-4d84-b449-a00de2727133",
+        "name": "Sticky Note4",
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -672,
+          -304
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "content": "## Transcription\nTranscribe audio locally with Whisper API"
+        },
+        "id": "fd814f22-e7a4-423c-b4bb-4dc69521ee67",
+        "name": "Sticky Note2",
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -432,
+          96
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "content": "## AI Agent \nFormulate answer from AI Agent"
+        },
+        "id": "793a1fc2-bae3-4e4b-8009-b055166a1fce",
+        "name": "Sticky Note5",
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          64,
+          -352
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "content": "## Telegram\nSend response to the user"
+        },
+        "id": "301b1f25-dab1-49aa-bc8e-486beaecd43b",
+        "name": "Sticky Note3",
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          352,
+          -352
+        ],
+        "typeVersion": 1
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "={{ $json.message.from.id }}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+        "typeVersion": 1.3,
+        "position": [
+          256,
+          64
+        ],
+        "id": "b6533208-2e87-4ac8-bbae-9c271ec8c04e",
+        "name": "Postgres Chat Memory",
+        "credentials": {
+          "postgres": {
+            "id": "UeE6SAbT1FgO5hVJ",
+            "name": "Postgres account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Telegram Trigger": {
+        "main": [
+          [
+            {
+              "node": "Authorization Check If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get Voice File": {
+        "main": [
+          [
+            {
+              "node": "Whisper ASR HTTP Request",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Message Type Switch": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Get Voice File",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Authorization Check If": {
+        "main": [
+          [
+            {
+              "node": "Message Type Switch",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send a text message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Whisper ASR HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "Rename Transcription Key",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Send a text message1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Ollama Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Rename Transcription Key": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Postgres Chat Memory": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "abdou a",
+    "name": null,
+    "description": null
+  },
+  "activeVersionId": "7d19c890-366a-46e2-89fe-6b0aea658192",
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Authorization Check If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Voice File": {
+      "main": [
+        [
+          {
+            "node": "Whisper ASR HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message Type Switch": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Voice File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authorization Check If": {
+      "main": [
+        [
+          {
+            "node": "Message Type Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whisper ASR HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Rename Transcription Key",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename Transcription Key": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-10T14:26:15.293Z",
+  "id": "ou8VL7CExDcrJStw",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Telegram bot",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {
+          "download": true
+        }
+      },
+      "id": "46a02223-44d7-4d1e-b78c-1288dbcb4699",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "position": [
+        -1280,
+        -64
+      ],
+      "webhookId": "5ecca1a2-488b-4ecb-9227-7283aa601b8d",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}",
+        "additionalFields": {}
+      },
+      "id": "41317aab-5ce3-445d-bd34-fee13b8a83c3",
+      "name": "Get Voice File",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        -624,
+        -96
+      ],
+      "webhookId": "f53d1f07-adb9-4ee8-a5ff-26bd17038cf0",
+      "typeVersion": 1.1,
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "a2d6691c-beed-44d8-a67f-be43b28155df",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "leftValue": "={{$json.message.text }}",
+                    "rightValue": ""
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "6ce5f222-d555-470b-862d-e132b9a5fb72",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": ""
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "voice"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e31d98b8-2f19-4efb-80fb-a8373a887449",
+      "name": "Message Type Switch",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -832,
+        -176
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d2e36e10-3ffc-47ab-bf1a-3c9639b0106a",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              },
+              "leftValue": "={{ $json.message.from.id }}",
+              "rightValue": 6005449346
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "982badb8-badf-4ec1-9a34-e63204dc968a",
+      "name": "Authorization Check If",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        -1056,
+        -64
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.from.id }}",
+        "text": "I am sorry, you have no access to my services.",
+        "additionalFields": {}
+      },
+      "id": "64cff228-b136-4f73-8043-6adbb8bf5a4e",
+      "name": "Send a text message",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        -832,
+        32
+      ],
+      "webhookId": "d669815c-1907-472c-a6aa-a2783853642c",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:9000/asr",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "audio_file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8e9894e8-8f0e-4c01-8a41-9e384a6676ef",
+      "name": "Whisper ASR HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -400,
+        -96
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "chatId": "6005449346",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "79cfa8b7-278c-4116-9a82-4208948f53aa",
+      "name": "Send a text message1",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        416,
+        -176
+      ],
+      "webhookId": "3711915e-e974-4fb7-ad40-4403538c1ba1",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "QfmHnoa9dXwCJF0C",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are my personal chatbot assistant.\nMy input: '{{ $json.message.text }}'.\nYour Answer: ",
+        "options": {}
+      },
+      "id": "fec535cb-ce41-467c-b43f-bcc6f4bb83b3",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        64,
+        -176
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:latest",
+        "options": {}
+      },
+      "id": "cd77e0c6-9f1a-4ca8-a9bc-2e7f6a63cb90",
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "position": [
+        -64,
+        160
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "ollamaApi": {
+          "id": "xHuYe0MDGOs9IpBW",
+          "name": "Local Ollama service"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keys": {
+          "key": [
+            {
+              "currentKey": "data",
+              "newKey": "message.text"
+            }
+          ]
+        },
+        "additionalOptions": {}
+      },
+      "id": "20f3dc60-b0c6-406f-aa81-89a10dba491b",
+      "name": "Rename Transcription Key",
+      "type": "n8n-nodes-base.renameKeys",
+      "position": [
+        -176,
+        -96
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Telegram Trigger\nStart when Telegram message is received"
+      },
+      "id": "edb6f542-accf-4f42-ab4f-b4a1547c5bbc",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1344,
+        -256
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## IF\nDetect is message is sent by authorised user"
+      },
+      "id": "e1985a28-37ef-4507-acea-2220d28e0dc3",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1024,
+        -352
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Switch\nDetect if message is a text or audio message"
+      },
+      "id": "1a62de86-ef50-4d84-b449-a00de2727133",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -672,
+        -304
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Transcription\nTranscribe audio locally with Whisper API"
+      },
+      "id": "fd814f22-e7a4-423c-b4bb-4dc69521ee67",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -432,
+        96
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## AI Agent \nFormulate answer from AI Agent"
+      },
+      "id": "793a1fc2-bae3-4e4b-8009-b055166a1fce",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        -352
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Telegram\nSend response to the user"
+      },
+      "id": "301b1f25-dab1-49aa-bc8e-486beaecd43b",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        352,
+        -352
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.message.from.id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        256,
+        64
+      ],
+      "id": "b6533208-2e87-4ac8-bbae-9c271ec8c04e",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-10T14:26:15.293Z",
+      "createdAt": "2025-12-10T14:26:15.293Z",
+      "role": "workflow:owner",
+      "workflowId": "ou8VL7CExDcrJStw",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-10T16:03:56.353Z",
+  "versionId": "7d19c890-366a-46e2-89fe-6b0aea658192"
+}
