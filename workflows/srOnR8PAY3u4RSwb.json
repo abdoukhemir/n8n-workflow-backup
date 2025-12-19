@@ -1,25 +1,162 @@
 {
-  "active": false,
-  "activeVersion": null,
-  "activeVersionId": null,
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-17T17:49:55.635Z",
+    "createdAt": "2025-12-17T17:49:55.635Z",
+    "versionId": "f3afff60-0b84-4206-9278-0290339a1f2b",
+    "workflowId": "srOnR8PAY3u4RSwb",
+    "nodes": [
+      {
+        "parameters": {
+          "authentication": "basicAuth",
+          "formTitle": "Add a game ",
+          "formDescription": "fill this game description ",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Game Name ",
+                "placeholder": "Name ",
+                "requiredField": true
+              },
+              {
+                "fieldLabel": "Price ",
+                "placeholder": "Price ",
+                "defaultValue": "0",
+                "requiredField": true
+              }
+            ]
+          },
+          "options": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.3,
+        "position": [
+          96,
+          144
+        ],
+        "id": "84224cf1-3a6c-480a-b4ee-78a9469d2f6b",
+        "name": "On form submission",
+        "webhookId": "ad3424e2-d8fc-44fd-84bf-055333e7bf66",
+        "credentials": {
+          "httpBasicAuth": {
+            "id": "8oTsghWfXbqWKQTQ",
+            "name": "Abdou"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "appendOrUpdate",
+          "documentId": {
+            "__rl": true,
+            "value": "1Ac2jvamwzxTCaJVqYS-_9P_mPHbjg5373rqR7hVGpmQ",
+            "mode": "list",
+            "cachedResultName": "Games",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ac2jvamwzxTCaJVqYS-_9P_mPHbjg5373rqR7hVGpmQ/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Sheet1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ac2jvamwzxTCaJVqYS-_9P_mPHbjg5373rqR7hVGpmQ/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "autoMapInputData",
+            "value": {},
+            "matchingColumns": [
+              "Game Name "
+            ],
+            "schema": [
+              {
+                "id": "Game Name ",
+                "displayName": "Game Name ",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Price ",
+                "displayName": "Price ",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "submittedAt",
+                "displayName": "submittedAt",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "formMode",
+                "displayName": "formMode",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          384,
+          144
+        ],
+        "id": "34fb30fe-b2d8-45bd-97e1-52aa51d389e2",
+        "name": "Append or update row in sheet",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "WIJ3OVLInZ4SovWu",
+            "name": "Google Sheets account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "On form submission": {
+        "main": [
+          [
+            {
+              "node": "Append or update row in sheet",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "abdou a",
+    "name": null,
+    "description": null
+  },
+  "activeVersionId": "f3afff60-0b84-4206-9278-0290339a1f2b",
   "connections": {
-    "Chat Trigger": {
+    "On form submission": {
       "main": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Append or update row in sheet",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Ollama Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Basic LLM Chain",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -32,48 +169,130 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Demo workflow",
+  "name": "ADD  Games",
   "nodes": [
     {
-      "parameters": {},
-      "id": "74003dcd-2ac7-4caa-a1cd-adecc5143c07",
-      "name": "Chat Trigger",
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1,
+      "parameters": {
+        "authentication": "basicAuth",
+        "formTitle": "Add a game ",
+        "formDescription": "fill this game description ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Game Name ",
+              "placeholder": "Name ",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Price ",
+              "placeholder": "Price ",
+              "defaultValue": "0",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
       "position": [
-        660,
-        340
+        96,
+        144
       ],
-      "webhookId": "cdb5c076-d458-4b9d-8398-f43bd25059b1"
-    },
-    {
-      "parameters": {},
-      "id": "ce8c3da4-899c-4cc4-af73-8096c64eec64",
-      "name": "Basic LLM Chain",
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.7,
-      "position": [
-        880,
-        340
-      ]
+      "id": "84224cf1-3a6c-480a-b4ee-78a9469d2f6b",
+      "name": "On form submission",
+      "webhookId": "ad3424e2-d8fc-44fd-84bf-055333e7bf66",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "8oTsghWfXbqWKQTQ",
+          "name": "Abdou"
+        }
+      }
     },
     {
       "parameters": {
-        "model": "llama3.2:latest",
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1Ac2jvamwzxTCaJVqYS-_9P_mPHbjg5373rqR7hVGpmQ",
+          "mode": "list",
+          "cachedResultName": "Games",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ac2jvamwzxTCaJVqYS-_9P_mPHbjg5373rqR7hVGpmQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ac2jvamwzxTCaJVqYS-_9P_mPHbjg5373rqR7hVGpmQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "Game Name "
+          ],
+          "schema": [
+            {
+              "id": "Game Name ",
+              "displayName": "Game Name ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Price ",
+              "displayName": "Price ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "formMode",
+              "displayName": "formMode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
         "options": {}
       },
-      "id": "3dee878b-d748-4829-ac0a-cfd6705d31e5",
-      "name": "Ollama Chat Model",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
-      "typeVersion": 1,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
       "position": [
-        900,
-        560
+        384,
+        144
       ],
+      "id": "34fb30fe-b2d8-45bd-97e1-52aa51d389e2",
+      "name": "Append or update row in sheet",
       "credentials": {
-        "ollamaApi": {
-          "id": "xHuYe0MDGOs9IpBW",
-          "name": "Local Ollama service"
+        "googleSheetsOAuth2Api": {
+          "id": "WIJ3OVLInZ4SovWu",
+          "name": "Google Sheets account"
         }
       }
     }
@@ -93,7 +312,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-02-23T16:58:31.616Z",
-  "versionId": "4e2affe6-bb1c-4ddc-92f9-dde0b7656796"
+  "triggerCount": 1,
+  "updatedAt": "2025-12-17T17:49:55.634Z",
+  "versionId": "f3afff60-0b84-4206-9278-0290339a1f2b"
 }
