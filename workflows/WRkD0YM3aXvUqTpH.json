@@ -1,0 +1,838 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-30T12:22:58.372Z",
+    "createdAt": "2025-12-30T12:22:58.372Z",
+    "versionId": "51d57f9b-205d-40cc-875c-bb3cce1fdec1",
+    "workflowId": "WRkD0YM3aXvUqTpH",
+    "nodes": [
+      {
+        "parameters": {
+          "pollTimes": {
+            "item": [
+              {
+                "mode": "everyMinute"
+              }
+            ]
+          },
+          "triggerOn": "specificFolder",
+          "folderToWatch": {
+            "__rl": true,
+            "value": "1wPqoUITwEL7V0x8-HzvZz74m1rPsAzOz",
+            "mode": "list",
+            "cachedResultName": "N8N_Restaurant",
+            "cachedResultUrl": "https://drive.google.com/drive/folders/1wPqoUITwEL7V0x8-HzvZz74m1rPsAzOz"
+          },
+          "event": "fileCreated",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "f37b9674-9bd6-4f91-a713-7a6a4e93ab27",
+        "name": "Google Drive Trigger",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "FiEO9gF68TrqhmGj",
+            "name": "n8nRestaurant"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "download",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ $json.id }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          208,
+          0
+        ],
+        "id": "c3523607-4336-4048-9428-ae085ad34b91",
+        "name": "Download file",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "FiEO9gF68TrqhmGj",
+            "name": "n8nRestaurant"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "insert",
+          "tableName": {
+            "__rl": true,
+            "value": "documents",
+            "mode": "list",
+            "cachedResultName": "documents"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+        "typeVersion": 1.3,
+        "position": [
+          416,
+          0
+        ],
+        "id": "9e6cf29f-ebbe-4326-b6e6-7f6e6680985e",
+        "name": "n8nRestaurant",
+        "credentials": {
+          "supabaseApi": {
+            "id": "d0mUkv0pe51NEzzr",
+            "name": "Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "dataType": "binary",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+        "typeVersion": 1.1,
+        "position": [
+          512,
+          224
+        ],
+        "id": "497ce8e8-4009-40cf-87b5-c9bd13e5c548",
+        "name": "Default Data Loader"
+      },
+      {
+        "parameters": {
+          "model": "nomic-embed-text:latest"
+        },
+        "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+        "typeVersion": 1,
+        "position": [
+          384,
+          576
+        ],
+        "id": "a7afb927-7527-45a4-be96-ae0ae7e430d8",
+        "name": "Embeddings Ollama",
+        "credentials": {
+          "ollamaApi": {
+            "id": "xHuYe0MDGOs9IpBW",
+            "name": "Local Ollama service"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "n8nRestaurant",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          832,
+          0
+        ],
+        "id": "3c9d2d0f-2b70-48d7-8faa-10720791409b",
+        "name": "Webhook",
+        "webhookId": "c57e5298-03c0-44b6-a874-0095ddf384de"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          1472,
+          0
+        ],
+        "id": "49dc643c-eea9-4c8c-aa41-95397026be84",
+        "name": "Respond to Webhook"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.body.message }}",
+          "options": {
+            "systemMessage": "You are a professional virtual assistant for a restaurant website.\n\nYour primary role is to help website visitors quickly and pleasantly by answering questions and guiding them toward making a reservation or visiting the restaurant.\n\nYOU MUST ALWAYS refer to the RAG system (Rag) tool , to answer any specific question about the restaurant \n\nYour Responsibilities\n\nProvide clear, friendly, and concise answers about:\n\nOpening hours\n\nMenu items and categories\n\nPrices (if available)\n\nDietary options (vegetarian, vegan, allergies)\n\nLocation and directions\n\nReservation information\n\nContact details\n\nEncourage users to book a table when appropriate\n\nAssist users politely and professionally at all times\n\nTone & Personality\n\nWarm, welcoming, and polite\n\nProfessional but friendly (never robotic)\n\nShort and clear responses\n\nSlightly enthusiastic, but not salesy\n\nRules & Behavior\n\nDo NOT invent information\n\nIf information is unavailable, say so politely and suggest contacting the restaurant\n\nNever mention internal systems, workflows, APIs, or automation tools\n\nNever say you are an AI model or mention OpenAI\n\nStay strictly in the role of a restaurant assistant\n\nConversation Style\n\nAsk simple follow-up questions only when helpful\n\nGuide users step-by-step if they want to reserve a table\n\nKeep responses easy to read and mobile-friendly\n\nExample Goals\n\nHelp users decide what to eat\n\nAnswer practical questions quickly\n\nIncrease reservations and visits\n\nCreate a pleasant, trustworthy experience\n\nIf a user asks something unrelated to the restaurant, politely redirect the conversation back to restaurant-related topics.\n\nAlways make the guest feel welcome, as if they are already inside the restaurant.\n\n\n\n"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3,
+        "position": [
+          1040,
+          0
+        ],
+        "id": "b1084e96-fead-4761-9f3e-c577221c9681",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "={{ $json.body.session_id }}"
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+        "typeVersion": 1.5,
+        "position": [
+          1056,
+          208
+        ],
+        "id": "539c2569-e026-4523-8bb1-8d23afcf157f",
+        "name": "Redis Chat Memory",
+        "credentials": {
+          "redis": {
+            "id": "rtcTuNU16fBQLAQ5",
+            "name": "Redis account"
+          }
+        }
+      },
+      {
+        "parameters": {},
+        "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+        "typeVersion": 1.1,
+        "position": [
+          1232,
+          272
+        ],
+        "id": "dbcf0c09-242a-48e3-a5af-203751162dd6",
+        "name": "Answer questions with a vector store"
+      },
+      {
+        "parameters": {
+          "tableName": {
+            "__rl": true,
+            "value": "documents",
+            "mode": "list",
+            "cachedResultName": "documents"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+        "typeVersion": 1.3,
+        "position": [
+          1040,
+          448
+        ],
+        "id": "37c8ba83-0549-4548-95aa-2632f93801f4",
+        "name": "Supabase Vector Store",
+        "credentials": {
+          "supabaseApi": {
+            "id": "d0mUkv0pe51NEzzr",
+            "name": "Supabase account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "value": "qwen/qwen3-vl-4b",
+            "mode": "list",
+            "cachedResultName": "qwen/qwen3-vl-4b"
+          },
+          "builtInTools": {},
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.3,
+        "position": [
+          1408,
+          464
+        ],
+        "id": "c71b7a5f-b3f0-4272-a36b-31c3557c18da",
+        "name": "OpenAI Chat Model1",
+        "credentials": {
+          "openAiApi": {
+            "id": "ECfDhjgYgcZ9auWI",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": "llama3.2:3b",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+        "typeVersion": 1,
+        "position": [
+          880,
+          208
+        ],
+        "id": "c093de50-f9b1-4ff5-b7b5-a286fd25f2f2",
+        "name": "Ollama Chat Model",
+        "credentials": {
+          "ollamaApi": {
+            "id": "xHuYe0MDGOs9IpBW",
+            "name": "Local Ollama service"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Google Drive Trigger": {
+        "main": [
+          [
+            {
+              "node": "Download file",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Download file": {
+        "main": [
+          [
+            {
+              "node": "n8nRestaurant",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Default Data Loader": {
+        "ai_document": [
+          [
+            {
+              "node": "n8nRestaurant",
+              "type": "ai_document",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Embeddings Ollama": {
+        "ai_embedding": [
+          [
+            {
+              "node": "n8nRestaurant",
+              "type": "ai_embedding",
+              "index": 0
+            },
+            {
+              "node": "Supabase Vector Store",
+              "type": "ai_embedding",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Respond to Webhook",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis Chat Memory": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Answer questions with a vector store": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Supabase Vector Store": {
+        "ai_vectorStore": [
+          [
+            {
+              "node": "Answer questions with a vector store",
+              "type": "ai_vectorStore",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "Answer questions with a vector store",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Ollama Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "abdou a",
+    "name": null,
+    "description": null
+  },
+  "activeVersionId": "51d57f9b-205d-40cc-875c-bb3cce1fdec1",
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "n8nRestaurant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "n8nRestaurant",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama": {
+      "ai_embedding": [
+        [
+          {
+            "node": "n8nRestaurant",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Answer questions with a vector store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-29T18:55:40.621Z",
+  "id": "WRkD0YM3aXvUqTpH",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Restaurant",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1wPqoUITwEL7V0x8-HzvZz74m1rPsAzOz",
+          "mode": "list",
+          "cachedResultName": "N8N_Restaurant",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1wPqoUITwEL7V0x8-HzvZz74m1rPsAzOz"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f37b9674-9bd6-4f91-a713-7a6a4e93ab27",
+      "name": "Google Drive Trigger",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FiEO9gF68TrqhmGj",
+          "name": "n8nRestaurant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c3523607-4336-4048-9428-ae085ad34b91",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FiEO9gF68TrqhmGj",
+          "name": "n8nRestaurant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "9e6cf29f-ebbe-4326-b6e6-7f6e6680985e",
+      "name": "n8nRestaurant",
+      "credentials": {
+        "supabaseApi": {
+          "id": "d0mUkv0pe51NEzzr",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        512,
+        224
+      ],
+      "id": "497ce8e8-4009-40cf-87b5-c9bd13e5c548",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        384,
+        576
+      ],
+      "id": "a7afb927-7527-45a4-be96-ae0ae7e430d8",
+      "name": "Embeddings Ollama",
+      "credentials": {
+        "ollamaApi": {
+          "id": "xHuYe0MDGOs9IpBW",
+          "name": "Local Ollama service"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "n8nRestaurant",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        832,
+        0
+      ],
+      "id": "3c9d2d0f-2b70-48d7-8faa-10720791409b",
+      "name": "Webhook",
+      "webhookId": "c57e5298-03c0-44b6-a874-0095ddf384de"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1472,
+        0
+      ],
+      "id": "49dc643c-eea9-4c8c-aa41-95397026be84",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.message }}",
+        "options": {
+          "systemMessage": "You are a professional virtual assistant for a restaurant website.\n\nYour primary role is to help website visitors quickly and pleasantly by answering questions and guiding them toward making a reservation or visiting the restaurant.\n\nYOU MUST ALWAYS refer to the RAG system (Rag) tool , to answer any specific question about the restaurant \n\nYour Responsibilities\n\nProvide clear, friendly, and concise answers about:\n\nOpening hours\n\nMenu items and categories\n\nPrices (if available)\n\nDietary options (vegetarian, vegan, allergies)\n\nLocation and directions\n\nReservation information\n\nContact details\n\nEncourage users to book a table when appropriate\n\nAssist users politely and professionally at all times\n\nTone & Personality\n\nWarm, welcoming, and polite\n\nProfessional but friendly (never robotic)\n\nShort and clear responses\n\nSlightly enthusiastic, but not salesy\n\nRules & Behavior\n\nDo NOT invent information\n\nIf information is unavailable, say so politely and suggest contacting the restaurant\n\nNever mention internal systems, workflows, APIs, or automation tools\n\nNever say you are an AI model or mention OpenAI\n\nStay strictly in the role of a restaurant assistant\n\nConversation Style\n\nAsk simple follow-up questions only when helpful\n\nGuide users step-by-step if they want to reserve a table\n\nKeep responses easy to read and mobile-friendly\n\nExample Goals\n\nHelp users decide what to eat\n\nAnswer practical questions quickly\n\nIncrease reservations and visits\n\nCreate a pleasant, trustworthy experience\n\nIf a user asks something unrelated to the restaurant, politely redirect the conversation back to restaurant-related topics.\n\nAlways make the guest feel welcome, as if they are already inside the restaurant.\n\n\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "b1084e96-fead-4761-9f3e-c577221c9681",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.body.session_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.5,
+      "position": [
+        1056,
+        208
+      ],
+      "id": "539c2569-e026-4523-8bb1-8d23afcf157f",
+      "name": "Redis Chat Memory",
+      "credentials": {
+        "redis": {
+          "id": "rtcTuNU16fBQLAQ5",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1.1,
+      "position": [
+        1232,
+        272
+      ],
+      "id": "dbcf0c09-242a-48e3-a5af-203751162dd6",
+      "name": "Answer questions with a vector store"
+    },
+    {
+      "parameters": {
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        1040,
+        448
+      ],
+      "id": "37c8ba83-0549-4548-95aa-2632f93801f4",
+      "name": "Supabase Vector Store",
+      "credentials": {
+        "supabaseApi": {
+          "id": "d0mUkv0pe51NEzzr",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1408,
+        464
+      ],
+      "id": "c71b7a5f-b3f0-4272-a36b-31c3557c18da",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:3b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        880,
+        208
+      ],
+      "id": "c093de50-f9b1-4ff5-b7b5-a286fd25f2f2",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "xHuYe0MDGOs9IpBW",
+          "name": "Local Ollama service"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-29T18:55:40.621Z",
+      "createdAt": "2025-12-29T18:55:40.621Z",
+      "role": "workflow:owner",
+      "workflowId": "WRkD0YM3aXvUqTpH",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": {
+    "node:Google Drive Trigger": {
+      "lastTimeChecked": "2025-12-30T12:24:59Z"
+    }
+  },
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-12-30T12:24:59.816Z",
+  "versionId": "51d57f9b-205d-40cc-875c-bb3cce1fdec1"
+}
