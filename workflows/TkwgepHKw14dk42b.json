@@ -1,0 +1,113 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Create an item in Odoo": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Create new Employee": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-16T17:11:58.116Z",
+  "id": "TkwgepHKw14dk42b",
+  "isArchived": false,
+  "meta": null,
+  "name": "MCP",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "name",
+              "fieldValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('fields0_New_Value', ``, 'string') }}"
+            },
+            {
+              "fieldName": "work_email",
+              "fieldValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('fields1_New_Value', ``, 'string') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        37376,
+        1632
+      ],
+      "id": "ba35baf6-38c1-4b6d-9cf3-f07422b21f6f",
+      "name": "Create an item in Odoo",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "497b3101-e6fc-4247-bdaa-5d8f03cf8523"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        36912,
+        1504
+      ],
+      "id": "4a656b88-04a9-450f-b0ac-7d132ba82f93",
+      "name": "MCP Server Trigger",
+      "webhookId": "497b3101-e6fc-4247-bdaa-5d8f03cf8523"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Call createEmployee\n",
+        "method": "POST",
+        "url": "http://host.docker.internal:5000/call",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"tool\": \"createEmployee\",\n  \"params\": {\n    \"name\": \"{{$json[\"name\"]}}\",\n    \"work_email\": \"{{$json[\"work_email\"]}}\"\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        37184,
+        1696
+      ],
+      "id": "23292c13-a095-4bf0-bbfd-aebd0acada59",
+      "name": "Create new Employee"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-03-16T17:11:58.116Z",
+      "createdAt": "2026-03-16T17:11:58.116Z",
+      "role": "workflow:owner",
+      "workflowId": "TkwgepHKw14dk42b",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-17T12:49:07.501Z",
+  "versionId": "559ee8c9-9fee-443c-ad2f-2eda84036bf4"
+}
