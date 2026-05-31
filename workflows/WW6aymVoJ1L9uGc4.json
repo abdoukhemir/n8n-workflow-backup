@@ -1,0 +1,1930 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "OpenAI Chat Model31": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Purchase Order",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser6": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent - Purchase Order",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Reply Create Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Error1": {
+      "main": [
+        [
+          {
+            "node": "Get Many Vendors",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Dates1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quotation / Expiration Date Parser + unit price Null remover1": {
+      "main": [
+        [
+          {
+            "node": "If Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "node": "Create Purchase Order Line",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Many Taxes2": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Quotation / Expiration Date Parser + unit price Null remover1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Many Vendors": {
+      "main": [
+        [
+          {
+            "node": "If Vendor Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Vendor Exist": {
+      "main": [
+        [
+          {
+            "node": "Create a Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Vendor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Get Many Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Many Products": {
+      "main": [
+        [
+          {
+            "node": "If Products Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Products Exist": {
+      "main": [
+        [
+          {
+            "node": "Get Many Taxes2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Products5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Purchase Order Line": {
+      "main": [
+        [
+          {
+            "node": "Confirm Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Dates1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Vendor": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Products5": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply Create Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent10",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent10": {
+      "main": [
+        [
+          {
+            "node": "Reply9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Purchase Order Requirements": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply9": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent9": {
+      "main": [
+        [
+          {
+            "node": "Reply10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model10": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent9",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Many Purcahse Orders": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent9",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Many Purchases Order lines": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent9",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply10": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent11": {
+      "main": [
+        [
+          {
+            "node": "If Order Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model11": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent11",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser7": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent11",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate2": {
+      "main": [
+        [
+          {
+            "node": "Update an item",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Order Name": {
+      "main": [
+        [
+          {
+            "node": "Get many Purchase Order By Name",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Format Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Date": {
+      "main": [
+        [
+          {
+            "node": "Get Many Purchase Orders By Customer + Confirmation Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Purchase Order By Name": {
+      "main": [
+        [
+          {
+            "node": "If Purchase Order Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Purchase Order Exist": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Many Purchase Orders By Customer + Confirmation Date": {
+      "main": [
+        [
+          {
+            "node": "If Purchase Order Exist1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Purchase Order Exist1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update an item": {
+      "main": [
+        [
+          {
+            "node": "Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        []
+      ]
+    },
+    "Reply": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-08T16:12:34.852Z",
+  "id": "WW6aymVoJ1L9uGc4",
+  "isArchived": false,
+  "meta": null,
+  "name": "Odoo_purchase_order",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "##  Purchase Order\n\n\n",
+        "height": 1760,
+        "width": 3888
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -432,
+        -3616
+      ],
+      "typeVersion": 1,
+      "id": "14b507c4-70fc-4d09-a00a-39f89bbad43e",
+      "name": "Sticky Note23"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        -2144
+      ],
+      "id": "0232e1bd-cdde-4906-a3b0-04c7d43b00e4",
+      "name": "OpenAI Chat Model31",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"Vendor_name\": \"string\",\n  \"products\": [\n    {\n      \"product_name\": \"string\",\n      \"quantity\": \"number\",\n      \"unit_price\": \"number\",\n      \"taxes\": [\"string\"]\n    }\n  ],\n  \"Order_Deadline\": \"string\",\n  \"Expected_Arrival\": \"string\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        272,
+        -2144
+      ],
+      "id": "9b18404f-2cb3-4676-a391-843a6ba17be2",
+      "name": "Structured Output Parser6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c9d661bd-a2d9-45f1-9723-21028bc183e6",
+              "name": "id",
+              "value": "={{ $('Code in JavaScript5').item.json.product_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0547a55e-be72-4332-8368-876a2ab3b5a0",
+              "name": "display_name",
+              "value": "={{ $('Code in JavaScript5').item.json.product_name }}",
+              "type": "string"
+            },
+            {
+              "id": "bb3a7310-93af-4a68-83a9-fa02002966bd",
+              "name": "order_id",
+              "value": "={{ $('Code in JavaScript5').item.json.order_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2672,
+        -2336
+      ],
+      "id": "12ff5eb3-2153-43eb-aa67-85deb0dcd228",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Products you provided does not exist in Odoo. Please check the name or create the Product before making a sales order.\"\n   \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1792,
+        -2160
+      ],
+      "id": "a675ffab-2acc-4c7b-abd7-0f0f13421b05",
+      "name": "Check Products5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9448aafe-90df-4280-b716-40bde615d2d8",
+              "leftValue": "={{ $json.reply }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        608,
+        -2288
+      ],
+      "id": "790d160c-c711-41d8-acd7-c3df20358ea5",
+      "name": "If Error1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = items[0].json.output;\n\n// --- Helpers ---\nconst pad = (n) => n.toString().padStart(2, \"0\");\n\n// --- Robust Date Parser ---\nfunction parseDate(input) {\n  if (!input) return new Date();\n\n  const str = input.toString().trim().replace(\"T\", \" \");\n\n  let datePart, timePart;\n\n  if (str.includes(\" \")) {\n    [datePart, timePart] = str.split(\" \");\n  } else {\n    datePart = str;\n    timePart = \"00:00:00\";\n  }\n\n  let y, m, d;\n\n  // --- Case 1: MM/DD/YYYY (your input format) ---\n  if (datePart.includes(\"/\")) {\n    const parts = datePart.split(\"/\").map(Number);\n\n    if (parts.length !== 3) return new Date();\n\n    const [mm, dd, yyyy] = parts;\n\n    if (!mm || !dd || !yyyy) return new Date();\n\n    m = mm;\n    d = dd;\n    y = yyyy;\n  }\n\n  // --- Case 2: YYYY-MM-DD or DD-MM-YYYY ---\n  else if (datePart.includes(\"-\")) {\n    const parts = datePart.split(\"-\").map(Number);\n\n    if (parts.length !== 3) return new Date();\n\n    if (parts[0] > 31) {\n      // YYYY-MM-DD\n      [y, m, d] = parts;\n    } else {\n      // DD-MM-YYYY\n      [d, m, y] = parts;\n    }\n  }\n\n  // --- Unknown format fallback ---\n  else {\n    return new Date();\n  }\n\n  const timeSplit = timePart.split(\":\").map(Number);\n  const hh = timeSplit[0] || 0;\n  const min = timeSplit[1] || 0;\n  const ss = timeSplit[2] || 0;\n\n  // ✅ LOCAL date (NO timezone shift)\n  return new Date(y, m - 1, d, hh, min, ss);\n}\n\n// --- Formatter ---\nfunction formatDate(d) {\n  if (!(d instanceof Date) || isNaN(d)) {\n    return null; // prevent NaN output\n  }\n\n  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;\n}\n\n// --- Handle Order Deadline ---\nlet orderDeadline = parseDate(output.Order_Deadline);\nconst formattedDeadline = formatDate(orderDeadline);\n\n// --- Handle Expected Arrival ---\nlet expectedArrival = output.Expected_Arrival\n  ? parseDate(output.Expected_Arrival)\n  : new Date(orderDeadline);\n\nif (!output.Expected_Arrival) {\n  expectedArrival.setDate(expectedArrival.getDate() + 7);\n}\n\nconst formattedArrival = formatDate(expectedArrival);\n\n// --- Validation ---\nlet reply = null;\n\nif (!formattedDeadline || !formattedArrival) {\n  reply = \"Error: Invalid date format provided.\";\n} else {\n  const now = new Date();\n  const today = new Date(\n    now.getFullYear(),\n    now.getMonth(),\n    now.getDate()\n  );\n\n  const deadlineDateOnly = new Date(\n    orderDeadline.getFullYear(),\n    orderDeadline.getMonth(),\n    orderDeadline.getDate()\n  );\n\n  if (deadlineDateOnly < today) {\n    reply = \"Error: Order deadline cannot be in the past.\";\n  }\n\n  if (expectedArrival <= orderDeadline) {\n    reply = \"Error: Expected arrival must be after order deadline.\";\n  }\n}\n\n// --- Clean products ---\nconst cleanedProducts = (output.products || []).map((p) => {\n  const product = { ...p };\n  if (product.unit_price == null) {\n    delete product.unit_price;\n  }\n  return product;\n});\n\n// --- Final Output ---\nreturn [\n  {\n    json: {\n      ...output,\n      Order_Deadline: formattedDeadline,\n      Expected_Arrival: formattedArrival,\n      products: cleanedProducts,\n      reply,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        -2288
+      ],
+      "id": "fd6005db-f2a2-4cf8-8f1f-822666e272ad",
+      "name": "Quotation / Expiration Date Parser + unit price Null remover1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$('Quotation / Expiration Date Parser + unit price Null remover1').first().json.reply \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        -2096
+      ],
+      "id": "51dd2bae-45f7-4da2-9bc0-7343e89ea3a0",
+      "name": "Check Dates1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const orderId = $items(\"Create a Purchase Order\")[0].json.id;\nconst parserItems = $items(\"Quotation / Expiration Date Parser + unit price Null remover1\")[0].json.products || [];\n\n// Collect all tax records\nconst allTaxes = $items(\"Get Many Taxes2\").map(i => i.json);\n\n// Map each product\nreturn $items(\"Get Many Products\").map(item => {\n  const productName = (item.json.name || \"\").toLowerCase().trim();\n  const match = parserItems.find(\n    p => (p.product_name || \"\").toLowerCase().trim() === productName\n  );\n\n  // ✅ Extract UoM ID (VERY IMPORTANT)\n  const product_uom = item.json.uom_id ? item.json.uom_id[0] : null;\n\n  let tax_ids = null;\n  if (match && Array.isArray(match.taxes)) {\n    const taxIds = match.taxes\n      .map(taxName => {\n        const found = allTaxes.find(\n          t => (t.name || \"\").toLowerCase() === taxName.toLowerCase()\n        );\n        return found ? found.id : null;\n      })\n      .filter(id => id !== null);\n\n    if (taxIds.length > 0) {\n      tax_ids = [[6, 0, taxIds]];\n    }\n  }\n\n  return {\n    json: {\n      order_id: orderId,\n      product_id: item.json.id,\n      product_name: item.json.name || null,\n      product_qty: match ? Number(match.quantity) : null,\n      price_unit: match ? Number(match.unit_price) : null,\n\n      // ✅ ADD THIS (fixes your quantity issue)\n      product_uom: product_uom,\n\n      // ⚠️ rename for purchase order\n      taxes_id: tax_ids\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2032,
+        -2336
+      ],
+      "id": "a9f78098-f20e-4d1c-b0eb-e371668046b8",
+      "name": "Code in JavaScript5"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=account.tax",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "fieldsList": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        1856,
+        -2336
+      ],
+      "id": "2cb2978a-5c69-4cad-8a52-bd286a83a3f5",
+      "name": "Get Many Taxes2",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "create",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bc502caf-54a2-43ef-8b2d-3928c513234d"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8c68ac32-90b4-4cbf-a3d4-cc6374fbb621",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "update",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "93fca3e6-9b5f-4631-85cc-498a7fecf277",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "delete",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7a6faf25-c7c1-4a32-88be-b1027199a84f",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "infos",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7b079d09-96dc-4696-ba77-d8448ee970af",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "get",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        -2896
+      ],
+      "id": "84248bcd-cdd9-4cad-9700-c7e13ac69388",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an Odoo purchase assistant.\n\nYour job is to extract all relevant information from the user's message to create a purchase order. \n\nAlways respond **ONLY in structured JSON** (no explanations, markdown, or extra text) in the following format:\n\n{\n  \"Vendor_name\": \"string\",            // Name of the vendor\n  \"products\": [                       // List of products in the order\n    {\n      \"product_name\": \"string\",       // Name of the product exactly as mentioned\n      \"quantity\": number,             // Quantity of that product\n      \"unit_price\": number,           // Price of that product\n      \"taxes\": [\"string\"]             // List of tax names exactly as mentioned\n    }\n  ],\n  \"Order_Deadline\": \"string|null\",    // Optional: null if not provided\n  \"Expected_Arrival\": \"string|null\"   // Optional: null if not provided\n}\n\nRules:\n1. Extract **all products** mentioned in the message, even if there are multiple.\n2. If a product is mentioned without a quantity, set quantity to null.\n3. If a product is mentioned without a unit_price, set unit_price to null.\n4. If a product is mentioned without taxes, set taxes to null.\n5. If the vendor name is missing, set Vendor_name to null.\n6. If Order_Deadline is missing, set it to null.\n7. If Expected_Arrival is missing, set it to null.\n8. Always return valid JSON. Never return text outside JSON.\n9. Use the product names **exactly as in the user's message** for now; matching with Odoo products will happen later.\n10. Ensure Order_Deadline is today or in the future, and Expected_Arrival is strictly after Order_Deadline.\n\nnow is {{ $now }}\nand today is {{ $today }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        144,
+        -2288
+      ],
+      "id": "75651cbe-1050-4cde-8c90-c448cb9d7807",
+      "name": "AI Agent - Purchase Order",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=res.partner",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {
+          "fieldsList": [
+            "id",
+            "name"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{ $json.Vendor_name.toTitleCase()}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        848,
+        -2304
+      ],
+      "id": "8abccd33-d4bd-4bda-b845-09f90eab94a5",
+      "name": "Get Many Vendors",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f3408dfb-92a0-442a-92ef-2200ab675451",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1008,
+        -2304
+      ],
+      "id": "a5456665-cc9a-4af3-a5b8-eeab644f4850",
+      "name": "If Vendor Exist"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Vendor name you provided  does not exist in Odoo. Please check the name \\ before making a Purchase order.\"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        -2128
+      ],
+      "id": "72bdd72c-38b9-4e66-9eac-18fc1e0892dc",
+      "name": "Check Vendor"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "partner_id",
+              "fieldValue": "={{$node[\"Get Many Vendors\"].json[\"id\"]}}"
+            },
+            {
+              "fieldName": "date_order",
+              "fieldValue": "={{ $('Quotation / Expiration Date Parser + unit price Null remover1').item.json.Expected_Arrival }}"
+            },
+            {
+              "fieldName": "date_planned",
+              "fieldValue": "={{ $('Quotation / Expiration Date Parser + unit price Null remover1').item.json.Expected_Arrival }}"
+            },
+            {
+              "fieldName": "date_approve",
+              "fieldValue": "={{ $('Quotation / Expiration Date Parser + unit price Null remover1').item.json.Order_Deadline }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        -2320
+      ],
+      "id": "7d76e32c-e68e-4da0-8886-feab7fd9b321",
+      "name": "Create a Purchase Order",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=product.product",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "fieldsList": [
+            "id",
+            "name",
+            "uom_id"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "in",
+              "value": "={{ $('Quotation / Expiration Date Parser + unit price Null remover1').item.json.products.map(p => p.product_name) }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        -2320
+      ],
+      "id": "90b7ba46-a97c-4404-8c25-a1f424595c6f",
+      "name": "Get Many Products",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3db2712d-3474-4500-a698-cdfb86c4a1c8",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1664,
+        -2320
+      ],
+      "id": "e107db27-a132-46e0-b2bf-aeeecbc42a2d",
+      "name": "If Products Exist"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "update",
+        "customResourceId": "={{ $('Code in JavaScript5').item.json.order_id }}",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "state",
+              "fieldValue": "purchase"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        -2336
+      ],
+      "id": "c8190622-f23f-4369-adeb-0b60fc914e4b",
+      "name": "Confirm Purchase Order",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const Vendor = $('Get Many Vendors').first().json.name;\nconst setItems = $input.all();\nconst parser = $('Quotation / Expiration Date Parser + unit price Null remover1').first().json;\nconst parserProducts = parser.products || [];\n\n// Build product list with optional fields\nconst list = setItems.map(it => {\n  const productName = it.json.display_name || \"\";\n  const productNameLower = productName.toLowerCase();\n\n  // Match by name\n  const match = parserProducts.find(p => {\n    const name = (p.product_name || \"\").toLowerCase();\n    return productNameLower.includes(name) || name.includes(productNameLower);\n  });\n\n  let details = `${productName}`;\n  if (match) {\n    const parts = [];\n    if (match.quantity) parts.push(`x${match.quantity}`);\n    if (match.unit_price) parts.push(`${match.unit_price} DT/unit`);\n    if (match.taxes && match.taxes.length > 0) parts.push(`taxes: ${match.taxes.join(\", \")}`);\n    if (parts.length > 0) details += ` (${parts.join(\", \")})`;\n  }\n  return details;\n}).join(\", \");\n\n// Build optional dates\nconst extras = [];\nif (parser.Order_Deadline) extras.push(`Order Deadline: ${parser.Order_Deadline}`);\nif (parser.Expected_Arrival) extras.push(`Expected Arrival: ${parser.Expected_Arrival}`);\nconst extrasText = extras.length > 0 ? ` | ${extras.join(\" | \")}` : \"\";\n\nreturn {\n  reply: `Purchase order created successfully for ${Vendor} with ${list}.${extrasText}`\n};"
+      },
+      "name": "Reply Create Purchase Order",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -2336
+      ],
+      "id": "a68c7357-0893-4240-b005-262cb2324849"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order.line",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "order_id",
+              "fieldValue": "={{ $json.order_id }}"
+            },
+            {
+              "fieldName": "product_id",
+              "fieldValue": "={{ $json.product_id }}"
+            },
+            {
+              "fieldName": "product_qty",
+              "fieldValue": "={{ $json.product_qty }}"
+            },
+            {
+              "fieldName": "price_unit",
+              "fieldValue": "={{ $json.price_unit }}"
+            },
+            {
+              "fieldName": "tax_ids",
+              "fieldValue": "={{ $json.taxes_id }}"
+            },
+            {
+              "fieldName": "product_uom_id",
+              "fieldValue": "={{ $json.product_uom }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        2256,
+        -2336
+      ],
+      "id": "2b369b03-c0fe-469b-9e22-e571985f45d9",
+      "name": "Create Purchase Order Line",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Create Purchase Order\n",
+        "height": 496,
+        "width": 3024,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        -2384
+      ],
+      "typeVersion": 1,
+      "id": "592f3da0-d5cb-42ff-8c5d-b6db91de6db2",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "## Infos\n",
+        "height": 352,
+        "width": 848,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -48,
+        -2880
+      ],
+      "typeVersion": 1,
+      "id": "5fa55758-f897-4285-991c-e00880efe2bf",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an AI agent that provides information about Purchase Order Management tools.\nYou must always use the tool \"Purchase Order Requirements\" to answer questions about purchase orders.\nDo not invent or assume any fields, tools, or options beyond what is written in the Purchase Order Requirements file.\nWhen a user asks about available tools or the fields required for creating, updating, or deleting purchase orders,\nyou must respond only with the information from the Purchase Order Requirements file.\nAlways present the information in a clear, structured list.\nIf the user asks something outside the scope of Purchase Order Requirements, politely explain that only the defined tools and fields are available."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        32,
+        -2848
+      ],
+      "id": "3be7bb64-df13-4612-b26b-28cf9ac1a926",
+      "name": "AI Agent10"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.output || \"Sorry, I didn’t understand.\"\n};"
+      },
+      "name": "Reply9",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        -2848
+      ],
+      "id": "4bbdb1fb-99a8-4b82-b7f7-32641b5f6691"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        16,
+        -2688
+      ],
+      "id": "410faaed-8b5a-4bfd-b763-9bb8aae538c5",
+      "name": "OpenAI Chat Model9",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "https://docs.google.com/document/d/1puaLWunngwp50xrSY1kK1xyh_8P8GVgXMdrRE9PYU0A/edit?tab=t.0"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        256,
+        -2688
+      ],
+      "id": "ba73acf0-96b0-475e-a295-b27bc82561b5",
+      "name": "Purchase Order Requirements",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "fZBJSVv4VSRJ01w9",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get Purchase Orders / Order lines",
+        "height": 432,
+        "width": 720,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        864,
+        -2912
+      ],
+      "typeVersion": 1,
+      "id": "b32fecbd-0041-41aa-a628-18b8e18e2820",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an AI assistant connected to Odoo.\nWhen asked about purchase orders, always call the tool Get Many Purchase Orders  \nby default return only the name.\n\nWhen asked about purchase order lines, always call the tool Get Many Purchase Order lines  \nby default return only the id and the order id.\n\nWhen asked about the products in a given purchase order:\n\nUse Get Many Purchase Orders to retrieve the order line IDs from the field order_line.\n\nThen use Get Many Purchase Order lines with those IDs to fetch the products contained in the order lines.\n\nDo not invent or guess data—only use the tool outputs.\nIf no records are found, respond clearly that no purchase orders or lines are available.\nKeep answers structured and easy to parse."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        992,
+        -2864
+      ],
+      "id": "8bad1c6a-660d-4a2b-b3df-6ab9b9887284",
+      "name": "AI Agent9"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.output || \"Sorry, I didn’t understand.\"\n};"
+      },
+      "name": "Reply10",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1296,
+        -2864
+      ],
+      "id": "80cc9baf-e5cd-4533-be53-3d242ec8e001"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        928,
+        -2640
+      ],
+      "id": "29d46a6f-9f98-4ea2-867c-761630991144",
+      "name": "OpenAI Chat Model10",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "fieldsList": [
+            "id",
+            "order_line",
+            "date_order",
+            "name",
+            "date_planned"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        -2656
+      ],
+      "id": "fcf7f22a-c21b-4520-a5bc-eac9261e17b1",
+      "name": "Get Many Purcahse Orders",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order.line",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "fieldsList": [
+            "id",
+            "order_id",
+            "product_id"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        1232,
+        -2656
+      ],
+      "id": "b170414f-70be-44cc-baaf-0bd3ca57f2c1",
+      "name": "Get Many Purchases Order lines",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an AI agent responsible for extracting fields required to delete a purchase order.\n\nRules:\n1. If the user provides an `existing_order_name`, extract it and set `existing_vendor_name` and `existing_confirmation_date` to null.\n2. If the user does not provide an `existing_order_name`, extract `existing_vendor_name` and `existing_confirmation_date`.\n3. Always return the fields in strict schema format:\n   {\n     \"existing_order_name\": \"string|null\",          // Order Name exactluy as given\n     \"existing_vendor_name\": \"string|null\",        // Vendor Name exactly as given \n     \"existing_confirmation_date\": \"string|null\"   // Confirmation date\n   }\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        64,
+        -3344
+      ],
+      "id": "cda38d8b-a8fa-43db-a57c-90a305d122a2",
+      "name": "AI Agent11"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        48,
+        -3184
+      ],
+      "id": "0fb76267-e1e8-48a0-a9c7-675f33c6e3ef",
+      "name": "OpenAI Chat Model11",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"existing_order_name\": \"string|null\",\n  \"existing_vendor_name\": \"string|null\",\n  \"existing_confirmation_date\": \"string|null\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        208,
+        -3184
+      ],
+      "id": "d9b5b6f8-bc3a-44c2-855e-788c1c8f872b",
+      "name": "Structured Output Parser7"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            },
+            {
+              "fieldToAggregate": "is_expired"
+            },
+            {
+              "fieldToAggregate": "partner_id"
+            },
+            {
+              "fieldToAggregate": "date_order"
+            },
+            {
+              "fieldToAggregate": "validity_date"
+            },
+            {
+              "fieldToAggregate": "payment_term_id"
+            },
+            {
+              "fieldToAggregate": "order_line"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        -3376
+      ],
+      "id": "97d6be4f-c52e-4439-8f7b-299fa91c6135",
+      "name": "Aggregate2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4fd4a7fc-b057-4ab9-9621-0381590620cc",
+              "leftValue": "={{ $json.output.existing_order_name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        384,
+        -3344
+      ],
+      "id": "73894502-2f2d-4ad1-819a-5d91c9158188",
+      "name": "If Order Name"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = items[0].json.output;\n\n// --- Helper: format date to \"YYYY-MM-DD HH:mm:ss\" ---\nconst pad = (n) => n.toString().padStart(2, \"0\");\nconst formatDateForOdoo = (d) =>\n  `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;\n\n// --- Parse confirmation date ---\nconst parseDate = (dateStr) => {\n  if (!dateStr) return null;\n\n  let d = new Date(dateStr);\n  if (isNaN(d.getTime())) {\n    const clean = dateStr.replace(/-/g, \"/\").trim();\n    d = new Date(clean);\n  }\n\n  return isNaN(d.getTime()) ? null : d;\n};\n\nlet confirmationDate = output.existing_confirmation_date\n  ? parseDate(output.existing_confirmation_date)\n  : null;\n\nif (confirmationDate) {\n  // ✅ Adjust: decrease one hour to match Odoo API UTC format\n  confirmationDate.setHours(confirmationDate.getHours() - 1);\n}\n\nlet formattedConfirmationDate = confirmationDate\n  ? formatDateForOdoo(confirmationDate)\n  : null;\n\n// --- Return normalized output ---\nreturn [\n  {\n    json: {\n      ...output,\n      existing_confirmation_date: formattedConfirmationDate,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        544,
+        -3248
+      ],
+      "id": "15f64314-913c-4a88-a42a-c722e7663e3f",
+      "name": "Format Date"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "fieldsList": [
+            "id",
+            "partner_id",
+            "order_line",
+            "date_approve",
+            "date_planned",
+            "date_order",
+            "name"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "value": "={{ $json.output.existing_order_name }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        752,
+        -3440
+      ],
+      "id": "074f2a59-9b47-4c4a-b26a-458798f639b6",
+      "name": "Get many Purchase Order By Name",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c45cc76e-abcd-4b0c-815d-47c79bf51439",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        944,
+        -3440
+      ],
+      "id": "1be54f15-9d1f-4731-bc92-93fb6b90c910",
+      "name": "If Purchase Order Exist"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "fieldsList": [
+            "id",
+            "partner_id",
+            "date_order",
+            "order_line",
+            "date_planned",
+            "date_approve",
+            "name"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "partner_id",
+              "value": "={{ $('AI Agent11').item.json.output.existing_vendor_name.toTitleCase()}}"
+            },
+            {
+              "fieldName": "date_approve",
+              "value": "={{ $json.existing_confirmation_date }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        752,
+        -3248
+      ],
+      "id": "7018e525-88ce-46ec-b8a8-53313bfd4dbf",
+      "name": "Get Many Purchase Orders By Customer + Confirmation Date",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9bfe168b-79ad-4f55-a0cf-b7e635b9422e",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        960,
+        -3248
+      ],
+      "id": "19ed9f62-6092-477f-9568-65afb8bdd28f",
+      "name": "If Purchase Order Exist1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Sales Order you provided  does not exist in Odoo. Please check the Sales Order \"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1248,
+        -3232
+      ],
+      "id": "c704c8b1-513b-4b59-87b8-e385de6fc377",
+      "name": "Check Purchase Order"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "update",
+        "customResourceId": "={{ $json.id[0] }}",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "state",
+              "fieldValue": "cancel"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        -3376
+      ],
+      "id": "a3eeef39-38e0-430f-91bf-94f0696658db",
+      "name": "Update an item",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Delete/Cancel Purchase Order\n",
+        "height": 464,
+        "width": 1840,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        -3456
+      ],
+      "typeVersion": 1,
+      "id": "e4b25307-e1b0-458b-96e9-fdbb009957cd",
+      "name": "Sticky Note19"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"Updating a Purchase Order is not usefull \"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        -2784
+      ],
+      "id": "b4ad908e-d65b-46d2-bff7-c70461d2a2cc",
+      "name": "Update Purchase Order"
+    },
+    {
+      "parameters": {
+        "content": "## Edit Purcahse Order\n",
+        "height": 464,
+        "width": 512,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1648,
+        -2928
+      ],
+      "typeVersion": 1,
+      "id": "54ea542d-0c97-43b0-9ad2-6462629c7c4a",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "reply"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        -2880
+      ],
+      "id": "6a15afff-4162-41dd-9815-2d853b85cf12",
+      "name": "Aggregate4"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "6830caf5-3f48-41ee-82f2-9a65336acf56",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -496,
+        -2848
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -720,
+        -2272
+      ],
+      "id": "eca8ae6e-7c26-47f9-909d-52f976ef43a9",
+      "name": "When chat message received",
+      "webhookId": "99b0fbbe-407e-4339-93fa-16823ea0b24e"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"Sales Order Deleted Successfully \"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1616,
+        -3376
+      ],
+      "id": "f06cbcfb-1cd3-430e-9959-04f388a24121",
+      "name": "Reply"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-08T16:12:34.852Z",
+      "createdAt": "2026-04-08T16:12:34.852Z",
+      "role": "workflow:owner",
+      "workflowId": "WW6aymVoJ1L9uGc4",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-30T20:08:39.825Z",
+  "versionId": "d7a2ee1b-68d5-4792-b17c-ab9c92bb2e87"
+}
