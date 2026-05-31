@@ -1,0 +1,1100 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Product Fields": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent - Infos",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model30": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Create Product",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model31": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Infos",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model32": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Get Products",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Infos": {
+      "main": [
+        [
+          {
+            "node": "reply1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Get Products": {
+      "main": [
+        [
+          {
+            "node": "reply2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Create Product": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Products": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent - Get Products",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Create Product",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent - Edit Products",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent - Delete Products",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent - Infos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent - Get Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Edit Products",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EDIT PRODUCT": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent - Edit Products",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Edit Products": {
+      "main": [
+        [
+          {
+            "node": "reply3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent - Edit Products",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Delete Products",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EDIT PRODUCT1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent - Delete Products",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Delete Products": {
+      "main": [
+        [
+          {
+            "node": "reply4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply4": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent - Delete Products",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent - Get Products",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory3": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent - Infos",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory4": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent - Create Product",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-13T14:19:19.453Z",
+  "id": "E2nT1X6ZdqMve7qi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Odoo_product V1",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/product/create",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1024,
+        -224
+      ],
+      "id": "7b9915ec-8e2e-4902-aef2-91437ec9f5e6",
+      "name": "HTTP Request",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/product/fields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        1040,
+        336
+      ],
+      "id": "32e3f33f-6fe1-4943-a485-0e362f702c5b",
+      "name": "Get Product Fields"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        592,
+        -64
+      ],
+      "id": "2d294934-ae9e-464d-a97f-7f20e163f50b",
+      "name": "OpenAI Chat Model30",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Input: items[0].json.output (raw AI agent string)\n// Output: { output: { ...parsed fields... } }\n\nconst raw = items[0].json.output;\n\nlet parsed;\ntry {\n  parsed = JSON.parse(raw); // convert string into JSON\n} catch (e) {\n  parsed = {}; // fallback if invalid\n}\n\n// Wrap inside \"output\"\nreturn [\n  {\n    json: {\n      output: parsed\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        -224
+      ],
+      "id": "ec4e0343-3d55-459f-907d-28b0430b00a0",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.message || $input.first().json.errors\n   \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1168,
+        -224
+      ],
+      "id": "9128e4b6-2be0-4c71-beaf-7f74826fa027",
+      "name": "reply"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "reply"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2128,
+        752
+      ],
+      "id": "9fe140d3-0403-4ff9-b93b-b63993f4953f",
+      "name": "Aggregate4"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        768,
+        336
+      ],
+      "id": "0883623e-e44a-4cea-8415-e6bb0c3e234f",
+      "name": "OpenAI Chat Model31",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: $input.first().json.output \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1088,
+        192
+      ],
+      "id": "751faf28-993d-449f-9322-eb07031245fe",
+      "name": "reply1"
+    },
+    {
+      "parameters": {
+        "content": "## Create\n\n",
+        "height": 288,
+        "width": 880,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        480,
+        -240
+      ],
+      "typeVersion": 1,
+      "id": "3cd06977-74c6-4ee0-a774-b0760c2b7b19",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Infos\n",
+        "height": 304,
+        "width": 624,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        656,
+        160
+      ],
+      "typeVersion": 1,
+      "id": "a96a0857-97b5-46f9-b43a-1f9deb0dd7d9",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        720,
+        800
+      ],
+      "id": "884507d6-b211-45e9-a67a-87486ab00d41",
+      "name": "OpenAI Chat Model32",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "if the user asks how to create a new product \nuse the Get Product Firelds tool node to get the correct fields"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        800,
+        192
+      ],
+      "id": "8864f9c9-f425-48de-be52-ab8cdbae5b25",
+      "name": "AI Agent - Infos",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an Odoo Product Expert. You have access to an API tool that manages products.\n\nCapabilities:\n\nGet/Search Products: Use the /product/list endpoint.\n\nIf the user asks for a specific product by name, use the name filter (it is case-insensitive).\n\nIf the user asks for a category, use categ_id.\n\nBy default, always request these fields: [\"id\", \"name\", \"list_price\", \"barcode\"].\n\nIf the user doesn't specify a limit, use 10.\n\nGuidelines:\n\nIf a user asks \"What products do we have?\", call the tool with an empty filter {}.\n\nIf a user asks \"Do we have any iPads?\", call the tool with {\"name\": \"iPad\"}.\n\nAlways present the results in a clean Markdown table for the user.\n\nIf no products are found, suggest they check the spelling or search for something else.\nalways respond in a json format , no tables"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        768,
+        624
+      ],
+      "id": "d41958c3-7ce4-45c6-8d61-a689f58d10d4",
+      "name": "AI Agent - Get Products",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an Odoo product assistant.\n\nYour job is to extract all relevant information from the user's message to create a product. \n\nAlways respond **ONLY in structured JSON** (no explanations, markdown, or extra text) in the following format:\n\n{\n  \"name\": \"string\",           // Name of the product\n  \"list_price\": \"string\",     // Optional: Sales price\n  \"standard_price\": \"string\", // Optional: Cost price\n  \"type\": \"string\",           // Optional: Product type (consu, service, storable)\n  \"categ_name\": \"string\",     // Optional: Category name\n  \"barcode\": \"string\",        // Optional: Barcode\n  \"description\": \"string\",    // Optional: Description\n  \"uom_name\": \"string\",       // Optional: Unit of measure\n  \"taxes_names\": [\"string\"]   // Optional: List of tax names\n}\n\nRules:\n1. Extract the product name from the user's message.\n2. If a field is missing in the user's message, set it to null.\n3. Do not invent values.\n4. Always return valid JSON. Never return text outside JSON.\n5. Use the product name **exactly as in the user's message**.\nReturn a json output like this example :\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        608,
+        -224
+      ],
+      "id": "a3638746-c24a-4e1d-b936-86dd9d829c3f",
+      "name": "AI Agent - Create Product",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/product/list",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JSON', ``, 'json') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        1008,
+        800
+      ],
+      "id": "a7679d82-33d5-477b-95f3-b753c1a77a37",
+      "name": "Get Products"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: $input.first().json.output \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        624
+      ],
+      "id": "b57d9903-91bc-4222-96a0-3e88d0f8d6c3",
+      "name": "reply2"
+    },
+    {
+      "parameters": {
+        "content": "## Get",
+        "height": 384,
+        "width": 656,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        672,
+        560
+      ],
+      "typeVersion": 1,
+      "id": "f928966d-7a18-4edc-a415-dfa0648b98af",
+      "name": "Sticky Note16"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "create",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bc502caf-54a2-43ef-8b2d-3928c513234d"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8c68ac32-90b4-4cbf-a3d4-cc6374fbb621",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "update",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "93fca3e6-9b5f-4631-85cc-498a7fecf277",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "delete",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7a6faf25-c7c1-4a32-88be-b1027199a84f",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "infos",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7b079d09-96dc-4696-ba77-d8448ee970af",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "get",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        128,
+        640
+      ],
+      "id": "2dd36f9f-a16f-4caa-80eb-77dedf634724",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        752,
+        1248
+      ],
+      "id": "36fe56d1-fb3e-45bf-ad79-46492fd2223e",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: $input.first().json.output \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1152,
+        1088
+      ],
+      "id": "935f09f8-7b80-453d-a463-b4e642023cb4",
+      "name": "reply3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/product/update",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JSON', ``, 'json') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        1008,
+        1248
+      ],
+      "id": "b81920e0-b515-407f-8bec-9d040b1fb32e",
+      "name": "EDIT PRODUCT"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You manage Odoo products via API.\n\nYour job is to convert user requests into clean JSON for API calls.\n\n--- IDENTIFICATION RULES ---\n- Always extract the EXISTING product identifier:\n  - If the user gives a number → use \"id\"\n  - If the user gives a name → use \"name\"\n- NEVER invent an id\n- NEVER put text inside \"id\"\n\n--- UPDATE RULES ---\n- Extract ONLY the fields the user wants to change\n- For updates:\n  - Use \"new_name\" ONLY for renaming\n  - Do NOT overwrite \"name\" when updating\n- Keep original identifier separate from new values\n\n--- FIELD MAPPING ---\n- \"price\" → list_price\n- \"cost\" → standard_price\n- \"category\" → categ_name\n- \"unit\" → uom_name\n- \"description\" → description\n\n--- DUPLICATE HANDLING RULE ---\n- If the system returns multiple matching products (options):\n  - DO NOT attempt to select one\n  - DO NOT retry\n  - STOP immediately\n  - Ask the user to choose from the provided options\n\n--- EXAMPLES ---\n\nUser: change the name of product iPhone12 to iPhone17\nOutput:\n{\n  \"name\": \"iPhone12\",\n  \"new_name\": \"iPhone17\"\n}\n\nUser: update product 15 price to 2000\nOutput:\n{\n  \"id\": 15,\n  \"list_price\": 2000\n}\n\nUser: set category of Laptop to Electronics\nOutput:\n{\n  \"name\": \"Laptop\",\n  \"categ_name\": \"Electronics\"\n}\n\n--- FINAL RULES ---\n- Output ONLY valid JSON\n- No explanations\n- No extra fields\n- Only include necessary fields"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        800,
+        1088
+      ],
+      "id": "7b080f29-b687-4be8-869f-1fca297bbdf3",
+      "name": "AI Agent - Edit Products",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "content": "## Edit product\n\n",
+        "height": 368,
+        "width": 736,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        688,
+        1024
+      ],
+      "typeVersion": 1,
+      "id": "0df3859b-cdc9-4221-aa1d-19405c0a323f",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "tableName": "n8n_Odoo",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        880,
+        1248
+      ],
+      "id": "c23afbee-c7f5-4af1-8035-ec9e8ea8dcd1",
+      "name": "Postgres Chat Memory2",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Product\n",
+        "height": 2368,
+        "width": 1664
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        -384
+      ],
+      "typeVersion": 1,
+      "id": "304c806d-b6ec-4dbd-89cc-7e0ddd312016",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Delete ",
+        "height": 368,
+        "width": 736,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        688,
+        1440
+      ],
+      "typeVersion": 1,
+      "id": "d755b8f2-807e-4362-9045-07678b1b0a61",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        816,
+        1664
+      ],
+      "id": "db119f50-649c-4de5-bd11-884c9d6a1d30",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/product/delete",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('JSON', ``, 'json') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        1072,
+        1664
+      ],
+      "id": "8276b2b4-0187-4919-8de5-f0a01b1800b8",
+      "name": "EDIT PRODUCT1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an AI agent that ONLY deletes products from an Odoo system via API.\n\n--- TASK ---\nConvert user messages into JSON for product deletion ONLY.\n\n--- OUTPUT RULE ---\n- Output ONLY valid JSON\n- No explanations\n- No extra text\n- No markdown\n\n--- IDENTIFICATION RULES ---\n- Always extract the product identifier:\n  - If user gives a number → use \"id\"\n  - If user gives a name → use \"name\"\n- NEVER invent an id\n- NEVER guess missing product information\n\n--- DUPLICATE HANDLING RULE ---\nIf multiple products match the same name:\n- DO NOT choose one\n- DO NOT refine search\n- DO NOT retry\n- STOP immediately\n- Return ONLY the \"options\" exactly as provided by the API response\n- Do NOT modify, rank, or filter options\n\n--- SAFETY RULE ---\n- If product is ambiguous, always prefer returning options instead of guessing\n- Never attempt deletion when multiple matches exist\n\n--- TOOL USAGE RULE ---\n\n- You MUST ALWAYS use the \"Delete Product Tool Node\" to perform any product deletion.\n- You must NEVER output a deletion result without triggering the Delete Product Tool Node.\n- Your JSON output is ONLY used as input for the Delete Product Tool Node.\n- If the tool cannot be used (e.g., missing or ambiguous data), return \"options\" instead and STOP.\n\n--- EXAMPLES ---\n\nUser: delete iPhone 11\n{\n  \"name\": \"iPhone 11\"\n}\n\nUser: delete product 15\n{\n  \"id\": 15\n}\n\nUser: iPhone 11 exists twice\n{\n  \"options\": [\n    {\"id\": 55, \"name\": \"iPhone 11\"},\n    {\"id\": 56, \"name\": \"iPhone 11\"}\n  ]\n}\n\n--- FINAL RULE ---\nOnly return JSON for deletion workflow. Nothing else."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        864,
+        1504
+      ],
+      "id": "032310e2-02ae-4fb6-941a-5d11bc5ba579",
+      "name": "AI Agent - Delete Products",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: $input.first().json.output \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1232,
+        1504
+      ],
+      "id": "0c074a7e-423f-4961-8e78-d25bedf8b026",
+      "name": "reply4"
+    },
+    {
+      "parameters": {
+        "tableName": "n8n_Odoo",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        944,
+        1664
+      ],
+      "id": "ad4d0a43-cce7-4902-8f70-7b81d855ce4c",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableName": "n8n_Odoo",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        848,
+        784
+      ],
+      "id": "c97b2d80-b13d-4fef-9be0-cde66e55a871",
+      "name": "Postgres Chat Memory1",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableName": "n8n_Odoo",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        896,
+        336
+      ],
+      "id": "7d42b67d-8e71-4bbc-ad7b-07fb3f893f5d",
+      "name": "Postgres Chat Memory3",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableName": "n8n_Odoo",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        720,
+        -64
+      ],
+      "id": "6b5a7e23-30dd-4eb5-b7c3-23eb2d405765",
+      "name": "Postgres Chat Memory4",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-13T14:19:19.453Z",
+      "createdAt": "2026-04-13T14:19:19.453Z",
+      "role": "workflow:owner",
+      "workflowId": "E2nT1X6ZdqMve7qi",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-04-23T21:29:51.187Z",
+  "versionId": "9d1b27c0-8064-4443-9743-5c5ca3fee1d3"
+}
