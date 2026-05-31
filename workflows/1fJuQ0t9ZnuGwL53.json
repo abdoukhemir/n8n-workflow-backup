@@ -1,0 +1,287 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "get_product_fields": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code Node (Parse AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Product Fields": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        []
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        []
+      ]
+    },
+    "Code Node (Parse AI)": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-10T13:06:25.538Z",
+  "id": "1fJuQ0t9ZnuGwL53",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "trial",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -304,
+        -144
+      ],
+      "id": "594660d2-4bbc-4f3c-a2fb-9455e07e253e",
+      "name": "When chat message received",
+      "webhookId": "181d4756-eb6f-4493-8039-1e62fc46eec2"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a sales order extractor. Extract ALL information the user provides.\n\nOutput ONLY valid JSON. Include ANY field the user mentions. Common fields include:\n- partner_name (customer name)\n- products: [{name, quantity, price}]\n- date_order (order date)\n- validity_date (expiration date)\n- payment_term (e.g., \"30 Days\")\n- fiscal_position (e.g., \"Domestic\")\n- incoterm (e.g., \"FOB\")\n- note (customer notes)\n- warehouse (e.g., \"WH\")\n\nRules:\n1. Extract EVERY piece of information the user provides\n2. If a field doesn't match the above list, still include it\n3. partner_name is the only required field\n4. Output ONLY JSON, no other text\n\nExample output:\n{\n  \"partner_name\": \"Acme Corporation\",\n  \"products\": [{\"name\": \"Chair\", \"quantity\": 10, \"price\": 99}],\n  \"date_order\": \"2026-04-15\",\n  \"payment_term\": \"30 Days\",\n  \"note\": \"Urgent delivery\"\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -96,
+        -144
+      ],
+      "id": "c800c2be-f25c-4a48-a086-2499a0a47573",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        560,
+        112
+      ],
+      "id": "76915db2-ae6e-4e1e-85d1-02e665762c6c",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "XAV29vLJxIDG4y9F",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// This is a TOOL that the AI Agent can call\n// Name: \"get_product_fields\"\n\nconst odooUrl = $env.ODOO_URL;\nconst db = $env.ODOO_DB;\nconst uid = 2;\nconst password = $env.ODOO_PASSWORD;\n\nconst response = await $fetch(`${odooUrl}/jsonrpc`, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: {\n    jsonrpc: \"2.0\",\n    method: \"call\",\n    params: {\n      service: \"object\",\n      method: \"execute_kw\",\n      args: [db, uid, password, \"product.product\", \"fields_get\", [[]]]\n    }\n  }\n});\n\nconst fields = response.result;\nconst relevantFields = {};\n\nfor (const [key, info] of Object.entries(fields)) {\n  // Only include fields that are writable and useful for creation\n  if (info.change_default || info.required || ['name', 'type', 'list_price', 'standard_price', 'categ_id', 'taxes_id', 'uom_id'].includes(key)) {\n    relevantFields[key] = {\n      string: info.string,\n      type: info.type,\n      required: info.required,\n      help: info.help || \"\"\n    };\n  }\n}\n\nreturn relevantFields;"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        96
+      ],
+      "id": "e44ce6cc-cd8c-4bf4-b397-d74ff7239f76",
+      "name": "get_product_fields"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -160,
+        64
+      ],
+      "id": "7b514afc-80fb-4786-bdfe-9377a8e5959f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"school_odoo\",\n      2,\n      \"odoo\",\n      \"product.product\",\n      \"fields_get\",\n      [[]]\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -848,
+        -80
+      ],
+      "id": "a8ae569d-28b4-4272-a69b-7cddc1ac8925",
+      "name": "Get Product Fields"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": ""
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        64
+      ],
+      "id": "13791ca8-8dd8-4ab8-8851-06b5cfff41f0",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"school_odoo\",\n      2,\n      \"odoo\",\n      \"sale.order\",\n      \"default_get\",\n      [[]]\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        288,
+        -384
+      ],
+      "id": "1d9506c0-b4d2-4753-8bd4-81a9ad9bc5c6",
+      "name": "HTTP Request (Get defaults)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"school_odoo\",\n      2,\n      \"odoo\",\n      \"res.partner\",\n      \"name_create\",\n      [\"{{$('Code Node (Parse AI)').item.json.partner_name}}\"]\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        400,
+        -144
+      ],
+      "id": "71dee52b-7cbe-48e5-b5c9-23102035b4c9",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "options": {
+          "prompt": "Instructions:\n--------------\n{instructions}\n--------------\nCompletion:\n--------------\n{completion}\n--------------\n\nAbove, the Completion did not satisfy the constraints given in the Instructions.\nError:\n--------------\n{error}\n--------------\n\nPlease try again. Please only respond with an answer that satisfies the constraints laid out in the Instructions:"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        320,
+        48
+      ],
+      "id": "1581adcc-d790-45aa-8ebc-9e87a11de4fa",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiOutput = $input.first().json.output;\nconst parsedData = JSON.parse(aiOutput);\n\nreturn parsedData;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        -144
+      ],
+      "id": "c87bdc45-7cbf-4934-a9d8-b58a11b00d35",
+      "name": "Code Node (Parse AI)"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-10T13:06:25.538Z",
+      "createdAt": "2026-04-10T13:06:25.538Z",
+      "role": "workflow:owner",
+      "workflowId": "1fJuQ0t9ZnuGwL53",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-04-10T14:02:44.878Z",
+  "versionId": "bd43ceea-2ae8-4bc0-9094-4f91b2582462"
+}
