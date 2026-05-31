@@ -1,0 +1,388 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "OpenAI Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Sales orders2": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Emplyees2": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many purchases2": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many companies2": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get  Requirements3": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields23": {
+      "main": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatAgent3": {
+      "main": [
+        [
+          {
+            "node": "Reply2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "ChatAgent3",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-08T15:32:46.242Z",
+  "id": "dqXLj9HovwFZAIng",
+  "isArchived": true,
+  "meta": null,
+  "name": "Odoo_chat",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -144,
+        5328
+      ],
+      "id": "a436835d-4b0e-43c1-abcf-2406cbbec2d0",
+      "name": "OpenAI Chat Model7",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "sale.order",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        160,
+        5328
+      ],
+      "id": "ecd5990e-bd84-46b1-bae6-bb725e86b38d",
+      "name": "Get Sales orders2",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "getAll",
+        "limit": 3,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        320,
+        5328
+      ],
+      "id": "eaeb93ab-b6d8-45f0-9c92-c3c74ef84a02",
+      "name": "Get many Emplyees2",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        480,
+        5328
+      ],
+      "id": "b9faab04-21a9-47ee-b8a3-0202836d9f06",
+      "name": "Get many purchases2",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Start').item.json.body_user_id }}",
+        "tableName": "n8n_Odoo",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        16,
+        5328
+      ],
+      "id": "5e64b4fd-45d3-4ffa-8c88-a63102b6f8cc",
+      "name": "Postgres Chat Memory2",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "res.company",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        656,
+        5328
+      ],
+      "id": "9cfe1560-1612-4685-8086-35bf93cb28ca",
+      "name": "Get many companies2",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.output || \"Sorry, I didn’t understand.\"\n};"
+      },
+      "name": "Reply2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        816,
+        5104
+      ],
+      "id": "5e0735b7-c5e8-49bd-a91e-5f38f2f1a8e7"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "https://docs.google.com/document/d/1efl-kN3DLttX-TG7_njAep36R0lx0QXov6Rsz1Z839E/edit?tab=t.0"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        816,
+        5328
+      ],
+      "id": "5028877f-ba43-466d-a085-c0b33e0db522",
+      "name": "Get  Requirements3",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "fZBJSVv4VSRJ01w9",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9b797fb9-43fd-4d2a-80be-3769f03e133f",
+              "name": "message",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            },
+            {
+              "id": "3d4a3771-1348-4fcd-81a6-dd858158a364",
+              "name": "user_id",
+              "value": "={{ $('Start').item.json.body_user_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -112,
+        5104
+      ],
+      "id": "efd7b215-1f72-4e63-ab1d-6e86de8f0467",
+      "name": "Edit Fields23"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message }}",
+        "options": {
+          "systemMessage": "You are an Odoo assistant.\n\nAlways respond in plain text, naturally like a human assistant.\n\nDo not use HTML.\nDo not use markdown.\nDo not use emojis.\nDo not use bold or italic styles.\n\nYour responsibilities:\n- Chat normally with the user when they greet you or ask general questions.\n- Use the Odoo tools when the user asks about existing sales orders, purchase orders, employees, vendors, or companies.\n- Use the Docs tool when the user asks about requirements for creating sales orders or purchase orders. Summarize the requirements clearly in plain text.\n- Structure replies with line breaks when listing information, so they are easy to read.\n- Never output JSON. Never classify or route commands — that is the job of the routing agent.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        304,
+        5104
+      ],
+      "id": "3ab73eab-be7b-4907-b916-2389b2fc38b7",
+      "name": "ChatAgent3",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "body_user_id",
+              "type": "any"
+            },
+            {
+              "name": "data",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "id": "8531b550-8ac9-461e-85f0-7ebfc4b37324",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -320,
+        5104
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-08T15:32:46.242Z",
+      "createdAt": "2026-04-08T15:32:46.242Z",
+      "role": "workflow:owner",
+      "workflowId": "dqXLj9HovwFZAIng",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-04-08T15:47:00.672Z",
+  "versionId": "b8986f4e-6899-42eb-b9f9-218ddeb5527f"
+}
