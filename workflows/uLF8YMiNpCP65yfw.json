@@ -1,0 +1,1923 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "If Department",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Managers": {
+      "main": [
+        [
+          {
+            "node": "If Manager Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Departments": {
+      "main": [
+        [
+          {
+            "node": "If Department Exisit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Job Positions": {
+      "main": [
+        [
+          {
+            "node": "If Job Exisit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Department": {
+      "main": [
+        [
+          {
+            "node": "Get many Departments",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Department Exisit": {
+      "main": [
+        [
+          {
+            "node": "Check Department",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Department": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Manager": {
+      "main": [
+        [
+          {
+            "node": "Get many Managers",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Job Position",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Manager Exist": {
+      "main": [
+        [
+          {
+            "node": "Check Manager",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Job Position",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Manager": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Job Position": {
+      "main": [
+        [
+          {
+            "node": "Get many Job Positions",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Job Exisit": {
+      "main": [
+        [
+          {
+            "node": "Check Job Position",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Job Position": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a new Employee": {
+      "main": [
+        [
+          {
+            "node": "Reply1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Get many Employees By Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete Employee": {
+      "main": [
+        [
+          {
+            "node": "Check Job Position3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Employee": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Employees By Name": {
+      "main": [
+        [
+          {
+            "node": "If employee Exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Create": {
+      "main": [
+        [
+          {
+            "node": "Update an Employee",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create a new Employee",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update an Employee": {
+      "main": [
+        [
+          {
+            "node": "Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Get many Employees By Name1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser4": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Employees By Name1": {
+      "main": [
+        [
+          {
+            "node": "Delete Employee",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Job Position3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Employee Requirement": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        []
+      ]
+    },
+    "AI Agent3": {
+      "main": [
+        [
+          {
+            "node": "Reply3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If employee Exist": {
+      "main": [
+        [
+          {
+            "node": "If Department",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Employee",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent6": {
+      "main": [
+        [
+          {
+            "node": "Reply7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Emplyees": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply7": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-08T17:14:28.958Z",
+  "id": "uLF8YMiNpCP65yfw",
+  "isArchived": false,
+  "meta": null,
+  "name": "Odoo_employees",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an extraction agent.  \nYour task is to read a user message and extract the following fields:\n\n- name (required)\n- email (required)\n- phone (optional)\n- department name (optional)\n- job position (optional)\n- manager name (optional)\n\nRules:\n- Always return `name` and `email`. If they are missing, leave them empty strings but do not invent values.  \n- For optional fields, only include them if explicitly provided. Do not add or guess values.  \n- Output must strictly follow the JSON schema provided.  \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        512,
+        3744
+      ],
+      "id": "6160417a-6ef6-40b2-b652-0847f37f06db",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        512,
+        3904
+      ],
+      "id": "5cdae5f6-dd8a-403f-9bbb-cf18769267ed",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## HR. Employee",
+        "height": 2240,
+        "width": 4432
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -320,
+        2240
+      ],
+      "typeVersion": 1,
+      "id": "33d01bac-e608-4bfc-bff3-c2fd04168bef",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {
+          "fieldsList": [
+            "employee_id",
+            "name"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{ $if($('AI Agent').isExecuted, $('AI Agent').item.json.output[\"manager name\"], '') }}{{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.new_manager_name, '') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        3680
+      ],
+      "id": "fc97176f-18e6-47df-bbb9-5dee96fe303b",
+      "name": "Get many Managers",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.department",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "fieldsList": [
+            "parent_id",
+            "name"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{ $if($('AI Agent').isExecuted, $('AI Agent').item.json.output[\"department name\"], '') }}{{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.new_department_name, '') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        960,
+        3680
+      ],
+      "id": "3d246fff-6acf-485a-8e4f-eaabdc9586cb",
+      "name": "Get many Departments",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.job",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "fieldsList": [
+            "id",
+            "name"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{ $if($('AI Agent').isExecuted, $('AI Agent').item.json.output[\"job position\"], '') }}{{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.new_job_position, '') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        1888,
+        3696
+      ],
+      "id": "71323253-0d29-41a8-9040-f1e7ce5bd767",
+      "name": "Get many Job Positions",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"phone\": \"string\",\n  \"department_name\": \"string\",\n  \"job_position\": \"string\",\n  \"manager_name\": \"string\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        656,
+        3904
+      ],
+      "id": "d541f14c-0341-4d00-a5d2-6a4c2052057e",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c7e113f5-54c4-4a85-b929-afcb117db961",
+              "leftValue": "={{ $if($('AI Agent').isExecuted, $('AI Agent').item.json.output[\"department name\"], '') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "e54f297b-c360-4315-9d07-8a2bdffd56ea",
+              "leftValue": "={{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.new_department_name, '') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        800,
+        3744
+      ],
+      "id": "a5609237-b1b7-4016-bb38-3f43c2caefdd",
+      "name": "If Department"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f894dad8-c8ee-49fa-8f2f-e82afa31679b",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1136,
+        3680
+      ],
+      "id": "2f64a64e-6a36-4090-8fcc-2e2502063446",
+      "name": "If Department Exisit"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Department you provided does not exist in Odoo. Please check the name or create the Department before Creating a New employee.\"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1312,
+        3584
+      ],
+      "id": "68d8e3e9-4311-4dc6-a8a9-9def0fa2dee4",
+      "name": "Check Department"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "782f3c8a-67de-4e95-a0f6-9971c86170c7",
+              "leftValue": "={{ $if($('AI Agent').isExecuted, $('AI Agent').item.json.output[\"manager name\"], '') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4f308e65-8c7c-4b7c-be25-18eda13d0687",
+              "leftValue": "={{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.new_manager_name, '') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1280,
+        3760
+      ],
+      "id": "f6c448ac-77d9-4878-aaff-70b97ce83d53",
+      "name": "If Manager"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8bb56844-6b61-48b9-a1c5-0ed1b237c515",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1584,
+        3680
+      ],
+      "id": "06be8474-e078-44b4-b8b8-6c4edd153c93",
+      "name": "If Manager Exist"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Manager you provided does not exist in Odoo. Please check the name or create the Manager before Creating a New employee.\"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        3600
+      ],
+      "id": "46189266-471c-47f8-aea4-7f783a479ba6",
+      "name": "Check Manager"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "72d6cf87-4dba-484b-9f44-89e6afaed3ed",
+              "leftValue": "={{ $if($('AI Agent').isExecuted, $('AI Agent').item.json.output[\"job position\"], '') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "3cdd56fa-eb86-4640-9751-7ef78479ba77",
+              "leftValue": "={{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.new_job_position, '') }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1712,
+        3776
+      ],
+      "id": "58e681aa-eb1b-48a9-9938-22c87025451e",
+      "name": "If Job Position"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "48edfa04-52a2-4b51-a2d5-9facd0164fc0",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2032,
+        3696
+      ],
+      "id": "a3ddf6a3-388d-4628-91e9-b58236d32283",
+      "name": "If Job Exisit"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Job Position you provided does not exist in Odoo. Please check the name or create the Job Position before Creating a New employee.\"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2192,
+        3616
+      ],
+      "id": "62623662-f052-43ad-ba00-1f43c8c55de4",
+      "name": "Check Job Position"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "name",
+              "fieldValue": "={{ $('AI Agent').item.json.output.name }}"
+            },
+            {
+              "fieldName": "work_email",
+              "fieldValue": "={{ $('AI Agent').item.json.output.email }}"
+            },
+            {
+              "fieldName": "work_phone",
+              "fieldValue": "={{ $('AI Agent').item.json.output.phone ||'' }}"
+            },
+            {
+              "fieldName": "department_id",
+              "fieldValue": "={{ $if($('Get many Departments').isExecuted, $('Get many Departments').first().json.id, null) }}"
+            },
+            {
+              "fieldName": "job_id",
+              "fieldValue": "={{ $if($('Get many Job Positions').isExecuted, $('Get many Job Positions').first().json.id, null) }}"
+            },
+            {
+              "fieldName": "parent_id",
+              "fieldValue": "={{ $if($('Get many Managers').isExecuted, $('Get many Managers').first().json.id, null) }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        2336,
+        3808
+      ],
+      "id": "18ce865d-fe98-4842-a693-e9e2f9989706",
+      "name": "Create a new Employee",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an extraction agent.  \nYour task is to read a user message and extract the following fields:\n- Route= Update\n- existing_name (optional)\n- new_name (optional)\n- new_email (optional)\n- new_phone (optional)\n- new_department_name (optional)\n- new_job_position (optional)\n- new_manager_name (optional)\n\nRules:\n\n- Do not confuse existing fields with new fields.  \n- For new fields, only include them if explicitly provided. Do not invent values.  \n- If a field is not mentioned, leave it empty string.  \n- Output must strictly follow the JSON schema provided.  \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        224,
+        3264
+      ],
+      "id": "7fe26298-3dbe-4a31-9af0-75faed7ed39d",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        208,
+        3456
+      ],
+      "id": "9710ca9a-457f-4476-b40a-60ec1ba8dc1e",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "delete",
+        "customResourceId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        800,
+        2912
+      ],
+      "id": "61bbe52d-e046-4e0d-9adc-f5386d491799",
+      "name": "Delete Employee",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{ \"Route\": \"string\",\n  \"existing_name\": \"string\",\n  \"new_name\": \"string\",\n  \"new_email\": \"string\",\n  \"new_phone\": \"string\",\n  \"new_department_name\": \"string\",\n  \"new_job_position\": \"string\",\n  \"new_manager_name\": \"string\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        384,
+        3440
+      ],
+      "id": "2cf18ebf-cb65-4ae4-8ad3-87b5fbd666ba",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Employee you provided does not exist in Odoo. Please check the name or create the Employee.\"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1232,
+        3280
+      ],
+      "id": "e00acaab-cf51-4bcc-91f7-d441e16f239d",
+      "name": "Check Employee"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "fieldsList": [
+            "name",
+            "work_email",
+            "work_phone",
+            "department_id",
+            "job_id",
+            "parent_id"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{$json.output.existing_name}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        752,
+        3264
+      ],
+      "id": "cef394ba-b586-4aca-a26b-c1879fe89ee7",
+      "name": "Get many Employees By Name",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e20d358d-e51a-4a1f-b337-852535369c18",
+              "leftValue": "={{ $if($('AI Agent1').isExecuted, $('AI Agent1').item.json.output.Route, '') }}",
+              "rightValue": "Update",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2176,
+        3792
+      ],
+      "id": "4ba9b870-b43b-4732-a050-1c5bff68af6c",
+      "name": "If Create"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "update",
+        "customResourceId": "={{ $('Get many Employees By Name').item.json.id }}",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "name",
+              "fieldValue": "={{ $('AI Agent1').item.json.output.new_name ||$('Get many Employees By Name').item.json.name}}"
+            },
+            {
+              "fieldName": "work_email",
+              "fieldValue": "={{ $('AI Agent1').item.json.output.new_email ||$('Get many Employees By Name').item.json.work_email }}"
+            },
+            {
+              "fieldName": "work_phone",
+              "fieldValue": "={{ $('AI Agent1').item.json.output.new_phone ||$('Get many Employees By Name').item.json.work_phone }}"
+            },
+            {
+              "fieldName": "department_id",
+              "fieldValue": "={{ $if($('Get many Departments').isExecuted, $('Get many Departments').first().json.id,$('Get many Employees By Name').item.json.department_id ) }}"
+            },
+            {
+              "fieldName": "job_id",
+              "fieldValue": "={{ $if($('Get many Job Positions').isExecuted, $('Get many Job Positions').first().json.id,$('Get many Employees By Name').item.json.job_id ) }}"
+            },
+            {
+              "fieldName": "parent_id",
+              "fieldValue": "={{ $if($('Get many Managers').isExecuted, $('Get many Managers').first().json.id, $('Get many Employees By Name').item.json.parent_id) }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        2336,
+        3680
+      ],
+      "id": "0b16bec9-b5c3-43af-b4b1-d429d62af7a0",
+      "name": "Update an Employee",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an extraction agent.  \nYour task is to read a user message and extract the following field:\n\n- existing_name (required)\n\nRules:\n- Always return `existing_name` if the user provides the employee’s name.  \n- Do not invent values. If no name is given, return an empty string.  \n- Ignore any email addresses or other fields — only extract the employee’s name.  \n- Output must strictly follow the JSON schema provided.  \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        240,
+        2912
+      ],
+      "id": "9f248e25-ae75-4a52-a54b-41197b5934e9",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        240,
+        3072
+      ],
+      "id": "f6b17daa-428f-4bb3-8d37-612e94b9cf22",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n\t\"existing_name\": \"string\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        448,
+        3104
+      ],
+      "id": "0cff7fc3-eb4c-43ff-9ab8-c3a1232ee245",
+      "name": "Structured Output Parser4"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "getAll",
+        "limit": 1,
+        "options": {
+          "fieldsList": [
+            "name",
+            "work_email",
+            "work_phone",
+            "department_id",
+            "job_id",
+            "parent_id"
+          ]
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{$json.output.existing_name}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        624,
+        2912
+      ],
+      "id": "882bb57b-75ce-4221-9894-c45fb4f6bb44",
+      "name": "Get many Employees By Name1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Delete Employee",
+        "height": 400,
+        "width": 1280,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -16,
+        2800
+      ],
+      "typeVersion": 1,
+      "id": "c8700164-220e-4be2-9161-783f7dda3ab8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Edit Employee",
+        "height": 352,
+        "width": 1472,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        3216
+      ],
+      "typeVersion": 1,
+      "id": "27801cbe-c63e-41f4-b555-ba99a994b042",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Create Employee",
+        "height": 496,
+        "width": 2544,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        160,
+        3584
+      ],
+      "typeVersion": 1,
+      "id": "fc6434af-b34f-4dfe-b594-d3ff8ad87704",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "create",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bc502caf-54a2-43ef-8b2d-3928c513234d"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8c68ac32-90b4-4cbf-a3d4-cc6374fbb621",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "update",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "93fca3e6-9b5f-4631-85cc-498a7fecf277",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "delete",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7a6faf25-c7c1-4a32-88be-b1027199a84f",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "infos",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2d3a9520-f77e-458f-a7cf-1a0c7aa90418",
+                    "leftValue": "={{ $json.operation }}",
+                    "rightValue": "get",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        3088
+      ],
+      "id": "6a63e879-8eb2-4244-a511-7398259cbb2a",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"employee Deleted Successfully \"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        992,
+        2912
+      ],
+      "id": "4f799701-f69a-4e8f-9150-cd8043cee0cd",
+      "name": "Check Job Position3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an AI agent that provides information about Employee Management tools. \nYou must always use the tool \"Employee Requirements\" to answer questions about employees. \nDo not invent or assume any fields, tools, or options beyond what is written in the Employee Requirements file. \nWhen a user asks about available tools or the fields required for creating, updating, or deleting employees, \nyou must respond only with the information from the Employee Requirements file. \nAlways present the information in a clear, structured list. \nIf the user asks something outside the scope of Employee Requirements, politely explain that only the defined tools and fields are available.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        432,
+        4128
+      ],
+      "id": "0b368f0f-52d8-4898-9e4b-3dd41d0b146a",
+      "name": "AI Agent3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        368,
+        4304
+      ],
+      "id": "588c6dd0-d312-4371-919b-2195363c9350",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "https://docs.google.com/document/d/18tPQ2wd4-c8ll1anqAzs3i6h6ft3ckQQzN87Dq_T4JA/edit?tab=t.0"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        656,
+        4288
+      ],
+      "id": "88411406-bd5d-4a5a-8a2d-0a799707ab2c",
+      "name": "Employee Requirement",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "fZBJSVv4VSRJ01w9",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "=",
+        "tableName": "n8n_Odoo"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        192,
+        4304
+      ],
+      "id": "d262c958-cb7b-4173-bb76-b09e2c27c0a6",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.output || \"Sorry, I didn’t understand.\"\n};"
+      },
+      "name": "Reply3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        4128
+      ],
+      "id": "c6f58fd8-a525-4053-87d7-1f9679125cb8"
+    },
+    {
+      "parameters": {
+        "content": "## Infos\n",
+        "height": 352,
+        "width": 848,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        176,
+        4080
+      ],
+      "typeVersion": 1,
+      "id": "12b71cde-79f9-4fe2-b180-edf40d7a5192",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "a086de61-145c-479b-86e7-364523a120b0",
+              "leftValue": "={{$json.id }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        944,
+        3264
+      ],
+      "id": "66f96540-5c52-4d1e-837b-80ec4263d049",
+      "name": "If employee Exist"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "options": {
+          "systemMessage": "You are an AI assistant connected to Odoo.  \nWhen asked about employees, always call the tool `Get many Employees`.\nby default return only the name of the employees \nif the user asks about other fields add them \nIf no employees are found, respond clearly that no records are available.  \nKeep answers structured and easy to parse.  \n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        96,
+        2368
+      ],
+      "id": "095c2855-21eb-491a-9afe-fa57ab432822",
+      "name": "AI Agent6"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        2560
+      ],
+      "id": "958a0a51-a01b-4483-b320-5bc58542cd49",
+      "name": "OpenAI Chat Model5",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.output || \"Sorry, I didn’t understand.\"\n\n};"
+      },
+      "name": "Reply7",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        2368
+      ],
+      "id": "4139d78b-93ba-4316-9fcf-4eb92604db70"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "fieldsList": [
+            "id",
+            "name",
+            "work_email",
+            "work_phone",
+            "department_id",
+            "job_id",
+            "parent_id"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        240,
+        2560
+      ],
+      "id": "79773c6c-653d-47c0-862f-f98f58b984c1",
+      "name": "Get many Emplyees",
+      "credentials": {
+        "odooApi": {
+          "id": "3gYh8d88t2vtzB8T",
+          "name": "Odoo_ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get Employees\n",
+        "height": 416,
+        "width": 624,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        2288
+      ],
+      "typeVersion": 1,
+      "id": "fb217e50-e3b1-4d62-833e-fbedaa67df33",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "reply"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        4144,
+        2368
+      ],
+      "id": "37b3cd7c-e7b1-4eb2-a6f8-9770163b9e04",
+      "name": "Aggregate4"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "cf83956f-9d75-46e7-8f78-fcf95a487752",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -464,
+        3136
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"employee Updated Successfully \"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2480,
+        3680
+      ],
+      "id": "dc582cf2-47ea-4a9f-bcd6-684a9aeb8960",
+      "name": "Reply"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"New employee Created Successfully \"\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2480,
+        3808
+      ],
+      "id": "e591c99f-fc0a-41ea-88fb-a03396147701",
+      "name": "Reply1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-08T17:14:28.958Z",
+      "createdAt": "2026-04-08T17:14:28.958Z",
+      "role": "workflow:owner",
+      "workflowId": "uLF8YMiNpCP65yfw",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-30T12:42:35.426Z",
+  "versionId": "80c8473b-f1f4-4802-810d-389c0d74dbf9"
+}
