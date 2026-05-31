@@ -1,0 +1,140 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Structured Output Parser19": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Parser8",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser8": {
+      "main": [
+        []
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser8",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-08T14:38:00.332Z",
+  "id": "JbLzGfEiQmRElGdn",
+  "isArchived": true,
+  "meta": null,
+  "name": "Main Router Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        1152
+      ],
+      "id": "19a16ce2-3f37-45ba-81f4-9f6dabf963c3",
+      "name": "OpenAI Chat Model29",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n \"route\": \"string\",\n    \"operation\": \"string\",\n    \"data\": \"string\",\n    \"channel_id\": \"number\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        944
+      ],
+      "id": "c5bbecdb-3d65-406f-b0e8-3cab22f5ced8",
+      "name": "Structured Output Parser19"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Webhook2').item.json.body.message }}{{$json.text|| '' }}\nchannel_id: {{ $('Webhook2').item.json.body.channel_id }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an Odoo routing agent.\n\nYour job is to classify each block of text into one of four possible routes and one of five possible operations.\n\nRoutes:\n- \"sales_order\" → ONLY if the text clearly describes a sales order (mentions customer, products, and quantities).\n- \"purchase_order\" → ONLY if the text clearly describes a purchase order (mentions vendor, products, and quantities).\n- \"employee\" → ONLY if the text clearly describes an employee action (create, update, delete, get employee, or infos about employees).\n- \"other\" → for all other cases, including greetings, questions, or incomplete information.\n\nOperations:\n- \"create\" → if the text clearly requests creating a new record (e.g., “Add a new employee named Lotfi”).\n- \"update\" → if the text clearly requests modifying an existing record (e.g., “Change the email of employee Lotfi”).\n- \"delete\" → if the text clearly requests removing a record (e.g., “Delete employee John Doe”).\n- \"get\" → if the text clearly requests retrieving or viewing a record (e.g., “Show me employee Lotfi’s details”).\n- \"infos\" → if the text is asking for information *about* the available tools or the fields required for creating, updating, or deleting records (e.g., “How do I create an employee?”, “What are the fields for editing an employee?”, “What tools exist for employees?”). In these cases, do NOT classify as create/update/delete — always choose infos.\n\nRules:\n1. Always respond ONLY in valid JSON. The JSON must be a single root object where each classified item is assigned a sequential string key starting from \"output0\", \"output1\", \"output2\", etc.\n2. The value for each key must be an object with exactly four fields:\n   {\n     \"route\": \"sales_order\" | \"purchase_order\" | \"employee\" | \"other\",\n     \"operation\": \"create\" | \"update\" | \"delete\" | \"get\" | \"infos\",\n     \"data\": \"the original text block exactly as received\",\n     \"channel_id\": <number>\n   }\n3. Do NOT parse or transform the content of the data field. Just copy the raw text into \"data\".\n4. Do NOT output explanations, errors, or any text outside JSON.\n5. Do NOT call any tools yourself.\n\nexample output \n{\n  \"output0\": {\n    \"route\": \"employee\",\n    \"operation\": \"infos\",\n    \"data\": \"What are the fields for creating an employee?\",\n    \"channel_id\": 45\n  },\n  \"output1\": {\n    \"route\": \"employee\",\n    \"operation\": \"update\",\n    \"data\": \"Update the employee named Lotfi with new email lotfi.new@gmail.com\",\n    \"channel_id\": 45\n  },\n  \"output2\": {\n    \"route\": \"sales_order\",\n    \"operation\": \"create\",\n    \"data\": \"Sales Order1: customer: Acme Corporation products: Chair x10, Desk x5\",\n    \"channel_id\": 45\n  }\n  \"output3\": {\n    \"route\": \"purchase_order\",\n    \"operation\": \"create\",\n    \"data\": \"Purchase Order1: Vendor: Acme Corporation products: Chair x10, Desk x5\",\n    \"channel_id\": 45\n  }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        192,
+        720
+      ],
+      "id": "ae74f11e-621d-4414-b7bc-83420edb4493",
+      "name": "Parser8",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        144,
+        944
+      ],
+      "id": "6ead829b-af2d-4408-8a09-82cf3ade5f2d",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "XAV29vLJxIDG4y9F",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-08T14:38:00.332Z",
+      "createdAt": "2026-04-08T14:38:00.332Z",
+      "role": "workflow:owner",
+      "workflowId": "JbLzGfEiQmRElGdn",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-04-08T15:04:13.280Z",
+  "versionId": "ee487c70-dd3b-464f-a5fa-ae184944a725"
+}
