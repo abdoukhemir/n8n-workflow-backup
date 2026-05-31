@@ -1,0 +1,2803 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Parser9": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser9",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Edit Employee1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Delete Employee1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        []
+      ]
+    },
+    "Get_Job_Positions": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Employees": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "Parser9",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Departments": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Tools": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "Parser9",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create_employee3": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model10": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Sales orders": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Emplyees": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many purchases": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many companies": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Customers": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Products": {
+      "main": [
+        [
+          {
+            "node": "If28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a sales order": {
+      "main": [
+        [
+          {
+            "node": "Get many Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Sales order line": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Command Switch": {
+      "main": [
+        [
+          {
+            "node": "AI Agent - Create Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent - Create Sales Order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply23": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model30": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Create Sales Order",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Create Sales Order": {
+      "main": [
+        [
+          {
+            "node": "Get many Customers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent - Create Sales Order",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Reply23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Products13": {
+      "main": [
+        [
+          {
+            "node": "If30",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply24": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model31": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent - Create Purchase Order",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser20": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent - Create Purchase Order",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields25": {
+      "main": [
+        [
+          {
+            "node": "Confirm Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Get many Products13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Purchase order line": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Vendors": {
+      "main": [
+        [
+          {
+            "node": "If29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent - Create Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Get many Vendors",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm Purchase Order": {
+      "main": [
+        [
+          {
+            "node": "Reply24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model32": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser21": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get  Requirements": {
+      "ai_tool": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields26": {
+      "main": [
+        [
+          {
+            "node": "ChatAgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Create a sales order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Customer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Customer": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If28": {
+      "main": [
+        [
+          {
+            "node": "Create Sales order line",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Products9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If29": {
+      "main": [
+        [
+          {
+            "node": "Create a Purchase Order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Customer9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Customer9": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If30": {
+      "main": [
+        [
+          {
+            "node": "Create Purchase order line",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Products": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Products9": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ChatAgent": {
+      "main": [
+        [
+          {
+            "node": "Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields27": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Parser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If31": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "reply",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Command Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "FinalReply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File7": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply": {
+      "main": [
+        [
+          {
+            "node": "Convert to File7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FinalReply": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File7": {
+      "main": [
+        [
+          {
+            "node": "Extract from File7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whisper ASR HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Parser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Whisper ASR HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-30T15:26:57.444Z",
+  "id": "uoIYiE7HWNgI7LmS",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Odoo2",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "1. Use the get_employees tool node only to find the employee ID. \nDo not return any other fields from get_employees.\ndo not keep looking in the get_employees tool node \n2. Extract the fields to update or delete directly from the user’s message.\n3. deside from the message if it's an \"edit\" message or \"delete\" message or \"archive\"\n3. Output JSON in this format:\n\n{\n  \"route\": \"edit \" | \"delete\" | \"archive\",\n  \"employee_id\": <integer>,\n  \"name\": \"string (optional)\",\n  \"email\": \"string (optional)\",\n  \"phone\": \"string (optional)\",\n  \"job_title\": \"string (optional)\",\n  \"department_id\": <integer (optional)>,\n  \"parent_id\": <integer (optional)>,\n  \"job_id\": <integer (optional)>\n}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -12080,
+        -448
+      ],
+      "id": "f29893cb-f1c3-424f-8362-dc0c038b3b48",
+      "name": "Parser9",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -12080,
+        -304
+      ],
+      "id": "5cbd7d38-aa66-44af-b242-41d8f0a11ee8",
+      "name": "OpenAI Chat Model8",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return JSON.parse($input.first().json.output);"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -11728,
+        -448
+      ],
+      "id": "5881e74b-f495-4945-8d2f-8a7aececfd1c",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are an Odoo assistant that helps create employees.\n\nAlways call the `get_tools` node first to see available tools.\n\nTasks:\n1. Use `get_tools` to discover tools before acting.\n2. To list or find employees, call `get_employees`.\n3. To list or find departments, call `get_departments`.\n4. To list or find job positions, call `get_job_positions`.\n5. To create a new employee:\n   - Extract parameters from the user message:\n     {\n       \"name\" (required),\n       \"email\" (required),\n       \"phone\" (optional),\n       \"job_title\" (optional),\n       \"department_id\" (optional),\n       \"parent_id\" (optional, manager employee ID),\n       \"job_id\" (optional, job position ID)\n     }\n   - If a department name is given, call `get_departments` to resolve its `id` and use that integer as `department_id`.\n   - If a manager name is given, call `get_employees` to resolve their `id` and use that integer as `parent_id`.\n   - If a job position name is given, call `get_job_positions` to resolve its `id` and use that integer as `job_id`.\n   - Never pass names or strings for `department_id`, `parent_id`, or `job_id`; they must always be integer IDs from Odoo.\n   - Omit optional fields if not provided. Do not require them in order.\n   - Build the payload as a JSON object with named keys, not positional arguments.\n   - Call `create_employee` with the correct parameters."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -11952,
+        -144
+      ],
+      "id": "20fbb77f-d38f-42ce-afa4-bbb0f3c1ba4e",
+      "name": "Parser10",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -12192,
+        32
+      ],
+      "id": "1fe6497e-8930-4423-a064-a4b507fdaee1",
+      "name": "OpenAI Chat Model9",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "edit",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "5c71161e-31af-4481-b082-084c66f8c028"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "3102f823-5ca9-4dbc-8044-2f944ad7af31",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "delete",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "f81cc2fb-ff49-4bd6-b197-9dcf5ee68b2c",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "archive",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -11536,
+        -464
+      ],
+      "id": "e57f7190-f8f5-4fdd-9691-7042394772ae",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "http://host.docker.internal:8000/delete_employee",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "employee_id",
+              "value": "={{ $json.employee_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -11216,
+        -368
+      ],
+      "id": "7e53977c-317c-4235-be92-4b6b96c5d733",
+      "name": "Delete Employee1"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "http://host.docker.internal:8000/edit_employee",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "employee_id",
+              "value": "={{ $json.employee_id }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ $json.name || null }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.email || null }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone || null }}"
+            },
+            {
+              "name": "job_title",
+              "value": "={{ $json.job_title || null }}"
+            },
+            {
+              "name": "department_id",
+              "value": "={{ $json.department_id || null }}"
+            },
+            {
+              "name": "parent_id",
+              "value": "={{ $json.parent_id || null }}"
+            },
+            {
+              "name": "job_id",
+              "value": "={{ $json.job_id || null }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -11280,
+        -592
+      ],
+      "id": "0fa324cc-84a8-4a5d-96f7-2e79c1d4ceb3",
+      "name": "Edit Employee1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -12896,
+        -640
+      ],
+      "id": "327badae-725b-4581-9967-98817451f2b2",
+      "name": "When chat message received",
+      "webhookId": "4cde84b7-68c9-4998-b16b-8d505ee26442"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "http://host.docker.internal:8000/delete_employee",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11776,
+        224
+      ],
+      "id": "bce43187-06eb-486f-a305-abd5d47db0ee",
+      "name": "Delete Employee2"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/job_positions",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11984,
+        32
+      ],
+      "id": "d5bfe08f-288a-4082-8a06-74afd4932eab",
+      "name": "Get_Job_Positions"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/employees",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11680,
+        32
+      ],
+      "id": "9c0c1ba2-04ef-4e8b-bd67-c81c265e3352",
+      "name": "Get_Employees"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/departments",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11520,
+        32
+      ],
+      "id": "a4a3cf21-09fb-412c-8a50-9a568be7d314",
+      "name": "Get_Departments"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/tools",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11344,
+        32
+      ],
+      "id": "29cdd1a7-720e-4e97-b649-33265129a697",
+      "name": "Get_Tools"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Create a new employee in Odoo using name and email",
+        "method": "POST",
+        "url": "=http://host.docker.internal:8000/create_employee",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "={{ $fromAI('name', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('email', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('phone', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('job_title', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters4_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('department_id','the id of the department','number',0) }}\n",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters5_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('parent_id','the id of the d of the manager','number',0) }}\n",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('job_id','the id of the d of the job positionr','number',0) }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11040,
+        32
+      ],
+      "id": "6fc66521-0002-42dd-a7d5-c7297db6b55d",
+      "name": "create employee4"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Create a new employee in Odoo using name and email",
+        "method": "POST",
+        "url": "=http://host.docker.internal:8000/create_employee",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters3_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters3_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters4_Name', `the id of the department`, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters4_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters5_Name', `the id of the manager`, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters5_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Name', `the id of the job position`, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        -11200,
+        32
+      ],
+      "id": "ab790ee4-509f-4f26-9aeb-b82bc0608aad",
+      "name": "create_employee3"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -13024,
+        3088
+      ],
+      "id": "73c595d8-1c0f-4e24-8fda-bd1b61a85cbe",
+      "name": "OpenAI Chat Model10",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "sale.order",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        -12752,
+        3088
+      ],
+      "id": "efc491bc-b2bf-413c-8488-4ff163f5e98b",
+      "name": "Get Sales orders",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "hr.employee",
+        "operation": "getAll",
+        "limit": 3,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        -12592,
+        3088
+      ],
+      "id": "50eb8591-16bb-4b61-b952-fbff3b620337",
+      "name": "Get many Emplyees",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        -12432,
+        3088
+      ],
+      "id": "096e05cb-8fda-4a4a-9249-1d05c49f0a62",
+      "name": "Get many purchases",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Webhook').item.json.body.user_id }}",
+        "tableName": "n8n_Odoo"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -13104,
+        3152
+      ],
+      "id": "788f9554-bedf-405c-87da-a6f91a2530b2",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "UeE6SAbT1FgO5hVJ",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "res.company",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.odooTool",
+      "typeVersion": 1,
+      "position": [
+        -12256,
+        3088
+      ],
+      "id": "c427fb79-b1bb-42b8-bc3f-9025ee0cda1c",
+      "name": "Get many companies",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=res.partner",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {},
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{ $json.output.customer_name.toTitleCase()}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -12832,
+        1552
+      ],
+      "id": "ed9df5c8-6ffe-4f12-859e-19b8d1f5a3a4",
+      "name": "Get many Customers",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=product.product",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {},
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "in",
+              "value": "={{ $('AI Agent - Create Sales Order').item.json.output.products.map(p => p.product_name.toTitleCase())}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -12160,
+        1456
+      ],
+      "id": "39f48aac-3f76-492a-9aab-199102d78dbf",
+      "name": "Get many Products",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "sale.order",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "partner_id",
+              "fieldValue": "={{$node[\"Get many Customers\"].json[\"id\"]}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -12384,
+        1456
+      ],
+      "id": "bfec9f1f-9ea7-449b-b2cc-92c14473013e",
+      "name": "Create a sales order",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "sale.order.line",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "order_id",
+              "fieldValue": "={{$items(\"Create a sales order\")[0].json[\"id\"]}}"
+            },
+            {
+              "fieldName": "product_id",
+              "fieldValue": "={{$node[\"Get many Products\"].json[\"id\"]}}"
+            },
+            {
+              "fieldName": "product_uom_qty",
+              "fieldValue": "={{\n  (() => {\n    const parserItems = $items(\"AI Agent - Create Sales Order\")[0].json.output.products || [];\n    const display = ($json.display_name || \"\").toLowerCase();\n    const match = parserItems.find(p => {\n      const name = (p.product_name || \"\").toLowerCase();\n      return display.includes(name) || name.includes(display);\n    });\n    return match ? match.quantity : null;\n  })()\n}}\n"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -11712,
+        1360
+      ],
+      "id": "c4940f1e-6c57-4f3f-a75d-3f1b523aa258",
+      "name": "Create Sales order line",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply:$input.first().json.output || \"Sorry, I didn’t understand.\"\n};"
+      },
+      "name": "Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -12096,
+        2864
+      ],
+      "id": "057bb9c0-2da3-44e5-a6c4-c3e8bff0aa6a"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        -9232,
+        2832
+      ],
+      "id": "3080e7e2-7836-45f0-92a2-4b95597b29b0",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "purchase_order",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "3a0470d3-70af-404c-b4bf-5e690e4416a9"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7efad5da-e5af-41ff-9691-d413bfe12dce",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "sales_order",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "523f8ee2-b6d5-4017-879c-789cc9606aa9",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "other",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -13872,
+        2192
+      ],
+      "id": "4fb3bcf7-1c03-4918-8328-76c182481b19",
+      "name": "Command Switch"
+    },
+    {
+      "parameters": {
+        "jsCode": "const customer = $('Get many Customers').first().json.display_name;\nconst setItems = $input.all();\nconst parserProducts = $('AI Agent - Create Sales Order').first().json.output.products || [];\n\nlet list = setItems.map(it => {\n  const displayName = it.json.display_name || \"\";\n\n  // Find matching product in AI Agent output\n  const match = parserProducts.find(p => {\n    const name = (p.product_name || \"\").toLowerCase();\n    return displayName.toLowerCase().includes(name) || name.includes(displayName.toLowerCase());\n  });\n\n  const qty = match ? match.quantity : 0;\n  return `${displayName} (x${qty})`;\n}).join(\", \");\n\nreturn {\n  reply: `Sales order created successfully for ${customer} with ${list}.` ,\n  \n  channel_id:$('Loop Over Items').first().json.channel_id\n};\n"
+      },
+      "name": "Reply23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -11216,
+        1360
+      ],
+      "id": "9d2e03a8-cf6a-4874-aeef-f3378a40bec5"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -13408,
+        1760
+      ],
+      "id": "e0b32944-f1e2-474b-be93-80628497dbde",
+      "name": "OpenAI Chat Model30",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an Odoo sales assistant.\n\nYour job is to extract all relevant information from the user's message to create a sales order. \n\nAlways respond **ONLY in structured JSON** (no explanations, markdown, or extra text) in the following format:\n\n{\n  \"customer_name\": \"string\",          // Name of the customer\n  \"products\": [                        // List of products in the order\n    {\n      \"product_name\": \"string\",       // Name of the product exactly as mentioned\n      \"quantity\": number              // Quantity of that product\n    }\n  ]\n}\n\nRules:\n1. Extract **all products** mentioned in the message, even if there are multiple.\n2. If a product is mentioned without a quantity, set quantity to null.\n3. If the customer name is missing, set customer_name to null.\n4. Always return valid JSON. Never return text outside JSON.\n5. Use the product names **exactly as in the user's message** for now; matching with Odoo products will happen later.\n\nExample user message:\n\"Create a sales order for Mohammed Ali with product 'Acoustic Bloc Screens' in quantity 10 and product 'Office Chair' in quantity 5.\"\n\nExpected JSON output:\n{\n  \"customer_name\": \"Mohammed Ali\",\n  \"products\": [\n    {\"product_name\": \"Acoustic Bloc Screens\", \"quantity\": 10},\n    {\"product_name\": \"Office Chair\", \"quantity\": 5}\n  ]\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -13184,
+        1552
+      ],
+      "id": "c5a168d4-f3e2-4f55-a80c-f6aacd7f61bb",
+      "name": "AI Agent - Create Sales Order",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"customer_name\": \"string\",\n  \"products\": [\n    {\n      \"product_name\": \"string\",\n      \"quantity\": \"number\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -13040,
+        1776
+      ],
+      "id": "814f06b5-010a-4af4-9716-88a3558828ea",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c9d661bd-a2d9-45f1-9723-21028bc183e6",
+              "name": "id",
+              "value": "={{ $('Get many Products').item.json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "0547a55e-be72-4332-8368-876a2ab3b5a0",
+              "name": "display_name",
+              "value": "={{ $('Get many Products').item.json.display_name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -11472,
+        1344
+      ],
+      "id": "1a45b02c-8a18-46a5-908e-5f51eeea0424",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "## Create New Sales Order\n\n",
+        "height": 592,
+        "width": 2656
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -13680,
+        1312
+      ],
+      "typeVersion": 1,
+      "id": "a309628d-9f9a-41c2-9f27-2e28ef238d1b",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=product.product",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {
+          "fieldsList": []
+        },
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "in",
+              "value": "={{ $('AI Agent - Create Purchase Order').item.json.output.products.map(p => p.product_name.toTitleCase())}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -12288,
+        960
+      ],
+      "id": "8db8b074-2a0e-494d-88cc-45a5eefeb767",
+      "name": "Get many Products13",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const Vendor = $('Get many Vendors').first().json.display_name;\nconst setItems = $input.all();\nconst parserProducts = $('AI Agent - Create Purchase Order').first().json.output.products || [];\n\nlet list = setItems.map(it => {\n  const displayName = it.json.display_name || \"\";\n\n  // Find matching product in AI Agent output\n  const match = parserProducts.find(p => {\n    const name = (p.product_name || \"\").toLowerCase();\n    return displayName.toLowerCase().includes(name) || name.includes(displayName.toLowerCase());\n  });\n\n  const qty = match ? match.quantity : 0;\n  return `${displayName} (x${qty})`;\n}).join(\", \");\n\nreturn {\n  reply: `Purchase order created successfully for ${Vendor} with ${list}.`,\n  channel_id:$('Loop Over Items').first().json.channel_id\n};\n"
+      },
+      "name": "Reply24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -11232,
+        864
+      ],
+      "id": "23f67a21-5839-4b58-9bf0-7cab023cdc59"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -13408,
+        1104
+      ],
+      "id": "f0a6a9d2-d988-42d4-a642-bbaf1fca862d",
+      "name": "OpenAI Chat Model31",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"customer_name\": \"string\",\n  \"products\": [\n    {\n      \"product_name\": \"string\",\n      \"quantity\": \"number\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -13280,
+        1104
+      ],
+      "id": "e2d08284-7f63-4bf6-be06-985c539123d5",
+      "name": "Structured Output Parser20"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c9d661bd-a2d9-45f1-9723-21028bc183e6",
+              "name": "id",
+              "value": "={{ $('Get many Products13').item.json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "0547a55e-be72-4332-8368-876a2ab3b5a0",
+              "name": "display_name",
+              "value": "={{ $('Get many Products13').item.json.display_name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -11616,
+        864
+      ],
+      "id": "19685de9-cbba-423f-bdac-8cc0b27120d0",
+      "name": "Edit Fields25"
+    },
+    {
+      "parameters": {
+        "content": "## Create New Purchase Order\n\n\n",
+        "height": 416,
+        "width": 2624
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -13680,
+        816
+      ],
+      "typeVersion": 1,
+      "id": "da2a11ca-a380-4716-958a-26dfb931567f",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "partner_id",
+              "fieldValue": "={{$node[\"Get many Vendors\"].json[\"id\"]}}"
+            },
+            {
+              "fieldName": "date_approve",
+              "fieldValue": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -12512,
+        960
+      ],
+      "id": "8e327e3e-4023-4f58-9e87-8c1ca67c7fc3",
+      "name": "Create a Purchase Order",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order.line",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "order_id",
+              "fieldValue": "={{$items(\"Create a Purchase Order\")[0].json[\"id\"]}}"
+            },
+            {
+              "fieldName": "product_id",
+              "fieldValue": "={{$node[\"Get many Products13\"].json[\"id\"]}}"
+            },
+            {
+              "fieldName": "product_uom_qty",
+              "fieldValue": "={{\n  (() => {\n    const parserItems = $items(\"AI Agent - Create Purchase Order\")[0].json.output.products || [];\n    const display = ($json.display_name || \"\").toLowerCase();\n    const match = parserItems.find(p => {\n      const name = (p.product_name || \"\").toLowerCase();\n      return display.includes(name) || name.includes(display);\n    });\n    return match ? match.quantity : null;\n  })()\n}}\n"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -11840,
+        864
+      ],
+      "id": "b92de445-7967-48cc-a02c-d32785486a4f",
+      "name": "Create Purchase order line",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "=res.partner",
+        "operation": "getAll",
+        "limit": 5,
+        "options": {},
+        "filterRequest": {
+          "filter": [
+            {
+              "fieldName": "name",
+              "operator": "like",
+              "value": "={{ $json.output.vendor_name.toTitleCase() }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -13024,
+        1040
+      ],
+      "id": "82888ed4-eb44-4271-9ab8-5875b91db9d5",
+      "name": "Get many Vendors",
+      "alwaysOutputData": true,
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an Odoo purchase assistant.\n\nYour job is to extract all relevant information from the user's message to create a purchase order.\n\nAlways respond **ONLY in structured JSON** (no explanations, markdown, or extra text) in the following format:\n\n{\n  \"vendor_name\": \"string\",           // Name of the vendor\n  \"products\": [                      // List of products in the purchase order\n    {\n      \"product_name\": \"string\",      // Name of the product exactly as mentioned\n      \"quantity\": number             // Quantity of that product\n    }\n  ]\n}\n\nRules:\n1. Extract **all products** mentioned in the message, even if there are multiple.\n2. If a product is mentioned without a quantity, set quantity to null.\n3. If the vendor name is missing, set `vendor_name` to null.\n4. Always return valid JSON. Never return text outside JSON.\n5. Use the product names **exactly as in the user's message**; matching with Odoo products will happen later.\n\nExample user message:\n\"Create a purchase order for Vendor ABC supplying 'Laptop Model X' in quantity 5 and 'Wireless Mouse' in quantity 10.\"\n\nExpected JSON output:\n{\n  \"vendor_name\": \"Vendor ABC\",\n  \"products\": [\n    {\"product_name\": \"Laptop Model X\", \"quantity\": 5},\n    {\"product_name\": \"Wireless Mouse\", \"quantity\": 10}\n  ]\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -13424,
+        896
+      ],
+      "id": "dee68c69-954e-4868-9145-0f4138d3ef70",
+      "name": "AI Agent - Create Purchase Order",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "resource": "custom",
+        "customResource": "purchase.order",
+        "operation": "update",
+        "customResourceId": "={{ $('Create a Purchase Order').item.json.id }}",
+        "fieldsToCreateOrUpdate": {
+          "fields": [
+            {
+              "fieldName": "state",
+              "fieldValue": "purchase"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.odoo",
+      "typeVersion": 1,
+      "position": [
+        -11440,
+        864
+      ],
+      "id": "e805df86-de41-4610-87ab-016f5e3cf467",
+      "name": "Confirm Purchase Order",
+      "credentials": {
+        "odooApi": {
+          "id": "tFHDxT2joXGBNzTx",
+          "name": "Odoo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -15168,
+        2384
+      ],
+      "id": "4ae61897-726a-4b8f-9232-4d4215904b1c",
+      "name": "OpenAI Chat Model32",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n      \"route\": \"string\",\n      \"data\": \"string\",\n      \"channel_id\": \"number\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -14928,
+        2384
+      ],
+      "id": "7465fada-868f-4436-8675-4628ad25cd8e",
+      "name": "Structured Output Parser21"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "https://docs.google.com/document/d/1efl-kN3DLttX-TG7_njAep36R0lx0QXov6Rsz1Z839E/edit?tab=t.0"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        -12096,
+        3088
+      ],
+      "id": "943f3ca9-c396-48a6-8227-6fc210750db1",
+      "name": "Get  Requirements",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "fZBJSVv4VSRJ01w9",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9b797fb9-43fd-4d2a-80be-3769f03e133f",
+              "name": "message",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            },
+            {
+              "id": "3d4a3771-1348-4fcd-81a6-dd858158a364",
+              "name": "user_id",
+              "value": "={{ $('Webhook').item.json.body.user_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -13152,
+        2864
+      ],
+      "id": "7ed4b98f-82ad-4e45-a259-c60952795ccc",
+      "name": "Edit Fields26"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f3408dfb-92a0-442a-92ef-2200ab675451",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -12608,
+        1552
+      ],
+      "id": "d9fc3ea9-d619-4a56-b5f0-c9abf9c53dc6",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The customer name you provided  does not exist in Odoo. Please check the name or create the customer before making a sales order.\",\n  channel_id:$('Loop Over Items').first().json.channel_id\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -12400,
+        1696
+      ],
+      "id": "8f2f9092-e2fa-4699-8edc-ad900c644658",
+      "name": "Check Customer"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3db2712d-3474-4500-a698-cdfb86c4a1c8",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -11936,
+        1456
+      ],
+      "id": "5e453a11-4fd4-4081-a420-967ae2e1efcd",
+      "name": "If28"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "feda7d91-6349-4194-b803-9581ab6361ac",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -12736,
+        1056
+      ],
+      "id": "c26e3251-e994-4cd1-92ec-6446534d13da",
+      "name": "If29"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Vendor name you provided does not exist in Odoo. Please check the name or create the Vendor before making a sales order.\",\n  channel_id:$('Loop Over Items').first().json.channel_id\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -12528,
+        1168
+      ],
+      "id": "f8bc4384-ed89-4718-9dfc-921297d83432",
+      "name": "Check Customer9"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9016f082-c8c0-41ef-9883-6a155bd33157",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -12064,
+        960
+      ],
+      "id": "0745add7-d325-44d4-aaf7-d56fb3f1e4ec",
+      "name": "If30"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Products you provided does not exist in Odoo. Please check the name or create the Product before making a sales order.\",\n  channel_id:$('Loop Over Items').first().json.channel_id\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -11856,
+        1056
+      ],
+      "id": "1012c253-a408-400b-98ca-d2a0ce3bf45e",
+      "name": "Check Products"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  reply: \"The Products you provided does not exist in Odoo. Please check the name or create the Product before making a sales order.\" ,\n  channel_id:$('Loop Over Items').first().json.channel_id\n   \n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -11744,
+        1536
+      ],
+      "id": "3ef3b74a-2ed2-487d-ac4b-f08400e8bddb",
+      "name": "Check Products9"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Webhook').item.json.body.message }}{{$json.text|| '' }}\nchannel_id: {{ $('Webhook').item.json.body.channel_id }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an Odoo routing agent.\n\nYour only job is to classify each block of text into one of three routes:\n\n- \"sales_order\" → ONLY if the text clearly describes a sales order (mentions customer, products, and quantities).\n- \"purchase_order\" → ONLY if the text clearly describes a purchase order (mentions vendor, products, and quantities).\n- \"other\" → for all other cases, including greetings, questions, or incomplete information.\n\nRules:\n1. Always respond ONLY in valid JSON. The JSON must be a single root object where each classified item is assigned a sequential string key starting from \"output0\", \"output1\", \"output2\", etc.\n2. The value for each key must be an object with exactly three fields:\n   {\n     \"route\": \"sales_order\" | \"purchase_order\" | \"other\",\n     \"data\": \"the original text block exactly as received\",\n     \"channel_id\": <number>\n   }\n3. Do NOT parse or transform the content of the data field. Just copy the raw text into \"data\".\n4. Do NOT output explanations, errors, or any text outside JSON.\n5. Do NOT call any tools yourself.\n\nExample output: \n{\n  \"output0\": {\n    \"route\": \"sales_order\",\n    \"data\": \"Sales Order1: customer: Acme Corporation products: Chair floor protection x10, Deposit x20, Drawer x15\",\n    \"channel_id\": 45\n  },\n  \"output1\": {\n    \"route\": \"sales_order\",\n    \"data\": \"Sales Order2: customer: Acme Corporation products: Chair floor protection x1, Deposit x2, Drawer x5\",\n    \"channel_id\": 45\n  },\n  \"output2\": {\n    \"route\": \"purchase_order\",\n    \"data\": \"Purchase Order1: vendor: Acme Corporation products: Chair floor protection x5, Deposit x10, Drawer x1\",\n    \"channel_id\": 45\n  }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -15104,
+        2176
+      ],
+      "id": "36a53c2c-6032-41da-933a-c6fe17442459",
+      "name": "Parser",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message }}",
+        "options": {
+          "systemMessage": "You are an Odoo assistant.\n\nAlways respond in plain text, naturally like a human assistant.\n\nDo not use HTML.\nDo not use markdown.\nDo not use emojis.\nDo not use bold or italic styles.\n\nYour responsibilities:\n- Chat normally with the user when they greet you or ask general questions.\n- Use the Odoo tools when the user asks about existing sales orders, purchase orders, employees, vendors, or companies.\n- Use the Docs tool when the user asks about requirements for creating sales orders or purchase orders. Summarize the requirements clearly in plain text.\n- Structure replies with line breaks when listing information, so they are easy to read.\n- Never output JSON. Never classify or route commands — that is the job of the routing agent.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -12608,
+        2864
+      ],
+      "id": "17cb5329-585a-4ad3-8012-cc4d80618e93",
+      "name": "ChatAgent",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "content": "## Chat\n",
+        "height": 528,
+        "width": 1280,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -13216,
+        2784
+      ],
+      "typeVersion": 1,
+      "id": "2170515b-acea-4160-967c-4324889a26bc",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chatbot",
+        "responseMode": "responseNode",
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -16880,
+        2176
+      ],
+      "id": "bea939ae-6563-4cf7-ae98-aab2badc9b61",
+      "name": "Webhook",
+      "webhookId": "25a8cafa-e2d3-4453-9f4b-59684bb30282"
+    },
+    {
+      "parameters": {
+        "url": "=http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"school_odoo\",          \n      2,                      \n      \"odoo\",   \n      \"ir.attachment\",        \n      \"read\",                 \n      [[{{ $json.body.attachments[0].id }}], [\"datas\"]]     \n    ]\n  }\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -16512,
+        2096
+      ],
+      "id": "f7fd27cb-cbf1-4496-ab28-617183396054",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e1541c7-d58b-4e88-b15d-4df71e3973f3",
+              "name": "datas",
+              "value": "={{ $json.result[0].datas }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -16288,
+        2096
+      ],
+      "id": "a4d093c4-aad5-4c99-920c-2191a7964666",
+      "name": "Edit Fields27"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "datas",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -16064,
+        2096
+      ],
+      "id": "c15acb3e-a97c-4820-b91b-9a78df170a55",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -15472,
+        2432
+      ],
+      "id": "f63457a6-cb91-4829-a72a-dc59bf5f6f5a",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "1e5163cd-3bb6-464d-a0a2-f493d47d840f",
+              "leftValue": "={{ $('Webhook').item.json.body.attachments[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -16736,
+        2176
+      ],
+      "id": "0a4ae515-eccc-4c6d-84c0-c93957646226",
+      "name": "If31"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -14608,
+        2192
+      ],
+      "id": "3e56b29a-e52b-4936-a17e-e24c699426c4",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -14256,
+        2192
+      ],
+      "id": "0b1a5203-af82-4e23-8915-ba3f1ff00e83",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "reply"
+            },
+            {
+              "fieldToAggregate": "channel_id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -10320,
+        2384
+      ],
+      "id": "d9b1cdea-51d2-4f20-9ae4-6d66704e8c6e",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"school_odoo\",\n      2,\n      \"odoo\",\n      \"ir.attachment\",\n      \"create\",\n      [{\n        \"name\": \"orders.txt\",\n        \"datas\": \"{{ $json.data }}\",\n        \"res_model\": \"discuss.channel\",\n        \"res_id\":{{ $('reply').item.json.channel_id }}\n,\n        \"mimetype\": \"text/plain\"\n      }]\n    ]\n  },\n  \"id\": 1\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -9584,
+        2176
+      ],
+      "id": "87388011-581a-45a1-ac25-5ef43c4cb273",
+      "name": "HTTP Request7"
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {
+          "encoding": "base64"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -9824,
+        2176
+      ],
+      "id": "96e5eeb7-6792-42d5-82f0-9a9235a39588",
+      "name": "Extract from File7"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect all reply strings from the aggregate output\nconst replies = $input.all().map(it => it.json.reply);\n\n// Combine them into one message\nreturn {\n  reply: replies.join(\"\\n\\n\"),\n  channel_id:$('Aggregate').first().json.channel_id[0]\n  // or \", \" if you prefer inline\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -10240,
+        2176
+      ],
+      "id": "7250f828-2446-4fde-9f35-a9928e1097ca",
+      "name": "reply"
+    },
+    {
+      "parameters": {
+        "jsCode": "const attachmentId = $('HTTP Request7').first().json.result;\nconst baseUrl = \"http://localhost:8069/\";  // your Odoo host\nconst attachmentUrl = `${baseUrl}/web/content/${attachmentId}?download=true`;\n\nreturn {\n  reply: `Here is the file: ${attachmentUrl}`,\n  url: attachmentUrl,\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -9376,
+        2176
+      ],
+      "id": "0828631f-ae38-4129-aa78-a976577db516",
+      "name": "FinalReply"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "reply",
+        "options": {
+          "fileName": "orders.txt"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -10064,
+        2176
+      ],
+      "id": "95a8408f-f328-466b-afa9-e473784ee168",
+      "name": "Convert to File7"
+    },
+    {
+      "parameters": {
+        "content": "## Generate file\n",
+        "height": 304,
+        "width": 1104
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -10272,
+        2080
+      ],
+      "typeVersion": 1,
+      "id": "5690ec1a-ae09-4907-8228-9037e8fea363",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://whisper:9000/asr",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "audio_file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "text"
+            }
+          }
+        }
+      },
+      "id": "011ecb4f-3da5-4ea9-a133-4dfca20ac450",
+      "name": "Whisper ASR HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -15472,
+        2080
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "83d4e77a-da79-4383-8a9c-768209b2a0dd",
+              "leftValue": "={{ $('Webhook').item.json.body.attachments[0].mimetype }}",
+              "rightValue": "audio",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -15856,
+        2096
+      ],
+      "id": "b1526b8d-08e5-4927-b0e6-18af618718bd",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "content": "## Old System Message\nYou are an Odoo routing agent.\n\nYour only job is to classify each block of text into one of three routes:\n\n- \"sales_order\" → ONLY if the text clearly describes a sales order (mentions customer, products, and quantities).\n- \"purchase_order\" → ONLY if the text clearly describes a purchase order (mentions vendor, products, and quantities).\n- \"other\" → for all other cases, including greetings, questions, or incomplete information.\n\nRules:\n1. Always respond ONLY in structured JSON with two fields:\n   {\n     \"route\": \"sales_order\" | \"purchase_order\" | \"other\",\n     \"data\": \"the original text block exactly as received\",\n     \"channel_id\" : \"the webhook channel id\"\n   }\n2. Do NOT parse or transform the content of the data field. Just copy the raw text into \"data\".\n3. Do NOT output explanations, errors, or any text outside JSON.\n4. Do NOT call any tools yourself.\n\nExample output : \n[\n  {\n    \"route\": \"sales_order\",\n    \"data\": \"Sales Order1: customer: Acme Corporation products: Chair floor protection x10, Deposit x20, Drawer x15\",\n    \"channel_id\" : 45\n    \n  },\n  {\n    \"route\": \"sales_order\",\n    \"data\": \"Sales Order2: customer: Acme Corporation products: Chair floor protection x1, Deposit x2, Drawer x5\",\n    \"channel_id\" : 45\n  },\n  {\n    \"route\": \"purchase_order\",\n    \"data\": \"Purchase Order1: vendor: Acme Corporation products: Chair floor protection x5, Deposit x10, Drawer x1\",\n    \"channel_id\" : 45\n  }\n]\n",
+        "height": 832,
+        "width": 1312
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -15712,
+        704
+      ],
+      "typeVersion": 1,
+      "id": "7789f9ad-ee90-4dd5-8b84-7beffd1cb387",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## Read Audio\n",
+        "height": 304,
+        "width": 256,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -15552,
+        1984
+      ],
+      "typeVersion": 1,
+      "id": "711c9923-6024-40a0-973c-7bce711c02c9",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "## Read File",
+        "height": 304,
+        "width": 256,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -15552,
+        2336
+      ],
+      "typeVersion": 1,
+      "id": "365a6015-2bba-471f-9e55-221dafa7d63b",
+      "name": "Sticky Note31"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-03-30T15:26:57.444Z",
+      "createdAt": "2026-03-30T15:26:57.444Z",
+      "role": "workflow:owner",
+      "workflowId": "uoIYiE7HWNgI7LmS",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-04-08T14:36:41.477Z",
+  "versionId": "ccb1465c-3064-4f50-a68b-7dab5384ac63"
+}
