@@ -76,7 +76,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow 5",
+  "name": "TTS Telegaram",
   "nodes": [
     {
       "parameters": {
@@ -88,7 +88,7 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        0,
+        -304,
         -16
       ],
       "id": "6a471556-1738-42f7-b3a7-7eee5c8ee22b",
@@ -110,7 +110,7 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        160,
+        -16,
         -16
       ],
       "id": "602dcbfd-aede-46f5-846e-b428b876c19c",
@@ -143,7 +143,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        336,
+        160,
         -16
       ],
       "id": "97e68943-0a3e-468d-9b23-c1916693780b",
@@ -181,7 +181,7 @@
       "typeVersion": 1.3,
       "position": [
         496,
-        224
+        192
       ],
       "id": "e40fb6d4-a2d5-4796-8dd7-12f04377521c",
       "name": "OpenAI Chat Model",
@@ -203,7 +203,7 @@
       "typeVersion": 1.3,
       "position": [
         640,
-        224
+        192
       ],
       "id": "4a2c5249-e5fd-4fd2-88a2-92a25d83607d",
       "name": "Postgres Chat Memory",
@@ -221,8 +221,8 @@
       "type": "n8n-nodes-piapi.textToSpeech",
       "typeVersion": 1,
       "position": [
-        848,
-        0
+        944,
+        -16
       ],
       "id": "5b92261b-3a5d-4bba-b5b3-1630e00e6b3c",
       "name": "Text to Speech",
@@ -250,6 +250,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-15T21:42:06.165Z",
-  "versionId": "f44a5007-6c6a-4826-b26c-caff1537d950"
+  "updatedAt": "2026-04-23T16:33:39.931Z",
+  "versionId": "18187b8d-79a0-44a0-9931-fe289f5d017f"
 }
