@@ -1,0 +1,2141 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Command Switch2": {
+      "main": [
+        [
+          {
+            "node": "Call Odoo_purchase_order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Odoo_sales_order",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Odoo_chat",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Odoo_employees",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Odoo_product",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model29": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser8",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser19": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Parser8",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser8": {
+      "main": [
+        [
+          {
+            "node": "Split Out3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook2": {
+      "main": [
+        [
+          {
+            "node": "If27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields24": {
+      "main": [
+        [
+          {
+            "node": "Convert to File5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File5": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File5": {
+      "main": [
+        [
+          {
+            "node": "Parser8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If27": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parser8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [
+          {
+            "node": "reply2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Command Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "node": "FinalReply2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File6": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "reply2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FinalReply2": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File6": {
+      "main": [
+        [
+          {
+            "node": "If Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whisper ASR HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Parser8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Whisper ASR HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from File5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many Sales order By order Name": {
+      "main": [
+        []
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        []
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Call Odoo_purchase_order": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Odoo_sales_order": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Convert to File6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Not Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Odoo_chat": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Odoo_employees": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Rename Transcription Key": {
+      "main": [
+        [
+          {
+            "node": "Parser8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Voice File1": {
+      "main": [
+        [
+          {
+            "node": "Whisper ASR HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message Type Switch1": {
+      "main": [
+        [
+          {
+            "node": "Parser8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Voice File1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authorization Check If1": {
+      "main": [
+        [
+          {
+            "node": "Message Type Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whisper ASR HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Rename Transcription Key",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Parser8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Odoo_product": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Not Telegram": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Telegram": {
+      "main": [
+        [
+          {
+            "node": "Send a document",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from File6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Authorization Check If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-08T15:47:25.098Z",
+  "id": "eI8CHhIXi6oTfXe2",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "odoo3",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        240,
+        96
+      ],
+      "id": "6511740c-0671-4959-ae55-bb87129dde70",
+      "name": "Respond to Webhook2"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "purchase_order",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "3a0470d3-70af-404c-b4bf-5e690e4416a9"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7efad5da-e5af-41ff-9691-d413bfe12dce",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "sales_order",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "523f8ee2-b6d5-4017-879c-789cc9606aa9",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "other",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ce0713a9-ba3a-49f5-9c79-2085cfb2f137",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "employee",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "fb879111-060b-4747-bd16-c00732fb8421",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "product",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -1360,
+        224
+      ],
+      "id": "a6ca4cee-54b8-4de5-8375-5ddc359ed806",
+      "name": "Command Switch2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -1984,
+        416
+      ],
+      "id": "7667c9b1-6a14-4f7d-952a-ea3bdd808d9e",
+      "name": "OpenAI Chat Model29",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n \"route\": \"string\",\n    \"operation\": \"string\",\n    \"data\": \"string\",\n    \"isGenerateFile\": \"boolean\",\n    \"channel_id\": \"number\",\n    \"user_id\": \"number\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -1824,
+        432
+      ],
+      "id": "e39a285e-e4d4-4376-818c-69f5fd2e5721",
+      "name": "Structured Output Parser19"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.message }}{{$json.text|| '' }}{{$json.message.text }}{{ $json.message.caption }}\nchannel_id: {{ $json.body.channel_id }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an Odoo routing agent.\n\nYour job is to classify each block of text into one of four possible routes and one of five possible operations.\n\nRoutes:\n- \"sales_order\" → ONLY if the text clearly describes a sales order (mentions customer, products, and quantities).\n- \"purchase_order\" → ONLY if the text clearly describes a purchase order (mentions vendor, products, and quantities).\n- \"employee\" → ONLY if the text clearly describes an employee action (create, update, delete, get employee, or infos about employees).\n- \"product\" → ONLY if the text clearly describes a product action (create, update, delete, or get product information in Odoo).\n- \"other\" → for all other cases, including greetings, questions, or incomplete information.\n\nOperations:\n- \"create\" → if the text clearly requests creating a new record (e.g., \"Add a new employee named Lotfi\").\n- \"update\" → if the text clearly requests modifying an existing record (e.g., \"Change the email of employee Lotfi\").\n- \"delete\" → if the text clearly requests removing a record (e.g., \"Delete employee John Doe\").\n- \"get\" → if the text clearly requests retrieving or viewing a record (e.g., \"Show me employee Lotfi's details\").\n- \"infos\" → if the text is asking for information *about* the available tools or the fields required for creating, updating, or deleting records (e.g., \"How do I create an employee?\", \"What are the fields for editing an employee?\", \"What tools exist for employees?\"). In these cases, do NOT classify as create/update/delete — always choose infos.\n\nRules:\n1. Always respond ONLY in valid JSON. The JSON must be a single root object where each classified text block is assigned a sequential string key starting from \"output0\", \"output1\", \"output2\", etc.\n2. **CRITICAL: Even if you receive only ONE text block to classify, you MUST still return it as an object with a sequential key (e.g., \"output0\"). Do NOT return the object directly without the wrapper.**\n3. The value for each output key must be an object with exactly six fields:\n   {\n     \"route\": \"sales_order\" | \"purchase_order\" | \"employee\" | \"other\",\n     \"operation\": \"create\" | \"update\" | \"delete\" | \"get\" | \"infos\",\n     \"data\": \"the original text block exactly as received\",\n     \"isGenerateFile\": true | false,\n     \"channel_id\": <number>,\n     \"user_id\": <number>\n   }\n4. `\"isGenerateFile\"` must be set to `true` **only if the user explicitly requests the output to be generated as a file** (e.g., \"give me the output as a CSV file\", \"export this result\"). Otherwise, set it to `false`.\n5. `\"channel_id\"` must be included in every output object as a general identifier for the channel.\n6. `\"user_id\"` must be included in every output object as a general identifier for the user.\n7. Do NOT parse or transform the content of the data field. Just copy the raw text into \"data\".\n8. Do NOT output explanations, errors, or any text outside JSON.\n9. Do NOT call any tools yourself.\n\nExamples:\n\nExample 1 - Single text block:\n{\n  \"output0\": {\n    \"route\": \"other\",\n    \"operation\": \"infos\",\n    \"data\": \"hello\",\n    \"isGenerateFile\": false,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  }\n}\n\nExample 2 - Multiple text blocks:\n{\n  \"output0\": {\n    \"route\": \"other\",\n    \"operation\": \"infos\",\n    \"data\": \"how are you?\",\n    \"isGenerateFile\": false,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  },\n  \"output1\": {\n    \"route\": \"employee\",\n    \"operation\": \"update\",\n    \"data\": \"Update the employee named Lotfi with new email lotfi.new@gmail.com\",\n    \"isGenerateFile\": false,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  },\n  \"output2\": {\n    \"route\": \"sales_order\",\n    \"operation\": \"create\",\n    \"data\": \"Sales Order1: customer: Acme Corporation products: Chair x10, Desk x5\",\n    \"isGenerateFile\": true,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -1984,
+        240
+      ],
+      "id": "decc61dc-e8e0-43ef-a9d8-deaa8fba5f24",
+      "name": "Parser8",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "content": "## Read  Message\n",
+        "height": 336,
+        "width": 720,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3152,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "3ea73345-c7ee-4262-b030-176b235366ae",
+      "name": "Sticky Note25"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cf308c07-a4b1-4323-893c-b0797cdb639f",
+        "responseMode": "responseNode",
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -3136,
+        224
+      ],
+      "id": "5169f5cb-2ed8-4000-94a6-2b940ae6d14f",
+      "name": "Webhook2",
+      "webhookId": "cf308c07-a4b1-4323-893c-b0797cdb639f"
+    },
+    {
+      "parameters": {
+        "url": "=http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"{{$env.ODOO_DB}}\",          \n      2,                      \n      \"odoo\",   \n      \"ir.attachment\",        \n      \"read\",                 \n      [[{{ $json.body.attachments[0].id }}], [\"datas\"]]     \n    ]\n  }\n}\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -2816,
+        144
+      ],
+      "id": "2a7ce9d6-c0b5-4b00-9ea9-e0ae9c35ef55",
+      "name": "HTTP Request5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0e1541c7-d58b-4e88-b15d-4df71e3973f3",
+              "name": "datas",
+              "value": "={{ $json.result[0].datas }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2672,
+        144
+      ],
+      "id": "51d092cf-5d16-488f-a226-458136c36af7",
+      "name": "Edit Fields24"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "datas",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -2528,
+        144
+      ],
+      "id": "c2e3968d-c9c2-456f-b6b4-be5fa7a607a7",
+      "name": "Convert to File5"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -2208,
+        160
+      ],
+      "id": "a1743e89-9dca-4f36-a592-6eef20b26d79",
+      "name": "Extract from File5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "1e5163cd-3bb6-464d-a0a2-f493d47d840f",
+              "leftValue": "={{ $('Webhook2').item.json.body.attachments[0] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2976,
+        224
+      ],
+      "id": "74634876-4fa2-48a8-b45b-fe1d3b2edb92",
+      "name": "If27"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -1696,
+        240
+      ],
+      "id": "d951c0da-a8fd-4b38-a692-096d9794f8c1",
+      "name": "Split Out3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1536,
+        240
+      ],
+      "id": "1119e798-d7a4-4a92-91ab-1bda2d6c8cd8",
+      "name": "Loop Over Items3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8069/jsonrpc",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"call\",\n  \"params\": {\n    \"service\": \"object\",\n    \"method\": \"execute_kw\",\n    \"args\": [\n      \"{{$env.ODOO_DB}}\",\n      2,\n      \"odoo\",\n      \"ir.attachment\",\n      \"create\",\n      [{\n        \"name\": \"orders.txt\",\n        \"datas\": \"{{ $json.data }}\",\n        \"res_model\": \"discuss.channel\",\n        \"res_id\":{{ $('reply2').item.json.channel_id }}\n,\n        \"mimetype\": \"text/plain\"\n      }]\n    ]\n  },\n  \"id\": 1\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -16,
+        16
+      ],
+      "id": "6d87c8ec-21f6-40d5-bde4-c2aa6c24125b",
+      "name": "HTTP Request6"
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {
+          "encoding": "base64"
+        }
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -176,
+        16
+      ],
+      "id": "68fb4294-c96c-47ac-83b9-8f23843c9bbe",
+      "name": "Extract from File6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect all reply strings from the aggregate output\nconst replies = $input.all().map(it => it.json.reply);\n\n// Helper to normalize empty or newline-only values to null\nfunction normalize(value) {\n  if (!value) return null; // catches undefined, null, empty string\n  const trimmed = String(value).trim();\n  return trimmed === \"\" ? null : trimmed;\n}\n\n// Combine them into one message\nreturn {\n  reply: replies.join(\"\\n\\n\"),\n  channel_id: $('Aggregate').first().json.channel_id[0],\n  isGenerateFile: $('Aggregate').first().json.isGenerateFile[0],\n  isTelegram: normalize($('Aggregate').first().json.id[0])\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -752,
+        160
+      ],
+      "id": "f957eed9-e1b6-4a30-aa61-84e29069fadb",
+      "name": "reply2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const attachmentId = $('HTTP Request6').first().json.result;\nconst baseUrl = \"http://localhost:8069/\";  // your Odoo host\nconst attachmentUrl = `${baseUrl}/web/content/${attachmentId}?download=true`;\n\nreturn {\n  reply: `Here is the file: ${attachmentUrl}`,\n  url: attachmentUrl,\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        16
+      ],
+      "id": "b09e37e9-f92f-45fd-a109-8be00af1ed01",
+      "name": "FinalReply2"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "reply",
+        "options": {
+          "fileName": "orders.txt"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -480,
+        0
+      ],
+      "id": "b4810760-7d0a-4a8d-9057-db252ad306f8",
+      "name": "Convert to File6"
+    },
+    {
+      "parameters": {
+        "content": "## Generate file\n",
+        "height": 304,
+        "width": 736,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -512,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "1db0cea3-0b34-4cb2-b910-3bc350f1d65a",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://whisper:9000/asr",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "audio_file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "text"
+            }
+          }
+        }
+      },
+      "id": "8380f16e-4706-4931-847e-48b6b3f116e3",
+      "name": "Whisper ASR HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -2208,
+        -64
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "83d4e77a-da79-4383-8a9c-768209b2a0dd",
+              "leftValue": "={{ $('Webhook2').item.json.body.attachments[0].mimetype }}",
+              "rightValue": "audio",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2400,
+        144
+      ],
+      "id": "0dedb62a-54ce-4948-a36c-b1ac1b139bce",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "content": "## Read Audio\n",
+        "height": 192,
+        "width": 160,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2240,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "fada0034-6eda-4b6d-bfa4-fb88db73691a",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "content": "## Read File",
+        "height": 208,
+        "width": 160,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2240,
+        112
+      ],
+      "typeVersion": 1,
+      "id": "9702d441-ed5f-488a-935f-b34cb0411c2a",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -736,
+        -5200
+      ],
+      "id": "b9bbc55c-473b-46c6-ab6c-679fad74344f",
+      "name": "When chat message received",
+      "webhookId": "6403c41e-3288-4cd5-9886-39e88169a164"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -1712,
+        2064
+      ],
+      "id": "a20c08dd-4aa7-441a-b401-c81f5a513db8",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "XAV29vLJxIDG4y9F",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "WW6aymVoJ1L9uGc4",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/WW6aymVoJ1L9uGc4",
+          "cachedResultName": "Odoo_purchase_order"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "channel_id_firstItem",
+            "operation"
+          ],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1168,
+        64
+      ],
+      "name": "Call Odoo_purchase_order",
+      "id": "e346ff2b-d46b-4993-81af-5bb08065c1f8",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "qb3R3I2VThpYH5Xa",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/qb3R3I2VThpYH5Xa",
+          "cachedResultName": "Odoo_sales_order"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "channel_id_firstItem",
+            "operation"
+          ],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1168,
+        224
+      ],
+      "name": "Call Odoo_sales_order",
+      "id": "015297f7-bc5e-4f3c-a2a7-93174161ba74",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cc50e2a7-1bbc-492e-ac6a-d05556fb4a10",
+              "leftValue": "={{ $json.isGenerateFile}}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -608,
+        160
+      ],
+      "id": "d56df56f-9fb1-474d-97ce-ef615e002c3b",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ee39321-452d-47ec-a89d-b9008e8b0f76",
+              "name": "reply",
+              "value": "={{ $json.reply[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "7cd01c4d-f934-4602-bbde-12483bd3d635",
+              "name": "channel_id",
+              "value": "={{ $('Loop Over Items3').item.json.channel_id }}",
+              "type": "number"
+            },
+            {
+              "id": "fb765534-4bf8-4f84-b4cf-47ad211cd2dc",
+              "name": "isGenerateFile",
+              "value": "={{ $('Loop Over Items3').item.json.isGenerateFile }}",
+              "type": "boolean"
+            },
+            {
+              "id": "bbf3bd0c-714a-40ac-89fb-46d5d2b828e9",
+              "name": "message.from.id",
+              "value": "={{ $if($(\"Telegram Trigger\").isExecuted, $(\"Telegram Trigger\").item.json.message.from.id, null) }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        64
+      ],
+      "id": "9863795b-9105-458e-b856-e0640909f1d8",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "HZ5LYcFK1uSqTHai",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/HZ5LYcFK1uSqTHai",
+          "cachedResultName": "Odoo_chat"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "body_user_id",
+            "data"
+          ],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1168,
+        368
+      ],
+      "name": "Call Odoo_chat",
+      "id": "c44378f5-205b-42ff-a481-8801162f948e",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "uLF8YMiNpCP65yfw",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/uLF8YMiNpCP65yfw",
+          "cachedResultName": "Odoo_employees"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "operation"
+          ],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1168,
+        544
+      ],
+      "name": "Call Odoo_employees",
+      "id": "ffa85f7b-b4c1-4d3e-849f-e9623ce85a81",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": "gemma4:latest",
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -1536,
+        2064
+      ],
+      "id": "d9ad5a44-f151-4be9-81a8-2d5668505d3b",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "NbCHGamoUVJqZ4Op",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "You are an Odoo routing agent.\n\nYour job is to classify each block of text into one of four possible routes and one of five possible operations.\n\nRoutes:\n- \"sales_order\" → ONLY if the text clearly describes a sales order (mentions customer, products, and quantities).\n- \"purchase_order\" → ONLY if the text clearly describes a purchase order (mentions vendor, products, and quantities).\n- \"employee\" → ONLY if the text clearly describes an employee action (create, update, delete, get employee, or infos about employees).\n- \"other\" → for all other cases, including greetings, questions, or incomplete information.\n\nOperations:\n- \"create\" → if the text clearly requests creating a new record (e.g., “Add a new employee named Lotfi”).\n- \"update\" → if the text clearly requests modifying an existing record (e.g., “Change the email of employee Lotfi”).\n- \"delete\" → if the text clearly requests removing a record (e.g., “Delete employee John Doe”).\n- \"get\" → if the text clearly requests retrieving or viewing a record (e.g., “Show me employee Lotfi’s details”).\n- \"infos\" → if the text is asking for information *about* the available tools or the fields required for creating, updating, or deleting records (e.g., “How do I create an employee?”, “What are the fields for editing an employee?”, “What tools exist for employees?”). In these cases, do NOT classify as create/update/delete — always choose infos.\n\nRules:\n1. Always respond ONLY in valid JSON. The JSON must be a single root object where each classified item is assigned a sequential string key starting from \"output0\", \"output1\", \"output2\", etc.\n2. The value for each output key must be an object with exactly five fields:\n   {\n     \"route\": \"sales_order\" | \"purchase_order\" | \"employee\" | \"other\",\n     \"operation\": \"create\" | \"update\" | \"delete\" | \"get\" | \"infos\",\n     \"data\": \"the original text block exactly as received\",\n     \"isGenerateFile\": true | false,\n     \"channel_id\": <number>\n     \"user_id\": <number>\n   }\n3. `\"isGenerateFile\"` must be set to `true` **only if the user explicitly requests the output to be generated as a file** (e.g., “give me the output as a CSV file”, “export this result”). Otherwise, set it to `false`.\n4. `\"channel_id\"` must be included in every output object as a general identifier for the channel.\n5. `\"user_id\"` must be included in every output object as a general identifier for the user.\n6. Do NOT parse or transform the content of the data field. Just copy the raw text into \"data\".\n7. Do NOT output explanations, errors, or any text outside JSON.\n8. Do NOT call any tools yourself.\n\nExample output:\n{\n  \"output0\": {\n    \"route\": \"employee\",\n    \"operation\": \"infos\",\n    \"data\": \"What are the fields for creating an employee?\",\n    \"isGenerateFile\": false,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  },\n  \"output1\": {\n    \"route\": \"employee\",\n    \"operation\": \"update\",\n    \"data\": \"Update the employee named Lotfi with new email lotfi.new@gmail.com\",\n    \"isGenerateFile\": false,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  },\n  \"output2\": {\n    \"route\": \"sales_order\",\n    \"operation\": \"create\",\n    \"data\": \"Sales Order1: customer: Acme Corporation products: Chair x10, Desk x5\",\n    \"isGenerateFile\": true,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  },\n  \"output3\": {\n    \"route\": \"purchase_order\",\n    \"operation\": \"create\",\n    \"data\": \"Purchase Order1: Vendor: Acme Corporation products: Chair x10, Desk x5\",\n    \"isGenerateFile\": false,\n    \"channel_id\": 45,\n    \"user_id\": 1\n  }\n}\n",
+        "height": 352,
+        "width": 496
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2944,
+        -1264
+      ],
+      "typeVersion": 1,
+      "id": "18a4146f-9ac2-4a86-ab30-9008bc2405a5",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "chatId": "6005449346",
+        "text": "={{ $json.reply }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "7246eb18-c10b-4ab7-8482-1bb49991f46a",
+      "name": "Send a text message1",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        160,
+        240
+      ],
+      "webhookId": "3711915e-e974-4fb7-ad40-4403538c1ba1",
+      "typeVersion": 1.2,
+      "alwaysOutputData": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "QyOxY42hHAjW95Xt",
+          "name": "Warzeez_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keys": {
+          "key": [
+            {
+              "currentKey": "data",
+              "newKey": "message.text"
+            }
+          ]
+        },
+        "additionalOptions": {}
+      },
+      "id": "ad1d3484-0103-4fc4-8a22-e7f06cd30514",
+      "name": "Rename Transcription Key",
+      "type": "n8n-nodes-base.renameKeys",
+      "position": [
+        -2176,
+        448
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}",
+        "additionalFields": {}
+      },
+      "id": "46394fcc-8e68-4c5e-90de-4b99bf2b1ef1",
+      "name": "Get Voice File1",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        -2480,
+        448
+      ],
+      "webhookId": "f53d1f07-adb9-4ee8-a5ff-26bd17038cf0",
+      "typeVersion": 1.1,
+      "credentials": {
+        "telegramApi": {
+          "id": "QyOxY42hHAjW95Xt",
+          "name": "Warzeez_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "a2d6691c-beed-44d8-a67f-be43b28155df",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "leftValue": "={{$json.message.text }}",
+                    "rightValue": ""
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "6ce5f222-d555-470b-862d-e132b9a5fb72",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": ""
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "21752fc8-451b-4218-ad85-ee53ddfc858b",
+                    "leftValue": "={{ $json.message.document.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a0de1895-2245-410c-b6c0-7c3270117260",
+      "name": "Message Type Switch1",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -2624,
+        400
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "d2e36e10-3ffc-47ab-bf1a-3c9639b0106a",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              },
+              "leftValue": "={{ $json.message.from.id }}",
+              "rightValue": 6005449346
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "82ba9e4c-0c9d-41f6-b224-02e8254e821f",
+      "name": "Authorization Check If1",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        -2880,
+        576
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.from.id }}",
+        "text": "I am sorry, you have no access to my services.",
+        "additionalFields": {}
+      },
+      "id": "09ba2035-4012-457f-ab3c-37b96912887c",
+      "name": "Send a text message2",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        -2720,
+        592
+      ],
+      "webhookId": "d669815c-1907-472c-a6aa-a2783853642c",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "QyOxY42hHAjW95Xt",
+          "name": "Warzeez_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://whisper:9000/asr",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "audio_file",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "text"
+            }
+          }
+        }
+      },
+      "id": "64fff3b4-2ca5-437d-946e-1ec23bb81807",
+      "name": "Whisper ASR HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -2336,
+        448
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -2320,
+        608
+      ],
+      "id": "844b4d95-c67c-4195-b74e-e499a7b27d78",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.document.file_id }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -2480,
+        608
+      ],
+      "id": "cb556448-e46b-4f78-998e-6815b1e8b019",
+      "name": "Get a file",
+      "webhookId": "12d968fd-3f44-4823-a1d6-fa02a1fbaccc",
+      "credentials": {
+        "telegramApi": {
+          "id": "QyOxY42hHAjW95Xt",
+          "name": "Warzeez_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f1c5da6-21ba-4725-acdf-0df57f591892",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "ab847dcd-6cd5-4116-8114-88b32fbed970",
+              "name": "message.caption",
+              "value": "={{ $('Telegram Trigger1').item.json.message.caption }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2176,
+        608
+      ],
+      "id": "2fbea7f0-6bb3-49fe-919f-3359bf5b2a40",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "content": "## Telegram\n",
+        "height": 432,
+        "width": 1024,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3056,
+        384
+      ],
+      "typeVersion": 1,
+      "id": "734dbf6a-25f5-4c19-bbf6-ea237bff07e1",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "xR37UgCqhEeEAWJa",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/xR37UgCqhEeEAWJa",
+          "cachedResultName": "Odoo_product"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [
+            "operation"
+          ],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -1168,
+        688
+      ],
+      "name": "Call Odoo_product",
+      "id": "38bf69dd-cb0a-4acc-809a-2f91292804de",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "reply"
+            },
+            {
+              "fieldToAggregate": "channel_id"
+            },
+            {
+              "fieldToAggregate": "isGenerateFile"
+            },
+            {
+              "fieldToAggregate": "message.from.id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -784,
+        368
+      ],
+      "id": "368f9762-f56d-44af-b6a1-e45b5e458a52",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "6005449346",
+        "binaryData": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -128,
+        -144
+      ],
+      "id": "127e3be1-f008-487c-aaf3-acca5576eea2",
+      "name": "Send a document",
+      "webhookId": "ebe718d0-7ba8-4a46-ab82-f47ca3ebc926",
+      "credentials": {
+        "telegramApi": {
+          "id": "QyOxY42hHAjW95Xt",
+          "name": "Warzeez_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ee39321-452d-47ec-a89d-b9008e8b0f76",
+              "name": "reply",
+              "value": "={{ $json.reply[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "7cd01c4d-f934-4602-bbde-12483bd3d635",
+              "name": "channel_id",
+              "value": "={{ $('Loop Over Items3').item.json.channel_id }}",
+              "type": "number"
+            },
+            {
+              "id": "fb765534-4bf8-4f84-b4cf-47ad211cd2dc",
+              "name": "isGenerateFile",
+              "value": "={{ $('Loop Over Items3').item.json.isGenerateFile }}",
+              "type": "boolean"
+            },
+            {
+              "id": "bbf3bd0c-714a-40ac-89fb-46d5d2b828e9",
+              "name": "message.from.id",
+              "value": "={{ $if($(\"Telegram Trigger\").isExecuted, $(\"Telegram Trigger\").item.json.message.from.id, null) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        224
+      ],
+      "id": "4ee9b00c-ddf4-41b0-8ef1-ad12b192a49f",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ee39321-452d-47ec-a89d-b9008e8b0f76",
+              "name": "reply",
+              "value": "={{ $json.reply[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "7cd01c4d-f934-4602-bbde-12483bd3d635",
+              "name": "channel_id",
+              "value": "={{ $('Loop Over Items3').item.json.channel_id }}",
+              "type": "number"
+            },
+            {
+              "id": "fb765534-4bf8-4f84-b4cf-47ad211cd2dc",
+              "name": "isGenerateFile",
+              "value": "={{ $('Loop Over Items3').item.json.isGenerateFile }}",
+              "type": "boolean"
+            },
+            {
+              "id": "bbf3bd0c-714a-40ac-89fb-46d5d2b828e9",
+              "name": "message.from.id",
+              "value": "={{ $if($(\"Telegram Trigger\").isExecuted, $(\"Telegram Trigger\").item.json.message.from.id, null) }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        544
+      ],
+      "id": "8ceedffa-c57e-4d2e-8c06-e1246e0fbfd3",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ee39321-452d-47ec-a89d-b9008e8b0f76",
+              "name": "reply",
+              "value": "={{ $json.reply }}",
+              "type": "string"
+            },
+            {
+              "id": "7cd01c4d-f934-4602-bbde-12483bd3d635",
+              "name": "channel_id",
+              "value": "={{ $('Loop Over Items3').item.json.channel_id }}",
+              "type": "number"
+            },
+            {
+              "id": "fb765534-4bf8-4f84-b4cf-47ad211cd2dc",
+              "name": "isGenerateFile",
+              "value": "={{ $('Loop Over Items3').item.json.isGenerateFile }}",
+              "type": "boolean"
+            },
+            {
+              "id": "bbf3bd0c-714a-40ac-89fb-46d5d2b828e9",
+              "name": "message.from.id",
+              "value": "={{ $if($(\"Telegram Trigger\").isExecuted, $(\"Telegram Trigger\").item.json.message.from.id, null) }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        368
+      ],
+      "id": "4aca513d-188e-4db4-939a-07e884814f41",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ee39321-452d-47ec-a89d-b9008e8b0f76",
+              "name": "reply",
+              "value": "={{ $json.reply[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "7cd01c4d-f934-4602-bbde-12483bd3d635",
+              "name": "channel_id",
+              "value": "={{ $('Loop Over Items3').item.json.channel_id }}",
+              "type": "number"
+            },
+            {
+              "id": "fb765534-4bf8-4f84-b4cf-47ad211cd2dc",
+              "name": "isGenerateFile",
+              "value": "={{ $('Loop Over Items3').item.json.isGenerateFile }}",
+              "type": "boolean"
+            },
+            {
+              "id": "bbf3bd0c-714a-40ac-89fb-46d5d2b828e9",
+              "name": "message.from.id",
+              "value": "={{ $if($(\"Telegram Trigger\").isExecuted, $(\"Telegram Trigger\").item.json.message.from.id, null) }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        688
+      ],
+      "id": "8a2f7259-1bc3-4d2e-9c26-a3865a6cd050",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7ea667d0-aea1-4992-a10b-4a8817e808e1",
+              "leftValue": "={{ $('reply2').item.json.isTelegram}}",
+              "rightValue": "\"\\n\"",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -192,
+        176
+      ],
+      "id": "7c2db186-e82e-4455-b8ea-777741a220c4",
+      "name": "If Not Telegram"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7ea667d0-aea1-4992-a10b-4a8817e808e1",
+              "leftValue": "={{ $('reply2').item.json.isTelegram }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -336,
+        0
+      ],
+      "id": "1ab59d34-31b1-4eea-b0e2-86c86abee553",
+      "name": "If Telegram"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {
+          "download": true
+        }
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -3040,
+        576
+      ],
+      "id": "476171dd-1dd8-436f-9644-c5bce6da72c1",
+      "name": "Telegram Trigger",
+      "webhookId": "d062f20e-c708-4c6a-b264-20546c9429d6",
+      "credentials": {
+        "telegramApi": {
+          "id": "QyOxY42hHAjW95Xt",
+          "name": "Warzeez_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.reply || \"{}\";\n\nlet data;\n\ntry {\n  data = JSON.parse(raw);\n} catch (e) {\n  // If it's not valid JSON, just send raw text safely\n  return [\n    {\n      json: {\n        reply: raw\n      }\n    }\n  ];\n}\n\n// Extract message safely\nreturn [\n  {\n    json: {\n      reply: data.message || \"No message found\"\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        240
+      ],
+      "id": "25ec6ff5-250e-4dc5-9a21-595306995bb2",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-04-08T15:47:25.098Z",
+      "createdAt": "2026-04-08T15:47:25.098Z",
+      "role": "workflow:owner",
+      "workflowId": "eI8CHhIXi6oTfXe2",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2026-05-30T12:03:00.298Z",
+  "versionId": "3826b282-d588-4592-bff2-5bd377fb3ddd"
+}
