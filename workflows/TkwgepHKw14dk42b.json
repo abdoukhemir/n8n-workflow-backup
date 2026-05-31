@@ -3,17 +3,45 @@
   "activeVersion": null,
   "activeVersionId": null,
   "connections": {
-    "Create an item in Odoo": {
-      "ai_tool": [
-        []
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Create new Employee": {
+    "MCP List Tools": {
       "ai_tool": [
         [
           {
-            "node": "MCP Server Trigger",
+            "node": "AI Agent1",
             "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Execute Tools": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -28,68 +56,186 @@
   "nodes": [
     {
       "parameters": {
-        "resource": "custom",
-        "customResource": "hr.employee",
-        "fieldsToCreateOrUpdate": {
-          "fields": [
-            {
-              "fieldName": "name",
-              "fieldValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('fields0_New_Value', ``, 'string') }}"
-            },
-            {
-              "fieldName": "work_email",
-              "fieldValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('fields1_New_Value', ``, 'string') }}"
-            }
-          ]
-        }
+        "options": {}
       },
-      "type": "n8n-nodes-base.odooTool",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        37136,
+        2256
+      ],
+      "id": "239f7dbb-7218-4932-b1f0-b56ceba4c0f9",
+      "name": "When chat message received",
+      "webhookId": "c8547188-acd6-45aa-956c-2ea3d350a524"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        37376,
-        1632
+        37344,
+        2480
       ],
-      "id": "ba35baf6-38c1-4b6d-9cf3-f07422b21f6f",
-      "name": "Create an item in Odoo",
+      "id": "da5d1b39-12d7-4a08-8bd6-4795c5390665",
+      "name": "Groq Chat Model",
       "credentials": {
-        "odooApi": {
-          "id": "tFHDxT2joXGBNzTx",
-          "name": "Odoo account"
+        "groqApi": {
+          "id": "XAV29vLJxIDG4y9F",
+          "name": "Groq account"
         }
       }
     },
     {
       "parameters": {
-        "path": "497b3101-e6fc-4247-bdaa-5d8f03cf8523"
+        "promptType": "define",
+        "text": "= {{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "\nYou are a professional Odoo ERP Expert. You interact with Odoo through an MCP Bridge. You are precise, technical, and strictly follow data formatting protocols to ensure the Odoo server does not crash.\n\n### MANDATORY TWO-STEP WORKFLOW\nBefore answering any user request, you must follow this sequence:\n1. STEP 1: Use the \"MCP List Tools\" tool to identify the correct Odoo tool and verify available models.\n2. STEP 2: Use the \"MCP Execute Tools\" tool to perform the action. \n\n### THE GOLDEN RULE OF FORMATTING\nThe Odoo MCP Bridge requires all arguments to be passed as STRINGS. You must never send native JSON arrays or objects.\n- NO SPACES IN LISTS: For 'fields' or 'ids', use \"name,email,phone\" (Correct). Never use \"name, email, phone\" (Incorrect).\n- ESCAPED JSON STRINGS: For 'domain', 'values', 'args', or 'kwargs', you must send a string wrapped in quotes.\n  Example: \"[[\\\"is_company\\\",\\\"=\\\",true]]\"\n- TECHNICAL NAMES: Always use dot notation for models, such as \"res.partner\" or \"hr.employee\".\n\n### TOOL MANUAL AND INSTRUCTIONS\n\n- odoo_health: Use this to check if the connection to the Odoo server is active.\n- odoo_system_info: Use this to retrieve the Odoo version and the specific database name.\n- odoo_list_models: Use this to see all models you have permission to access.\n- odoo_model_fields: MANDATORY step before searching or creating. Use this to get the exact technical field names for a model.\n\n- odoo_search: Finds records matching a filter.\n  - domain: Escaped JSON array string, e.g., \"[[\\\"name\\\",\\\"ilike\\\",\\\"John\\\"]]\"\n  - fields: Comma-separated string with NO SPACES, e.g., \"name,work_email\"\n  - limit: Integer for max results.\n  - order: String like \"create_date desc\".\n\n- odoo_read: Use this only when you already have record IDs.\n  - ids: Comma-separated string with NO SPACES, e.g., \"1,4,12\"\n  - fields: Comma-separated string with NO SPACES.\n\n- odoo_browse: Use this for a general overview. It returns an LLM-friendly summary of records.\n\n- odoo_count: Use this to get the total number of records matching a filter without fetching the data.\n\n- odoo_create: Use this to make a new record.\n  - values: Escaped JSON object string, e.g., \"{\\\"name\\\":\\\"New Office\\\",\\\"city\\\":\\\"New York\\\"}\"\n\n- odoo_write: Use this to update existing records.\n  - ids: Comma-separated string with NO SPACES, e.g., \"10,11\"\n  - values: Escaped JSON object string of the fields to change.\n\n- odoo_delete: Use this to remove records.\n  - ids: Comma-separated string with NO SPACES.\n\n- odoo_call_method: Use this for complex Odoo functions like \"action_confirm\" on a sale order.\n  - method: Technical name of the Odoo function.\n  - args: Escaped JSON array string of positional arguments.\n  - kwargs: Escaped JSON object string of keyword arguments.\n\n### ERROR HANDLING PROTOCOL\nIf you receive an \"Internal Error\" or \"500 Error\", you likely violated the \"No Spaces\" rule or guessed a field name that doesn't exist. Immediately run \"odoo_model_fields\" to verify your field names and re-check that your comma-separated strings have no spaces."
+        }
       },
-      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
-      "typeVersion": 2,
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
       "position": [
-        36912,
-        1504
+        37568,
+        2256
       ],
-      "id": "4a656b88-04a9-450f-b0ac-7d132ba82f93",
-      "name": "MCP Server Trigger",
-      "webhookId": "497b3101-e6fc-4247-bdaa-5d8f03cf8523"
+      "id": "50add83d-0e9b-4c46-9e99-b628bd807441",
+      "name": "AI Agent1",
+      "executeOnce": false,
+      "alwaysOutputData": false
     },
     {
       "parameters": {
-        "toolDescription": "Call createEmployee\n",
-        "method": "POST",
-        "url": "http://host.docker.internal:5000/call",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"tool\": \"createEmployee\",\n  \"params\": {\n    \"name\": \"{{$json[\"name\"]}}\",\n    \"work_email\": \"{{$json[\"work_email\"]}}\"\n  }\n}\n",
+        "descriptionType": "manual",
+        "toolDescription": "discover available tools in the mcp server"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        37840,
+        2512
+      ],
+      "id": "23630baa-016b-479d-a11b-5268f26bc5db",
+      "name": "MCP List Tools",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "UvZ12yPbZB73yQFc",
+          "name": "MCP Client (STDIO) account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
         "options": {}
       },
-      "type": "n8n-nodes-base.httpRequestTool",
-      "typeVersion": 4.3,
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
       "position": [
         37184,
-        1696
+        2480
       ],
-      "id": "23292c13-a095-4bf0-bbfd-aebd0acada59",
-      "name": "Create new Employee"
+      "id": "f87df9df-739d-44f5-b8c2-1b1d217d9b98",
+      "name": "OpenAI Chat Model7",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "listResources"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        37712,
+        2704
+      ],
+      "id": "b34bb53f-0c54-4e33-9b51-d5c5bf19ab85",
+      "name": "MCP List Resourses",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "UvZ12yPbZB73yQFc",
+          "name": "MCP Client (STDIO) account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "listResourceTemplates"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        37552,
+        2704
+      ],
+      "id": "2a6dbe06-eb79-431e-bec7-03412b7489b9",
+      "name": "MCP List Resource Templates",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "UvZ12yPbZB73yQFc",
+          "name": "MCP Client (STDIO) account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeTool",
+        "toolName": "={{ $fromAI(\"tool\") }}",
+        "toolParameters": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Tool_Parameters', ``, 'json') }}"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        38016,
+        2512
+      ],
+      "id": "51d1cb4b-e951-4ad4-9d77-ca55797d7a20",
+      "name": "MCP Execute Tools",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "UvZ12yPbZB73yQFc",
+          "name": "MCP Client (STDIO) account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "responsesApiEnabled": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        37520,
+        2480
+      ],
+      "id": "2727006e-0a1b-448c-8913-a5d81d6058b8",
+      "name": "OpenAI Chat Model8",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -108,6 +254,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-03-17T12:49:07.501Z",
-  "versionId": "559ee8c9-9fee-443c-ad2f-2eda84036bf4"
+  "updatedAt": "2026-03-27T13:07:49.666Z",
+  "versionId": "cf19ce27-875f-4393-bbb6-9e91a08df635"
 }
