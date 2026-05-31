@@ -1,0 +1,345 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "OpenAI Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Parser10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Job_Positions": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Employees": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Departments": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get_Tools": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "create_employee3": {
+      "ai_tool": [
+        [
+          {
+            "node": "Parser10",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-30T15:37:14.497Z",
+  "id": "J3rFFfxUNGl2Uag9",
+  "isArchived": false,
+  "meta": null,
+  "name": "Home Made Mcp",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are an Odoo assistant that helps create employees.\n\nAlways call the `get_tools` node first to see available tools.\n\nTasks:\n1. Use `get_tools` to discover tools before acting.\n2. To list or find employees, call `get_employees`.\n3. To list or find departments, call `get_departments`.\n4. To list or find job positions, call `get_job_positions`.\n5. To create a new employee:\n   - Extract parameters from the user message:\n     {\n       \"name\" (required),\n       \"email\" (required),\n       \"phone\" (optional),\n       \"job_title\" (optional),\n       \"department_id\" (optional),\n       \"parent_id\" (optional, manager employee ID),\n       \"job_id\" (optional, job position ID)\n     }\n   - If a department name is given, call `get_departments` to resolve its `id` and use that integer as `department_id`.\n   - If a manager name is given, call `get_employees` to resolve their `id` and use that integer as `parent_id`.\n   - If a job position name is given, call `get_job_positions` to resolve its `id` and use that integer as `job_id`.\n   - Never pass names or strings for `department_id`, `parent_id`, or `job_id`; they must always be integer IDs from Odoo.\n   - Omit optional fields if not provided. Do not require them in order.\n   - Build the payload as a JSON object with named keys, not positional arguments.\n   - Call `create_employee` with the correct parameters."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        96,
+        -224
+      ],
+      "id": "51c445ee-32bb-48d4-9d92-720d79286a23",
+      "name": "Parser10",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "qwen/qwen3-vl-4b",
+          "mode": "list",
+          "cachedResultName": "qwen/qwen3-vl-4b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -144,
+        -48
+      ],
+      "id": "0b65fcb7-fc01-46a0-906d-2d712d5fbf46",
+      "name": "OpenAI Chat Model9",
+      "credentials": {
+        "openAiApi": {
+          "id": "ECfDhjgYgcZ9auWI",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -272,
+        -224
+      ],
+      "id": "e8a1a553-2b08-449e-b870-9550ac0366a1",
+      "name": "When chat message received",
+      "webhookId": "4cde84b7-68c9-4998-b16b-8d505ee26442"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "http://host.docker.internal:8000/delete_employee",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        224,
+        0
+      ],
+      "id": "4883277e-7100-41f6-b616-d564bbf7b1f4",
+      "name": "Delete Employee2"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/job_positions",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        64,
+        -48
+      ],
+      "id": "8be16201-b8a7-4837-9eed-3d76bc5f37be",
+      "name": "Get_Job_Positions"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/employees",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        368,
+        -48
+      ],
+      "id": "70c64fab-932e-482a-8ddb-d7bf8b6efcd6",
+      "name": "Get_Employees"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/departments",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        528,
+        -48
+      ],
+      "id": "24ab3cc7-587c-4ca1-8e7c-80ebde0581bd",
+      "name": "Get_Departments"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/tools",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        704,
+        -48
+      ],
+      "id": "ffdf600a-7427-4cd6-acb5-b90a73af1377",
+      "name": "Get_Tools"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Create a new employee in Odoo using name and email",
+        "method": "POST",
+        "url": "=http://host.docker.internal:8000/create_employee",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "={{ $fromAI('name', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('email', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('phone', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('job_title', ``, 'string','') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters4_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('department_id','the id of the department','number',0) }}\n",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters5_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('parent_id','the id of the d of the manager','number',0) }}\n",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ $fromAI('job_id','the id of the d of the job positionr','number',0) }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        1008,
+        -48
+      ],
+      "id": "b06a73de-5ab0-466a-9ba8-edb4a61133c8",
+      "name": "create employee4"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Create a new employee in Odoo using name and email",
+        "method": "POST",
+        "url": "=http://host.docker.internal:8000/create_employee",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters2_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters3_Name', ``, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters3_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters4_Name', `the id of the department`, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters4_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters5_Name', `the id of the manager`, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters5_Value', ``, 'string') }}"
+            },
+            {
+              "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Name', `the id of the job position`, 'string') }}",
+              "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters6_Value', ``, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        848,
+        -48
+      ],
+      "id": "88bb12e2-bcaa-4b10-8467-9d5c4b722d7c",
+      "name": "create_employee3"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-03-30T15:37:14.497Z",
+      "createdAt": "2026-03-30T15:37:14.497Z",
+      "role": "workflow:owner",
+      "workflowId": "J3rFFfxUNGl2Uag9",
+      "projectId": "X0CZyf3c4Xc8ZXpB"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-30T15:37:23.457Z",
+  "versionId": "d3167b41-508a-4d14-8d50-c9a4ba62176b"
+}
