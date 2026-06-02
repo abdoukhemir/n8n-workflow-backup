@@ -60,13 +60,7 @@
     },
     "Get  Requirements3": {
       "ai_tool": [
-        [
-          {
-            "node": "ChatAgent3",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Edit Fields23": {
@@ -283,8 +277,8 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        816,
-        5328
+        768,
+        5648
       ],
       "id": "74bf7c88-9d93-414f-992d-9368d0fcc986",
       "name": "Get  Requirements3",
@@ -388,6 +382,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-04-15T15:24:44.296Z",
-  "versionId": "f913883d-376d-45e3-9d95-6181ab2912d7"
+  "updatedAt": "2026-06-01T11:07:26.910Z",
+  "versionId": "4320eaa2-f6a6-4437-8c3f-b7141f214f88"
 }
